@@ -29,9 +29,9 @@
   - label: "X% toward forming a cell ($1,000/mo threshold)"
 - [x] **T5** 404: if idea not found, call notFound() (not throw error)
 - [x] **T6** run `./dev/post_flight` — must pass
-- [ ] **T7** commit and push to 004-pledge-mechanic-and branch
-- [ ] **T8** deploy: `vercel deploy --prod --yes`
-- [ ] **T9** run `./dev/health` — must return ok
+- [x] **T7** commit and push to 004-pledge-mechanic-and branch
+- [x] **T8** deploy: `vercel deploy --prod --yes`
+- [x] **T9** run `./dev/health` — must return ok
 
 ## Definition of Done
 
