@@ -79,6 +79,20 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
     return { error: "you must be signed in." };
   }
 
+  // check idea status — cannot withdraw from locked ideas
+  const { data: idea } = await supabase
+    .from("ideas")
+    .select("status")
+    .eq("id", idea_id)
+    .single();
+
+  if (idea) {
+    const locked = ["threshold_reached", "cell_forming", "active"];
+    if (locked.includes(idea.status)) {
+      return { error: "this idea has progressed too far to withdraw your pledge." };
+    }
+  }
+
   try {
     const { error } = await supabase
       .from("pledges")
@@ -95,5 +109,6 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
 
   revalidatePath("/ideas");
   revalidatePath(`/ideas/${idea_id}`);
+  revalidatePath("/dashboard");
   return null;
 }

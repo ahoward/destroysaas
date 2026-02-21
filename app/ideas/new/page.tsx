@@ -24,6 +24,12 @@ export default async function NewIdeaPage() {
           destroysass
         </a>
         <div className="flex items-center gap-4">
+          <a
+            href="/dashboard"
+            className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
+          >
+            dashboard
+          </a>
           <span className="text-sm text-gray-500">{user.email}</span>
           <form action={signOut}>
             <button
