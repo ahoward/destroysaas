@@ -13,3 +13,5 @@ append-only log of significant decisions and why.
 2026-02-21 — feature 002 (idea board) complete. ideas+pledges tables, rls, idea_board view, seed data, /ideas page live. sourced ~/.envrc — ANTHROPIC_API_KEY and GEMINI_API_KEY now available. installed @google/gemini-cli globally. full bny factory (claude+gemini) now operational.
 
 2026-02-21 — feature 003 (idea submission form) complete. /ideas/new with auth gate, server action with full validation (trim, int parse, length checks), useActionState for form state, previousData preservation on error, open redirect protection on next param, Suspense boundary for useSearchParams. all gemini security fixes (S1–S6) addressed.
+
+2026-02-21 — feature 003 (idea submission form) complete. bny --ralph implement succeeded in 1 iteration. all 12 tasks done by claude. security: open redirect protection, data preservation on error, float bypass fix, db error handling, next param in both auth flows. ara's phone: 303-747-3468 (messages.google.com).

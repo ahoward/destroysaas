@@ -40,10 +40,10 @@
   - pass as hidden `<input name="next">` in form
   - wrapped in Suspense boundary for useSearchParams
 - [x] **T8** run `./dev/post_flight` — must pass
-- [ ] **T9** commit to branch 003-idea-submission-form
-- [ ] **T10** push: `git push`
-- [ ] **T11** deploy: `vercel deploy --prod --yes`
-- [ ] **T12** run `./dev/health` — must return ok
+- [x] **T9** commit to branch 003-idea-submission-form
+- [x] **T10** push: `git push`
+- [x] **T11** deploy: `vercel deploy --prod --yes`
+- [x] **T12** run `./dev/health` — must return ok
 
 ## Definition of Done
 
