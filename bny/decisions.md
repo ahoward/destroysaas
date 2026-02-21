@@ -15,3 +15,5 @@ append-only log of significant decisions and why.
 2026-02-21 — feature 003 (idea submission form) complete. /ideas/new with auth gate, server action with full validation (trim, int parse, length checks), useActionState for form state, previousData preservation on error, open redirect protection on next param, Suspense boundary for useSearchParams. all gemini security fixes (S1–S6) addressed.
 
 2026-02-21 — feature 003 (idea submission form) complete. bny --ralph implement succeeded in 1 iteration. all 12 tasks done by claude. security: open redirect protection, data preservation on error, float bypass fix, db error handling, next param in both auth flows. ara's phone: 303-747-3468 (messages.google.com).
+
+2026-02-21 — feature 004 (pledge mechanic + idea detail page) complete. /ideas/[id] with pledge panel (anon/auth/pledged/creator states), progress bar toward $1k threshold, notFound() on bad IDs. server actions: pledgeIdea (upsert) + unpledgeIdea (delete). all gemini security fixes (S1–S6): step validation (amount%25), status check (proposed/gaining_traction only), UUID format check, inline errors, auth redirect, self-pledge block.
