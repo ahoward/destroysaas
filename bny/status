@@ -42,9 +42,6 @@ if (name) {
     const check = (ok: boolean) => ok ? "[x]" : "[ ]"
     process.stdout.write(`feature: ${state.name}\n`)
     process.stdout.write(`phase:   ${state.phase}\n`)
-    if (state.issue_number) {
-      process.stdout.write(`issue:   #${state.issue_number}\n`)
-    }
     process.stdout.write(`\n`)
     process.stdout.write(`  ${check(state.has_spec)} spec.md\n`)
     process.stdout.write(`  ${check(state.has_plan)} plan.md\n`)
@@ -73,7 +70,6 @@ if (json_mode) {
 } else {
   for (const f of features) {
     const pad = f.phase.padEnd(9)
-    const issue = f.issue_number ? ` issue:#${f.issue_number}` : ""
-    process.stdout.write(`${f.name}  ${pad}  spec:${f.has_spec ? "+" : "-"} plan:${f.has_plan ? "+" : "-"} tasks:${f.has_tasks ? "+" : "-"}${issue}\n`)
+    process.stdout.write(`${f.name}  ${pad}  spec:${f.has_spec ? "+" : "-"} plan:${f.has_plan ? "+" : "-"} tasks:${f.has_tasks ? "+" : "-"}\n`)
   }
 }
