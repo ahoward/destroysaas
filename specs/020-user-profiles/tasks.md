@@ -11,9 +11,9 @@
 - [x] **T4** create `app/dashboard/profile/actions.ts` — updateProfile (upsert)
 - [x] **T5** modify `app/dashboard/page.tsx` — add "edit profile" link
 - [x] **T6** run `./dev/post_flight` — must pass
-- [ ] **T7** commit + push + merge to main
-- [ ] **T8** deploy: `vercel deploy --prod --yes`
-- [ ] **T9** run `./dev/health` — must return ok
+- [x] **T7** commit + push + merge to main
+- [x] **T8** deploy: `vercel deploy --prod --yes`
+- [x] **T9** run `./dev/health` — must return ok
 
 ## Definition of Done
 
