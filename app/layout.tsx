@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "destroysass.ai — own your stack",
+  title: "destroysass — own the software you use",
   description:
-    "the place where small businesses stop renting software and start owning it. propose, pledge, and collectively own the tools your business needs.",
+    "small businesses collectively fund, own, and control the software they depend on. no more saas rent. propose ideas, pledge monthly, and own what gets built.",
+  metadataBase: new URL("https://destroysass.vercel.app"),
+  openGraph: {
+    title: "destroysass — own the software you use",
+    description:
+      "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
+    type: "website",
+    siteName: "destroysass",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "destroysass — own the software you use",
+    description:
+      "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
+  },
 };
 
 export default function RootLayout({

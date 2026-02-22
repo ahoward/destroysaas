@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
+
+export const metadata: Metadata = {
+  title: "dashboard — destroysass",
+};
 import WithdrawButton from "./withdraw_button";
 
 const STATUS_LABELS: Record<string, string> = {

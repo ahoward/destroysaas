@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
+
+export const metadata: Metadata = {
+  title: "ideas — destroysass",
+};
 import { signOut } from "@/app/auth/actions";
 
 type IdeaRow = {
@@ -57,32 +62,18 @@ export default async function IdeasPage() {
         <a href="/" className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors">
           destroysass
         </a>
-        <div>
+        <div className="flex items-center gap-4 text-sm text-gray-400">
+          <span className="text-white">ideas</span>
+          <a href="/about" className="hover:text-white transition-colors">about</a>
           {user ? (
-            <div className="flex items-center gap-4">
-              <a
-                href="/dashboard"
-                className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
-              >
-                dashboard
-              </a>
-              <span className="text-sm text-gray-500">{user.email}</span>
+            <>
+              <a href="/dashboard" className="hover:text-white transition-colors">dashboard</a>
               <form action={signOut}>
-                <button
-                  type="submit"
-                  className="text-sm text-gray-400 border border-[#333] px-3 py-1.5 rounded hover:border-gray-500 hover:text-gray-200 transition-colors"
-                >
-                  sign out
-                </button>
+                <button type="submit" className="hover:text-white transition-colors">sign out</button>
               </form>
-            </div>
+            </>
           ) : (
-            <a
-              href="/auth"
-              className="text-sm text-gray-400 border border-[#333] px-3 py-1.5 rounded hover:border-gray-500 hover:text-gray-200 transition-colors"
-            >
-              sign in
-            </a>
+            <a href="/auth" className="hover:text-white transition-colors">sign in</a>
           )}
         </div>
       </nav>

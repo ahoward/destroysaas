@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
 import PledgePanel from "./pledge_panel";
+
+type MetaProps = { params: Promise<{ id: string }> };
+
+export async function generateMetadata({ params }: MetaProps): Promise<Metadata> {
+  const { id } = await params;
+  const supabase = await createClient();
+  const { data: idea } = await supabase
+    .from("idea_board")
+    .select("title")
+    .eq("id", id)
+    .single();
+  return {
+    title: idea ? `${idea.title} — destroysass` : "idea — destroysass",
+  };
+}
 
 const STATUS_LABELS: Record<string, string> = {
   proposed: "proposed",
