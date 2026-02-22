@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a
           href="/"
@@ -14,11 +14,11 @@ export default function PrivacyPage() {
         >
           destroysass
         </a>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
-          <a href="/ideas" className="hover:text-white transition-colors">
+        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
+          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">
             ideas
           </a>
-          <a href="/about" className="hover:text-white transition-colors">
+          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">
             about
           </a>
         </div>
@@ -28,13 +28,13 @@ export default function PrivacyPage() {
         <h1 className="text-3xl font-bold tracking-tight mb-2">
           privacy policy
         </h1>
-        <p className="text-sm text-gray-500 mb-10">
+        <p className="text-sm text-[var(--text-muted)] mb-10">
           last updated: february 2026
         </p>
 
-        <div className="prose-invert space-y-8 text-sm text-gray-300 leading-relaxed">
+        <div className="prose-invert space-y-8 text-sm text-[var(--text-secondary)] leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               1. data we collect
             </h2>
             <ul className="list-disc list-inside space-y-1">
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               2. how we use your data
             </h2>
             <ul className="list-disc list-inside space-y-1">
@@ -91,7 +91,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               3. third-party services
             </h2>
             <p>we use the following services to operate the platform:</p>
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               4. cookies
             </h2>
             <p>
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               5. data retention
             </h2>
             <p>
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               6. your rights
             </h2>
             <ul className="list-disc list-inside space-y-1">
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               7. security
             </h2>
             <p>
@@ -177,7 +177,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               8. changes to this policy
             </h2>
             <p>
@@ -188,7 +188,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
               9. contact
             </h2>
             <p>

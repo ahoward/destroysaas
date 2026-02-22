@@ -23,26 +23,26 @@ export default async function Home() {
   const total_sponsors = new Set((pledge_stats ?? []).map((p) => p.user_id)).size;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
 
       {/* nav */}
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <span className="text-red-600 font-bold text-lg tracking-tight">
           destroysass
         </span>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
-          <a href="/ideas" className="hover:text-white transition-colors">ideas</a>
-          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-white transition-colors">about</a>
+        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
+          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">ideas</a>
+          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
+          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
           {user ? (
             <>
-              <a href="/dashboard" className="hover:text-white transition-colors">dashboard</a>
+              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
               <form action={signOut}>
-                <button type="submit" className="hover:text-white transition-colors">sign out</button>
+                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
               </form>
             </>
           ) : (
-            <a href="/auth" className="hover:text-white transition-colors">sign in</a>
+            <a href="/auth" className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
           )}
         </div>
       </nav>
@@ -56,13 +56,13 @@ export default async function Home() {
           <br />
           and start owning it.
         </h1>
-        <p className="text-xl text-gray-400 mb-16">
+        <p className="text-xl text-[var(--text-secondary)] mb-16">
           saas is dead. we&apos;re building what comes next.
         </p>
 
         {/* problem */}
-        <div className="border-l-2 border-[#222] pl-6 mb-16">
-          <p className="text-gray-400 leading-relaxed">
+        <div className="border-l-2 border-[var(--border-primary)] pl-6 mb-16">
+          <p className="text-[var(--text-secondary)] leading-relaxed">
             ai didn&apos;t drive software costs to zero. it shifted the
             bottleneck. the true cost of software has always been maintaining
             it &mdash; 80% of total cost of ownership is maintenance, not the
@@ -74,7 +74,7 @@ export default async function Home() {
 
         {/* 3 steps */}
         <div className="mb-16 space-y-8">
-          <h2 className="text-xs uppercase tracking-widest text-gray-600 mb-6">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
             how it works
           </h2>
 
@@ -84,7 +84,7 @@ export default async function Home() {
             </span>
             <div>
               <p className="font-semibold mb-1">propose</p>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
                 submit a software concept your business needs. describe the
                 problem, what you&apos;d pay per month for a maintained, hosted
                 solution you actually own.
@@ -98,7 +98,7 @@ export default async function Home() {
             </span>
             <div>
               <p className="font-semibold mb-1">pledge</p>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
                 other businesses with the same problem back the concept with
                 monthly commitments. when the threshold is reached, a cell
                 forms.
@@ -112,7 +112,7 @@ export default async function Home() {
             </span>
             <div>
               <p className="font-semibold mb-1">own</p>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
                 a vetted developer cooperative builds it under contract to your
                 collective. the code is open-source. the hosting is yours. you
                 have legal standing.
@@ -123,20 +123,20 @@ export default async function Home() {
 
         {/* stats */}
         {(idea_count ?? 0) > 0 && (
-          <div className="grid grid-cols-3 gap-6 mb-16 border border-[#222] rounded-lg p-6">
+          <div className="grid grid-cols-3 gap-6 mb-16 border border-[var(--border-primary)] rounded-lg p-6">
             <div className="text-center">
               <p className="text-3xl font-bold text-red-600">{idea_count}</p>
-              <p className="text-xs text-gray-500 mt-1">ideas submitted</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">ideas submitted</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-red-600">
                 ${total_pledged.toLocaleString()}
               </p>
-              <p className="text-xs text-gray-500 mt-1">pledged / month</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">pledged / month</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-red-600">{total_sponsors}</p>
-              <p className="text-xs text-gray-500 mt-1">sponsors</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">sponsors</p>
             </div>
           </div>
         )}
@@ -151,7 +151,7 @@ export default async function Home() {
           </a>
           <a
             href="/ideas"
-            className="inline-block text-sm text-gray-500 hover:text-gray-300 transition-colors mt-3 sm:mt-0"
+            className="inline-block text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mt-3 sm:mt-0"
           >
             or browse existing ideas &rarr;
           </a>

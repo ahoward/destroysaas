@@ -30,7 +30,7 @@ export default function DeleteIdea({ ideaId }: Props) {
     return (
       <button
         onClick={() => setConfirming(true)}
-        className="text-xs text-gray-700 hover:text-red-500 transition-colors"
+        className="text-xs text-[var(--text-separator)] hover:text-red-500 transition-colors"
       >
         delete idea
       </button>
@@ -49,7 +49,7 @@ export default function DeleteIdea({ ideaId }: Props) {
       </button>
       <button
         onClick={() => setConfirming(false)}
-        className="text-xs text-gray-600 hover:text-gray-400 transition-colors"
+        className="text-xs text-[var(--text-faint)] hover:text-[var(--text-secondary)] transition-colors"
       >
         cancel
       </button>

@@ -35,7 +35,7 @@ function AuthForm() {
 
   return (
     <div className="w-full max-w-sm space-y-6 px-4">
-      <h1 className="text-2xl font-semibold text-center text-white">
+      <h1 className="text-2xl font-semibold text-center text-[var(--text-primary)]">
         {isForgot ? "reset password" : isSignUp ? "create account" : "sign in"}
       </h1>
 
@@ -43,7 +43,7 @@ function AuthForm() {
         {next && <input type="hidden" name="next" value={next} />}
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+          <label htmlFor="email" className="block text-sm font-medium text-[var(--text-secondary)]">
             email
           </label>
           <input
@@ -51,13 +51,13 @@ function AuthForm() {
             name="email"
             type="email"
             required
-            className="mt-1 block w-full rounded border border-[#333] bg-[#111] px-3 py-2 text-sm text-[#f0f0f0] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
+            className="mt-1 block w-full rounded border border-[var(--border-secondary)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--text-primary)] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
           />
         </div>
 
         {!isForgot && (
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-300">
+            <label htmlFor="password" className="block text-sm font-medium text-[var(--text-secondary)]">
               password
             </label>
             <input
@@ -66,7 +66,7 @@ function AuthForm() {
               type="password"
               required
               minLength={6}
-              className="mt-1 block w-full rounded border border-[#333] bg-[#111] px-3 py-2 text-sm text-[#f0f0f0] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
+              className="mt-1 block w-full rounded border border-[var(--border-secondary)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--text-primary)] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
             />
           </div>
         )}
@@ -91,18 +91,18 @@ function AuthForm() {
         <p className="text-center text-sm">
           <button
             onClick={() => { setIsForgot(true); setError(null); setMessage(null); }}
-            className="text-gray-500 hover:text-gray-300 transition-colors"
+            className="text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
           >
             forgot password?
           </button>
         </p>
       )}
 
-      <p className="text-center text-sm text-gray-500">
+      <p className="text-center text-sm text-[var(--text-muted)]">
         {isForgot ? (
           <button
             onClick={() => { setIsForgot(false); setError(null); setMessage(null); }}
-            className="font-medium text-white underline"
+            className="font-medium text-[var(--text-primary)] underline"
           >
             back to sign in
           </button>
@@ -115,7 +115,7 @@ function AuthForm() {
                 setError(null);
                 setMessage(null);
               }}
-              className="font-medium text-white underline"
+              className="font-medium text-[var(--text-primary)] underline"
             >
               {isSignUp ? "sign in" : "sign up"}
             </button>
@@ -123,8 +123,8 @@ function AuthForm() {
         )}
       </p>
 
-      <p className="text-center text-sm text-gray-600">
-        <a href="/" className="underline hover:text-gray-400 transition-colors">
+      <p className="text-center text-sm text-[var(--text-faint)]">
+        <a href="/" className="underline hover:text-[var(--text-secondary)] transition-colors">
           back to home
         </a>
       </p>
@@ -134,7 +134,7 @@ function AuthForm() {
 
 export default function AuthPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#0a0a0a]">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--bg-primary)]">
       <Suspense>
         <AuthForm />
       </Suspense>

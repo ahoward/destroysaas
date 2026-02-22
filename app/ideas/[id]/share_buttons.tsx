@@ -47,11 +47,11 @@ export default function ShareButtons({ title, url }: Props) {
   }
 
   const btn =
-    "text-xs text-gray-500 hover:text-gray-300 border border-gray-800 hover:border-gray-600 rounded px-2.5 py-1 transition-colors";
+    "text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] border border-[var(--border-primary)] hover:border-[var(--border-secondary)] rounded px-2.5 py-1 transition-colors";
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs text-gray-600 mr-1">share:</span>
+      <span className="text-xs text-[var(--text-faint)] mr-1">share:</span>
       <button onClick={share_twitter} className={btn}>
         X
       </button>

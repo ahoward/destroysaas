@@ -68,7 +68,7 @@ export default function Comments({ idea_id, user_id, comments }: Props) {
       <h2 className="text-lg font-semibold mb-4">
         discussion
         {comments.length > 0 && (
-          <span className="text-gray-600 font-normal text-sm ml-2">
+          <span className="text-[var(--text-faint)] font-normal text-sm ml-2">
             ({comments.length})
           </span>
         )}
@@ -83,7 +83,7 @@ export default function Comments({ idea_id, user_id, comments }: Props) {
             maxLength={2000}
             rows={3}
             placeholder="share your thoughts..."
-            className="w-full bg-[#111] border border-gray-800 rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none resize-none mb-2"
+            className="w-full bg-[var(--bg-input)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none resize-none mb-2"
           />
           {error && <p className="text-red-400 text-xs mb-2">{error}</p>}
           <button
@@ -95,7 +95,7 @@ export default function Comments({ idea_id, user_id, comments }: Props) {
           </button>
         </form>
       ) : (
-        <div className="border border-gray-800 rounded p-4 mb-6 text-center">
+        <div className="border border-[var(--border-primary)] rounded p-4 mb-6 text-center">
           <a
             href={`/auth?next=/ideas/${idea_id}`}
             className="text-red-500 hover:text-red-400 text-sm transition-colors"
@@ -107,30 +107,30 @@ export default function Comments({ idea_id, user_id, comments }: Props) {
 
       {/* comment list */}
       {comments.length === 0 ? (
-        <p className="text-gray-600 text-sm italic">no comments yet. be the first.</p>
+        <p className="text-[var(--text-faint)] text-sm italic">no comments yet. be the first.</p>
       ) : (
         <div className="space-y-4">
           {comments.map((c) => (
-            <div key={c.id} className="border-l-2 border-gray-800 pl-4">
+            <div key={c.id} className="border-l-2 border-[var(--border-primary)] pl-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-sm font-medium text-gray-300">
+                <span className="text-sm font-medium text-[var(--text-secondary)]">
                   {c.display_name}
                 </span>
-                <span className="text-xs text-gray-600">
+                <span className="text-xs text-[var(--text-faint)]">
                   {relative_time(c.created_at)}
                 </span>
                 {user_id === c.user_id && (
                   <button
                     onClick={() => handleDelete(c.id)}
                     disabled={isPending}
-                    className="text-xs text-gray-700 hover:text-red-500 transition-colors ml-auto disabled:opacity-50"
+                    className="text-xs text-[var(--text-separator)] hover:text-red-500 transition-colors ml-auto disabled:opacity-50"
                     title="delete comment"
                   >
                     &times;
                   </button>
                 )}
               </div>
-              <p className="text-sm text-gray-400 whitespace-pre-wrap">{c.body}</p>
+              <p className="text-sm text-[var(--text-secondary)] whitespace-pre-wrap">{c.body}</p>
             </div>
           ))}
         </div>

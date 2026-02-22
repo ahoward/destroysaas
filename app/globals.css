@@ -1,8 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e5e5e5;
+  --bg-input: #ffffff;
+
+  /* text */
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --text-faint: #a3a3a3;
+  --text-separator: #d4d4d4;
+
+  /* borders */
+  --border-primary: #e5e5e5;
+  --border-secondary: #d4d4d4;
+  --border-faint: #f0f0f0;
+
+  /* accent */
+  --accent: #dc2626;
+
+  /* tailwind integration */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+}
+
+.dark {
+  /* backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --bg-input: #111111;
+
+  /* text */
+  --text-primary: #f0f0f0;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --text-faint: #525252;
+  --text-separator: #374151;
+
+  /* borders */
+  --border-primary: #262626;
+  --border-secondary: #333333;
+  --border-faint: #1a1a1a;
+
+  /* accent */
+  --accent: #dc2626;
+
+  /* tailwind integration */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
 }
 
 @theme inline {
@@ -10,13 +59,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

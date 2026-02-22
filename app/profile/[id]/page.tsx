@@ -116,7 +116,7 @@ export default async function ProfilePage({
     : null;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a
           href="/"
@@ -124,11 +124,11 @@ export default async function ProfilePage({
         >
           destroysass
         </a>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
-          <a href="/ideas" className="hover:text-white transition-colors">
+        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
+          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">
             ideas
           </a>
-          <a href="/about" className="hover:text-white transition-colors">
+          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">
             about
           </a>
         </div>
@@ -140,12 +140,12 @@ export default async function ProfilePage({
           <h1 className="text-3xl font-bold tracking-tight mb-1">
             {display_name}
           </h1>
-          <div className="flex items-center gap-3 text-sm text-gray-500">
+          <div className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
             {member_since && <span>member since {member_since}</span>}
             {total_upvotes > 0 && (
               <>
                 {member_since && (
-                  <span className="text-gray-700">&middot;</span>
+                  <span className="text-[var(--text-faint)]">&middot;</span>
                 )}
                 <span>
                   {total_upvotes} {total_upvotes === 1 ? "upvote" : "upvotes"}{" "}
@@ -155,7 +155,7 @@ export default async function ProfilePage({
             )}
           </div>
           {profile?.bio && (
-            <p className="text-gray-400 mt-3">{profile.bio}</p>
+            <p className="text-[var(--text-secondary)] mt-3">{profile.bio}</p>
           )}
           {profile?.website && (
             <a
@@ -171,44 +171,44 @@ export default async function ProfilePage({
 
         {/* ideas */}
         <section>
-          <h2 className="text-xs uppercase tracking-widest text-gray-600 mb-6">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
             ideas by {display_name}
           </h2>
 
           {ideas.length === 0 ? (
-            <p className="text-gray-600 text-sm">no ideas submitted yet.</p>
+            <p className="text-[var(--text-muted)] text-sm">no ideas submitted yet.</p>
           ) : (
             <div className="space-y-3">
               {ideas.map((idea) => (
                 <a
                   key={idea.id}
                   href={`/ideas/${idea.id}`}
-                  className="block border border-[#1e1e1e] rounded-lg p-5 hover:border-[#333] transition-colors group"
+                  className="block border border-[var(--border-primary)] rounded-lg p-5 hover:border-[var(--border-secondary)] transition-colors group"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <h3 className="font-semibold group-hover:text-red-400 transition-colors truncate">
                         {idea.title}
                       </h3>
-                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-600">
+                      <div className="flex items-center gap-3 mt-2 text-xs text-[var(--text-muted)]">
                         <span>
-                          <span className="text-gray-400">
+                          <span className="text-[var(--text-secondary)]">
                             {Number(idea.pledge_count)}
                           </span>{" "}
                           {Number(idea.pledge_count) === 1
                             ? "sponsor"
                             : "sponsors"}
                         </span>
-                        <span className="text-gray-700">&middot;</span>
+                        <span className="text-[var(--text-faint)]">&middot;</span>
                         <span>
-                          <span className="text-gray-400">
+                          <span className="text-[var(--text-secondary)]">
                             {Number(idea.upvote_count)}
                           </span>{" "}
                           {Number(idea.upvote_count) === 1
                             ? "upvote"
                             : "upvotes"}
                         </span>
-                        <span className="text-gray-700">&middot;</span>
+                        <span className="text-[var(--text-faint)]">&middot;</span>
                         <span
                           className={`border rounded px-1.5 py-0.5 ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-700"}`}
                         >
@@ -220,7 +220,7 @@ export default async function ProfilePage({
                       <div className="text-xl font-bold text-red-600 tabular-nums">
                         ${Number(idea.total_pledged).toLocaleString()}
                       </div>
-                      <div className="text-xs text-gray-600">/mo pledged</div>
+                      <div className="text-xs text-[var(--text-muted)]">/mo pledged</div>
                     </div>
                   </div>
                 </a>

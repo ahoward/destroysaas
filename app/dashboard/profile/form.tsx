@@ -19,7 +19,7 @@ export default function ProfileForm({
       <div>
         <label
           htmlFor="display_name"
-          className="block text-sm font-medium text-gray-400 mb-2"
+          className="block text-sm font-medium text-[var(--text-secondary)] mb-2"
         >
           display name
         </label>
@@ -30,14 +30,14 @@ export default function ProfileForm({
           maxLength={50}
           defaultValue={initial_display_name}
           placeholder="how you want to be known"
-          className="w-full bg-[#111] border border-[#333] rounded-lg px-4 py-3 text-sm text-white placeholder:text-gray-700 focus:outline-none focus:border-red-800 transition-colors"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-secondary)] rounded-lg px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-red-800 transition-colors"
         />
       </div>
 
       <div>
         <label
           htmlFor="bio"
-          className="block text-sm font-medium text-gray-400 mb-2"
+          className="block text-sm font-medium text-[var(--text-secondary)] mb-2"
         >
           bio
         </label>
@@ -48,14 +48,14 @@ export default function ProfileForm({
           rows={3}
           defaultValue={initial_bio}
           placeholder="a few words about you or your business"
-          className="w-full bg-[#111] border border-[#333] rounded-lg px-4 py-3 text-sm text-white placeholder:text-gray-700 focus:outline-none focus:border-red-800 transition-colors resize-none"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-secondary)] rounded-lg px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-red-800 transition-colors resize-none"
         />
       </div>
 
       <div>
         <label
           htmlFor="website"
-          className="block text-sm font-medium text-gray-400 mb-2"
+          className="block text-sm font-medium text-[var(--text-secondary)] mb-2"
         >
           website
         </label>
@@ -65,7 +65,7 @@ export default function ProfileForm({
           type="url"
           defaultValue={initial_website}
           placeholder="https://yoursite.com"
-          className="w-full bg-[#111] border border-[#333] rounded-lg px-4 py-3 text-sm text-white placeholder:text-gray-700 focus:outline-none focus:border-red-800 transition-colors"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-secondary)] rounded-lg px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-red-800 transition-colors"
         />
       </div>
 

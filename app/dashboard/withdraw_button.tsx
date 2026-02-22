@@ -15,7 +15,7 @@ export default function WithdrawButton({ idea_id, idea_status }: Props) {
   const locked = ["threshold_reached", "cell_forming", "active"];
   if (locked.includes(idea_status)) {
     return (
-      <span className="text-xs text-gray-600">locked</span>
+      <span className="text-xs text-[var(--text-muted)]">locked</span>
     );
   }
 
@@ -30,7 +30,7 @@ export default function WithdrawButton({ idea_id, idea_status }: Props) {
             if (result?.error) setError(result.error);
           });
         }}
-        className="text-xs text-gray-500 border border-[#333] px-3 py-1.5 rounded hover:border-red-800 hover:text-red-400 transition-colors disabled:opacity-50"
+        className="text-xs text-[var(--text-muted)] border border-[var(--border-secondary)] px-3 py-1.5 rounded hover:border-red-800 hover:text-red-400 transition-colors disabled:opacity-50"
       >
         {pending ? "withdrawing..." : "withdraw"}
       </button>

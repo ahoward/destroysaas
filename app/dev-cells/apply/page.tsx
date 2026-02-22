@@ -32,26 +32,26 @@ export default async function ApplyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       {/* nav */}
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a href="/" className="text-red-600 font-bold text-lg tracking-tight">
           destroysass
         </a>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
-          <a href="/ideas" className="hover:text-white transition-colors">ideas</a>
-          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-white transition-colors">about</a>
-          <a href="/dashboard" className="hover:text-white transition-colors">dashboard</a>
+        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
+          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">ideas</a>
+          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
+          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
+          <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
           <form action={signOut}>
-            <button type="submit" className="hover:text-white transition-colors">sign out</button>
+            <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
           </form>
         </div>
       </nav>
 
       <main className="max-w-2xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">apply to become a dev cell</h1>
-        <p className="text-gray-500 text-sm mb-8">
+        <p className="text-[var(--text-muted)] text-sm mb-8">
           tell us about your cooperative. approved cells appear on the public listing
           and can be assigned to build funded ideas.
         </p>
@@ -59,7 +59,7 @@ export default async function ApplyPage() {
         {has_pending ? (
           <div className="border border-yellow-800 rounded-lg p-6 text-center">
             <p className="text-yellow-500 font-medium mb-2">application pending</p>
-            <p className="text-gray-500 text-sm">
+            <p className="text-[var(--text-muted)] text-sm">
               you already have an application under review. we&apos;ll be in touch.
             </p>
             <a
