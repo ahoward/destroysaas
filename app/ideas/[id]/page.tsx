@@ -34,12 +34,12 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  proposed: "text-gray-500 border-gray-700",
-  gaining_traction: "text-yellow-600 border-yellow-800",
-  threshold_reached: "text-green-500 border-green-700",
-  cell_forming: "text-purple-400 border-purple-600",
-  active: "text-green-400 border-green-600",
-  cancelled: "text-red-800 border-red-900",
+  proposed: "text-gray-500 border-gray-400",
+  gaining_traction: "text-yellow-600 border-yellow-600",
+  threshold_reached: "text-green-600 border-green-600",
+  cell_forming: "text-purple-600 border-purple-600",
+  active: "text-green-600 border-green-600",
+  cancelled: "text-red-700 border-red-700",
 };
 
 const THRESHOLD = 1000;
@@ -101,7 +101,7 @@ export default async function IdeaDetailPage({ params }: Props) {
   const is_creator = user?.id === idea.created_by;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       {/* nav */}
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a
@@ -110,19 +110,19 @@ export default async function IdeaDetailPage({ params }: Props) {
         >
           destroysass
         </a>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
-          <a href="/ideas" className="hover:text-white transition-colors">ideas</a>
-          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-white transition-colors">about</a>
+        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
+          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">ideas</a>
+          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
+          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
           {user ? (
             <>
-              <a href="/dashboard" className="hover:text-white transition-colors">dashboard</a>
+              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
               <form action={signOut}>
-                <button type="submit" className="hover:text-white transition-colors">sign out</button>
+                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
               </form>
             </>
           ) : (
-            <a href={`/auth?next=/ideas/${id}`} className="hover:text-white transition-colors">sign in</a>
+            <a href={`/auth?next=/ideas/${id}`} className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
           )}
         </div>
       </nav>
@@ -131,7 +131,7 @@ export default async function IdeaDetailPage({ params }: Props) {
         {/* back link */}
         <a
           href="/ideas"
-          className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+          className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
         >
           &larr; the board
         </a>
@@ -141,27 +141,27 @@ export default async function IdeaDetailPage({ params }: Props) {
           <div className="flex items-start justify-between gap-4 mb-4">
             <h1 className="text-3xl font-bold tracking-tight">{idea.title}</h1>
             <div className="flex items-center gap-2 shrink-0">
-              <span className="border border-blue-900 text-blue-400 rounded px-2 py-0.5 text-xs">
+              <span className="border border-blue-600 text-blue-600 rounded px-2 py-0.5 text-xs">
                 {(idea.category ?? "other").replace("-", " ")}
               </span>
               <span
-                className={`border rounded px-2 py-0.5 text-xs ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-700"}`}
+                className={`border rounded px-2 py-0.5 text-xs ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-400"}`}
               >
                 {STATUS_LABELS[idea.status] ?? idea.status}
               </span>
             </div>
           </div>
 
-          <p className="text-gray-300 leading-relaxed mb-6">{idea.description}</p>
+          <p className="text-[var(--text-secondary)] leading-relaxed mb-6">{idea.description}</p>
 
           <div className="border-l-2 border-red-900 pl-4 mb-6">
-            <p className="text-xs text-gray-600 uppercase tracking-wider mb-1">the problem</p>
-            <p className="text-gray-400 leading-relaxed">{idea.problem}</p>
+            <p className="text-xs text-[var(--text-faint)] uppercase tracking-wider mb-1">the problem</p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">{idea.problem}</p>
           </div>
 
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[var(--text-muted)]">
             submitter asks{" "}
-            <span className="text-gray-300 font-semibold">${idea.monthly_ask}/mo</span>{" "}
+            <span className="text-[var(--text-secondary)] font-semibold">${idea.monthly_ask}/mo</span>{" "}
             to maintain and host this.
           </p>
 
@@ -179,25 +179,25 @@ export default async function IdeaDetailPage({ params }: Props) {
         </div>
 
         {/* pledge summary bar */}
-        <div className="border border-[#222] rounded-lg p-6 mb-6">
+        <div className="border border-[var(--border-primary)] rounded-lg p-6 mb-6">
           <div className="flex items-baseline justify-between mb-3">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-[var(--text-secondary)]">
               <span className="text-2xl font-bold text-red-600 mr-1">
                 ${total.toLocaleString()}
               </span>
               /mo pledged from{" "}
-              <span className="text-gray-300">{count}</span>{" "}
+              <span className="text-[var(--text-primary)]">{count}</span>{" "}
               {count === 1 ? "sponsor" : "sponsors"}
             </p>
-            <p className="text-xs text-gray-600">{pct}%</p>
+            <p className="text-xs text-[var(--text-faint)]">{pct}%</p>
           </div>
-          <div className="w-full h-2 bg-[#1a1a1a] rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
             <div
               className="h-full bg-red-600 rounded-full transition-all duration-500"
               style={{ width: `${pct}%` }}
             />
           </div>
-          <p className="text-xs text-gray-600 mt-2">
+          <p className="text-xs text-[var(--text-faint)] mt-2">
             {pct}% toward forming a cell (${THRESHOLD.toLocaleString()}/mo threshold)
           </p>
         </div>

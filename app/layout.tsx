@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/app/components/footer";
+import ThemeToggle from "@/app/components/theme_toggle";
 
 export const metadata: Metadata = {
   title: "destroysass — own the software you use",
@@ -22,14 +23,31 @@ export const metadata: Metadata = {
   },
 };
 
+const THEME_SCRIPT = `
+(function() {
+  try {
+    var theme = localStorage.getItem('theme');
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch(e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
+      <body className="antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]">
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
         {children}
         <Footer />
       </body>

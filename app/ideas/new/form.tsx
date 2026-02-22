@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { submitIdea, type SubmitIdeaResult, CATEGORIES } from "./actions";
 
 const input_classes =
-  "mt-1 block w-full rounded border border-[#333] bg-[#111] px-3 py-2 text-sm text-[#f0f0f0] placeholder-gray-600 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600";
+  "mt-1 block w-full rounded border border-[var(--border-secondary)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--text-primary)] placeholder-[var(--text-faint)] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600";
 
 export default function IdeaForm() {
   const [state, action, pending] = useActionState<SubmitIdeaResult, FormData>(
@@ -25,7 +25,7 @@ export default function IdeaForm() {
 
       {/* title */}
       <div>
-        <label htmlFor="title" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="title" className="block text-sm font-medium text-[var(--text-secondary)]">
           title
         </label>
         <input
@@ -46,10 +46,10 @@ export default function IdeaForm() {
 
       {/* problem */}
       <div>
-        <label htmlFor="problem" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="problem" className="block text-sm font-medium text-[var(--text-secondary)]">
           problem
         </label>
-        <p className="text-xs text-gray-600 mb-1">
+        <p className="text-xs text-[var(--text-faint)] mb-1">
           what&apos;s the bleeding-neck problem this solves?
         </p>
         <textarea
@@ -70,10 +70,10 @@ export default function IdeaForm() {
 
       {/* description */}
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="description" className="block text-sm font-medium text-[var(--text-secondary)]">
           description
         </label>
-        <p className="text-xs text-gray-600 mb-1">
+        <p className="text-xs text-[var(--text-faint)] mb-1">
           describe the solution you want built.
         </p>
         <textarea
@@ -94,10 +94,10 @@ export default function IdeaForm() {
 
       {/* monthly_ask */}
       <div>
-        <label htmlFor="monthly_ask" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="monthly_ask" className="block text-sm font-medium text-[var(--text-secondary)]">
           monthly ask ($)
         </label>
-        <p className="text-xs text-gray-600 mb-1">
+        <p className="text-xs text-[var(--text-faint)] mb-1">
           what would you pay per month for a maintained, hosted solution you own? ($25–$500)
         </p>
         <input
@@ -119,7 +119,7 @@ export default function IdeaForm() {
 
       {/* category */}
       <div>
-        <label htmlFor="category" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="category" className="block text-sm font-medium text-[var(--text-secondary)]">
           category
         </label>
         <select
@@ -151,7 +151,7 @@ export default function IdeaForm() {
         </button>
         <a
           href="/ideas"
-          className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+          className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
         >
           &larr; back to the board
         </a>

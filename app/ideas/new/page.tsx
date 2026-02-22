@@ -14,7 +14,7 @@ export default async function NewIdeaPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       {/* nav */}
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a
@@ -26,15 +26,15 @@ export default async function NewIdeaPage() {
         <div className="flex items-center gap-4">
           <a
             href="/dashboard"
-            className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
           >
             dashboard
           </a>
-          <span className="text-sm text-gray-500">{user.email}</span>
+          <span className="text-sm text-[var(--text-muted)]">{user.email}</span>
           <form action={signOut}>
             <button
               type="submit"
-              className="text-sm text-gray-400 border border-[#333] px-3 py-1.5 rounded hover:border-gray-500 hover:text-gray-200 transition-colors"
+              className="text-sm text-[var(--text-secondary)] border border-[var(--border-secondary)] px-3 py-1.5 rounded hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
             >
               sign out
             </button>
@@ -48,7 +48,7 @@ export default async function NewIdeaPage() {
           <h1 className="text-3xl font-bold tracking-tight mb-2">
             propose an idea
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[var(--text-muted)]">
             describe the software your business needs. what would you pay per
             month for a hosted, maintained solution you actually own?
           </p>

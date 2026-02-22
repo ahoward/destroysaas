@@ -235,7 +235,7 @@ export default async function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       {/* nav */}
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a
@@ -245,11 +245,11 @@ export default async function DashboardPage() {
           destroysass
         </a>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-500">{user.email}</span>
+          <span className="text-sm text-[var(--text-muted)]">{user.email}</span>
           <form action={signOut}>
             <button
               type="submit"
-              className="text-sm text-gray-400 border border-[#333] px-3 py-1.5 rounded hover:border-gray-500 hover:text-gray-200 transition-colors"
+              className="text-sm text-[var(--text-secondary)] border border-[var(--border-secondary)] px-3 py-1.5 rounded hover:border-[var(--border-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               sign out
             </button>
@@ -263,7 +263,7 @@ export default async function DashboardPage() {
             your dashboard
           </h1>
           <div className="flex items-center gap-3 mt-1">
-            <p className="text-sm text-gray-500">{user.email}</p>
+            <p className="text-sm text-[var(--text-muted)]">{user.email}</p>
             <a
               href="/dashboard/profile"
               className="text-xs text-red-600 hover:text-red-500 transition-colors"
@@ -272,7 +272,7 @@ export default async function DashboardPage() {
             </a>
             <a
               href={`/profile/${user.id}`}
-              className="text-xs text-gray-600 hover:text-gray-400 transition-colors"
+              className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
             >
               view public profile
             </a>
@@ -283,41 +283,41 @@ export default async function DashboardPage() {
 
         {/* --- stats bar --- */}
         <section className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">
-          <div className="border border-[#1e1e1e] rounded-lg p-4 text-center">
+          <div className="border border-[var(--border-primary)] rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-red-600 tabular-nums">
               ${stats.monthly_committed.toLocaleString()}
             </div>
-            <div className="text-xs text-gray-600 mt-1">/mo committed</div>
+            <div className="text-xs text-[var(--text-muted)] mt-1">/mo committed</div>
           </div>
-          <div className="border border-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="text-2xl font-bold text-gray-200 tabular-nums">
+          <div className="border border-[var(--border-primary)] rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-[var(--text-primary)] tabular-nums">
               {stats.ideas_submitted}
             </div>
-            <div className="text-xs text-gray-600 mt-1">ideas submitted</div>
+            <div className="text-xs text-[var(--text-muted)] mt-1">ideas submitted</div>
           </div>
-          <div className="border border-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="text-2xl font-bold text-gray-200 tabular-nums">
+          <div className="border border-[var(--border-primary)] rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-[var(--text-primary)] tabular-nums">
               {stats.ideas_pledged_to}
             </div>
-            <div className="text-xs text-gray-600 mt-1">ideas backed</div>
+            <div className="text-xs text-[var(--text-muted)] mt-1">ideas backed</div>
           </div>
-          <div className="border border-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="text-2xl font-bold text-gray-200 tabular-nums">
+          <div className="border border-[var(--border-primary)] rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-[var(--text-primary)] tabular-nums">
               {stats.upvotes_received}
             </div>
-            <div className="text-xs text-gray-600 mt-1">upvotes received</div>
+            <div className="text-xs text-[var(--text-muted)] mt-1">upvotes received</div>
           </div>
         </section>
 
         {/* --- my ideas --- */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-gray-600 mb-6">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
             my ideas
           </h2>
 
           {my_ideas.length === 0 ? (
-            <div className="border border-[#222] rounded-lg p-8 text-center">
-              <p className="text-gray-600 mb-3">
+            <div className="border border-[var(--border-primary)] rounded-lg p-8 text-center">
+              <p className="text-[var(--text-muted)] mb-3">
                 you haven&apos;t submitted any ideas yet.
               </p>
               <a
@@ -339,37 +339,37 @@ export default async function DashboardPage() {
                   <a
                     key={idea.id}
                     href={`/ideas/${idea.id}`}
-                    className="block border border-[#1e1e1e] rounded-lg p-5 hover:border-[#333] transition-colors group"
+                    className="block border border-[var(--border-primary)] rounded-lg p-5 hover:border-[var(--border-secondary)] transition-colors group"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
                         <h3 className="font-semibold group-hover:text-red-400 transition-colors truncate">
                           {idea.title}
                         </h3>
-                        <div className="flex items-center gap-3 mt-2 text-xs text-gray-600 flex-wrap">
+                        <div className="flex items-center gap-3 mt-2 text-xs text-[var(--text-muted)] flex-wrap">
                           <span>
-                            <span className="text-gray-400">
+                            <span className="text-[var(--text-secondary)]">
                               {Number(idea.pledge_count)}
                             </span>{" "}
                             {Number(idea.pledge_count) === 1
                               ? "sponsor"
                               : "sponsors"}
                           </span>
-                          <span className="text-gray-700">&middot;</span>
+                          <span className="text-[var(--text-faint)]">&middot;</span>
                           <span>
-                            <span className="text-gray-400">
+                            <span className="text-[var(--text-secondary)]">
                               {Number(idea.upvote_count)}
                             </span>{" "}
                             {Number(idea.upvote_count) === 1
                               ? "upvote"
                               : "upvotes"}
                           </span>
-                          <span className="text-gray-700">&middot;</span>
+                          <span className="text-[var(--text-faint)]">&middot;</span>
                           <span>
-                            <span className="text-gray-400">{comments}</span>{" "}
+                            <span className="text-[var(--text-secondary)]">{comments}</span>{" "}
                             {comments === 1 ? "comment" : "comments"}
                           </span>
-                          <span className="text-gray-700">&middot;</span>
+                          <span className="text-[var(--text-faint)]">&middot;</span>
                           <span
                             className={`border rounded px-1.5 py-0.5 ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-700"}`}
                           >
@@ -378,13 +378,13 @@ export default async function DashboardPage() {
                         </div>
                         {/* progress bar */}
                         <div className="mt-3">
-                          <div className="w-full bg-[#1a1a1a] rounded-full h-1.5">
+                          <div className="w-full bg-[var(--bg-tertiary)] rounded-full h-1.5">
                             <div
                               className="bg-red-600 h-1.5 rounded-full transition-all"
                               style={{ width: `${pct}%` }}
                             />
                           </div>
-                          <div className="text-xs text-gray-600 mt-1">
+                          <div className="text-xs text-[var(--text-muted)] mt-1">
                             ${Number(idea.total_pledged).toLocaleString()} / $
                             {THRESHOLD.toLocaleString()} threshold
                           </div>
@@ -394,7 +394,7 @@ export default async function DashboardPage() {
                         <div className="text-xl font-bold text-red-600 tabular-nums">
                           ${Number(idea.total_pledged).toLocaleString()}
                         </div>
-                        <div className="text-xs text-gray-600">/mo pledged</div>
+                        <div className="text-xs text-[var(--text-muted)]">/mo pledged</div>
                       </div>
                     </div>
                   </a>
@@ -406,27 +406,27 @@ export default async function DashboardPage() {
 
         {/* --- my pledges --- */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-gray-600 mb-4">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-4">
             my pledges
           </h2>
 
           {my_pledges.length > 0 && (
-            <div className="border border-[#222] rounded-lg p-4 mb-6">
-              <p className="text-sm text-gray-400">
+            <div className="border border-[var(--border-primary)] rounded-lg p-4 mb-6">
+              <p className="text-sm text-[var(--text-secondary)]">
                 you&apos;re committed to{" "}
                 <span className="text-red-600 font-bold">
                   ${monthly_total.toLocaleString()}/mo
                 </span>{" "}
                 across{" "}
-                <span className="text-gray-300">{active_pledge_count}</span>{" "}
+                <span className="text-[var(--text-secondary)]">{active_pledge_count}</span>{" "}
                 {active_pledge_count === 1 ? "idea" : "ideas"}
               </p>
             </div>
           )}
 
           {my_pledges.length === 0 ? (
-            <div className="border border-[#222] rounded-lg p-8 text-center">
-              <p className="text-gray-600 mb-3">
+            <div className="border border-[var(--border-primary)] rounded-lg p-8 text-center">
+              <p className="text-[var(--text-muted)] mb-3">
                 you haven&apos;t pledged to any ideas yet.
               </p>
               <a
@@ -441,7 +441,7 @@ export default async function DashboardPage() {
               {my_pledges.map((pledge) => (
                 <div
                   key={pledge.id}
-                  className="border border-[#1e1e1e] rounded-lg p-5"
+                  className="border border-[var(--border-primary)] rounded-lg p-5"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
@@ -451,22 +451,22 @@ export default async function DashboardPage() {
                       >
                         {pledge.idea_title}
                       </a>
-                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-600">
+                      <div className="flex items-center gap-3 mt-2 text-xs text-[var(--text-muted)]">
                         <span>
                           you pledged{" "}
-                          <span className="text-gray-300">
+                          <span className="text-[var(--text-secondary)]">
                             ${pledge.amount_monthly}/mo
                           </span>
                         </span>
-                        <span className="text-gray-700">&middot;</span>
+                        <span className="text-[var(--text-faint)]">&middot;</span>
                         <span>
                           total{" "}
-                          <span className="text-gray-400">
+                          <span className="text-[var(--text-secondary)]">
                             ${pledge.idea_total_pledged.toLocaleString()}
                           </span>
                           /mo
                         </span>
-                        <span className="text-gray-700">&middot;</span>
+                        <span className="text-[var(--text-faint)]">&middot;</span>
                         <span
                           className={`border rounded px-1.5 py-0.5 ${STATUS_COLORS[pledge.idea_status] ?? "text-gray-500 border-gray-700"}`}
                         >
@@ -490,13 +490,13 @@ export default async function DashboardPage() {
 
         {/* --- activity feed --- */}
         <section>
-          <h2 className="text-xs uppercase tracking-widest text-gray-600 mb-6">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
             recent activity
           </h2>
 
           {activity.length === 0 ? (
-            <div className="border border-[#222] rounded-lg p-8 text-center">
-              <p className="text-gray-600">
+            <div className="border border-[var(--border-primary)] rounded-lg p-8 text-center">
+              <p className="text-[var(--text-muted)]">
                 no activity on your ideas yet.
               </p>
             </div>
@@ -505,13 +505,13 @@ export default async function DashboardPage() {
               {activity.map((item, i) => (
                 <div
                   key={`${item.kind}-${item.created_at}-${i}`}
-                  className="flex items-start gap-3 border border-[#1a1a1a] rounded-lg px-4 py-3"
+                  className="flex items-start gap-3 border border-[var(--border-primary)] rounded-lg px-4 py-3"
                 >
                   <span className="text-sm mt-0.5">
                     {item.kind === "pledge" ? "💰" : "💬"}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm text-gray-300">
+                    <p className="text-sm text-[var(--text-secondary)]">
                       {item.detail} on{" "}
                       <a
                         href={`/ideas/${item.idea_id}`}
@@ -520,7 +520,7 @@ export default async function DashboardPage() {
                         &lsquo;{item.idea_title}&rsquo;
                       </a>
                     </p>
-                    <p className="text-xs text-gray-600 mt-0.5">
+                    <p className="text-xs text-[var(--text-muted)] mt-0.5">
                       {relative_time(item.created_at)}
                     </p>
                   </div>

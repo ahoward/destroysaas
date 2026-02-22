@@ -25,7 +25,7 @@ export default function EditIdea({ ideaId, title, description, problem, monthlyA
     return (
       <button
         onClick={() => setEditing(true)}
-        className="text-xs text-gray-600 hover:text-gray-400 transition-colors border border-[#222] rounded px-2 py-1"
+        className="text-xs text-[var(--text-faint)] hover:text-[var(--text-secondary)] transition-colors border border-[var(--border-primary)] rounded px-2 py-1"
       >
         edit idea
       </button>
@@ -50,15 +50,15 @@ export default function EditIdea({ ideaId, title, description, problem, monthlyA
   }
 
   const inputClass =
-    "w-full bg-[#111] border border-[#222] rounded px-3 py-2 text-sm text-white placeholder-gray-600 focus:border-gray-500 focus:outline-none transition-colors";
+    "w-full bg-[var(--bg-input)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm text-[var(--text-primary)] placeholder-[var(--text-faint)] focus:border-[var(--text-muted)] focus:outline-none transition-colors";
 
   return (
-    <div className="border border-[#222] rounded-lg p-6 mt-6">
+    <div className="border border-[var(--border-primary)] rounded-lg p-6 mt-6">
       <h3 className="text-sm font-semibold mb-4">edit your idea</h3>
 
       <div className="space-y-4">
         <div>
-          <label className="text-xs text-gray-500 block mb-1">title</label>
+          <label className="text-xs text-[var(--text-muted)] block mb-1">title</label>
           <input
             type="text"
             value={formTitle}
@@ -68,7 +68,7 @@ export default function EditIdea({ ideaId, title, description, problem, monthlyA
         </div>
 
         <div>
-          <label className="text-xs text-gray-500 block mb-1">description</label>
+          <label className="text-xs text-[var(--text-muted)] block mb-1">description</label>
           <textarea
             value={formDesc}
             onChange={(e) => setFormDesc(e.target.value)}
@@ -78,7 +78,7 @@ export default function EditIdea({ ideaId, title, description, problem, monthlyA
         </div>
 
         <div>
-          <label className="text-xs text-gray-500 block mb-1">the problem</label>
+          <label className="text-xs text-[var(--text-muted)] block mb-1">the problem</label>
           <textarea
             value={formProblem}
             onChange={(e) => setFormProblem(e.target.value)}
@@ -88,7 +88,7 @@ export default function EditIdea({ ideaId, title, description, problem, monthlyA
         </div>
 
         <div>
-          <label className="text-xs text-gray-500 block mb-1">monthly ask ($)</label>
+          <label className="text-xs text-[var(--text-muted)] block mb-1">monthly ask ($)</label>
           <input
             type="number"
             value={formAsk}
@@ -119,7 +119,7 @@ export default function EditIdea({ ideaId, title, description, problem, monthlyA
             setFormProblem(problem);
             setFormAsk(monthlyAsk);
           }}
-          className="text-sm text-gray-500 hover:text-gray-300 px-4 py-2 transition-colors"
+          className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] px-4 py-2 transition-colors"
         >
           cancel
         </button>

@@ -40,25 +40,25 @@ export default async function IdeasPage() {
   const rows = (ideas as IdeaRow[]) ?? [];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       {/* nav */}
       <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
         <a href="/" className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors">
           destroysass
         </a>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
-          <span className="text-white">ideas</span>
-          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-white transition-colors">about</a>
+        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
+          <span className="text-[var(--text-primary)]">ideas</span>
+          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
+          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
           {user ? (
             <>
-              <a href="/dashboard" className="hover:text-white transition-colors">dashboard</a>
+              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
               <form action={signOut}>
-                <button type="submit" className="hover:text-white transition-colors">sign out</button>
+                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
               </form>
             </>
           ) : (
-            <a href="/auth" className="hover:text-white transition-colors">sign in</a>
+            <a href="/auth" className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
           )}
         </div>
       </nav>
@@ -67,7 +67,7 @@ export default async function IdeasPage() {
       <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">
         <div className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight mb-2">the board</h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[var(--text-muted)]">
             ranked by committed monthly dollars. skin in the game is the only algorithm.
           </p>
         </div>
@@ -75,8 +75,8 @@ export default async function IdeasPage() {
         <IdeasFilter ideas={rows} />
 
         {/* submit cta */}
-        <div className="mt-10 pt-8 border-t border-[#1a1a1a] flex items-center justify-between">
-          <p className="text-sm text-gray-600">
+        <div className="mt-10 pt-8 border-t border-[var(--border-faint)] flex items-center justify-between">
+          <p className="text-sm text-[var(--text-faint)]">
             have a software problem worth solving together?
           </p>
           <a

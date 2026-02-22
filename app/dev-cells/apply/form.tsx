@@ -10,7 +10,7 @@ export default function ApplicationForm() {
     return (
       <div className="border border-green-800 rounded-lg p-6 text-center">
         <p className="text-green-400 font-medium mb-2">application submitted!</p>
-        <p className="text-gray-500 text-sm">
+        <p className="text-[var(--text-muted)] text-sm">
           your application is under review. we&apos;ll be in touch.
         </p>
         <a
@@ -41,7 +41,7 @@ export default function ApplicationForm() {
           type="text"
           required
           maxLength={120}
-          className="w-full bg-[#111] border border-gray-800 rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
           placeholder="e.g. pixelforge collective"
         />
         {state?.errors?.name && (
@@ -59,7 +59,7 @@ export default function ApplicationForm() {
           required
           rows={4}
           maxLength={1000}
-          className="w-full bg-[#111] border border-gray-800 rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none resize-none"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none resize-none"
           placeholder="what does your cooperative do? what's your experience?"
         />
         {state?.errors?.description && (
@@ -69,13 +69,13 @@ export default function ApplicationForm() {
 
       <div>
         <label htmlFor="website" className="block text-sm font-medium mb-1">
-          website <span className="text-gray-600">(optional)</span>
+          website <span className="text-[var(--text-muted)]">(optional)</span>
         </label>
         <input
           id="website"
           name="website"
           type="url"
-          className="w-full bg-[#111] border border-gray-800 rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
           placeholder="https://yourcooperative.dev"
         />
         {state?.errors?.website && (
@@ -92,7 +92,7 @@ export default function ApplicationForm() {
           name="skills"
           type="text"
           required
-          className="w-full bg-[#111] border border-gray-800 rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
           placeholder="react, node, postgres, devops (comma-separated)"
         />
         {state?.errors?.skills && (
@@ -109,7 +109,7 @@ export default function ApplicationForm() {
           name="contact_email"
           type="email"
           required
-          className="w-full bg-[#111] border border-gray-800 rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
           placeholder="hello@yourcooperative.dev"
         />
         {state?.errors?.contact_email && (
