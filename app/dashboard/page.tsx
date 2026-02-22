@@ -262,7 +262,21 @@ export default async function DashboardPage() {
           <h1 className="text-3xl font-bold tracking-tight mb-2">
             your dashboard
           </h1>
-          <p className="text-sm text-gray-500">{user.email}</p>
+          <div className="flex items-center gap-3 mt-1">
+            <p className="text-sm text-gray-500">{user.email}</p>
+            <a
+              href="/dashboard/profile"
+              className="text-xs text-red-600 hover:text-red-500 transition-colors"
+            >
+              edit profile
+            </a>
+            <a
+              href={`/profile/${user.id}`}
+              className="text-xs text-gray-600 hover:text-gray-400 transition-colors"
+            >
+              view public profile
+            </a>
+          </div>
         </div>
 
         {!user.email_confirmed_at && <VerifyBanner />}
