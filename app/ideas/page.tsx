@@ -14,6 +14,7 @@ type IdeaRow = {
   problem: string;
   monthly_ask: number;
   status: string;
+  category: string;
   created_at: string;
   total_pledged: number;
   pledge_count: number;

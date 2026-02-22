@@ -3,11 +3,27 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
+const CATEGORIES = [
+  "communication",
+  "project-management",
+  "analytics",
+  "devtools",
+  "finance",
+  "marketing",
+  "hr",
+  "operations",
+  "other",
+] as const;
+
+export type Category = (typeof CATEGORIES)[number];
+export { CATEGORIES };
+
 type FieldErrors = {
   title?: string;
   problem?: string;
   description?: string;
   monthly_ask?: string;
+  category?: string;
   general?: string;
 };
 
@@ -18,6 +34,7 @@ export type SubmitIdeaResult = {
     problem: string;
     description: string;
     monthly_ask: string;
+    category: string;
   };
 } | null;
 
@@ -38,16 +55,19 @@ export async function submitIdea(
   const raw_problem = (formData.get("problem") as string) ?? "";
   const raw_description = (formData.get("description") as string) ?? "";
   const raw_monthly_ask = (formData.get("monthly_ask") as string) ?? "";
+  const raw_category = (formData.get("category") as string) ?? "other";
 
   const title = raw_title.trim();
   const problem = raw_problem.trim();
   const description = raw_description.trim();
+  const category = raw_category.trim();
 
   const previousData = {
     title: raw_title,
     problem: raw_problem,
     description: raw_description,
     monthly_ask: raw_monthly_ask,
+    category: raw_category,
   };
 
   const errors: FieldErrors = {};
@@ -92,6 +112,11 @@ export async function submitIdea(
     errors.monthly_ask = "monthly ask must be $500 or less.";
   }
 
+  // category: must be valid
+  if (!CATEGORIES.includes(category as Category)) {
+    errors.category = "please select a valid category.";
+  }
+
   if (Object.keys(errors).length > 0) {
     return { errors, previousData };
   }
@@ -102,6 +127,7 @@ export async function submitIdea(
       problem,
       description,
       monthly_ask,
+      category,
       created_by: user.id,
     });
 

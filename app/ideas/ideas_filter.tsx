@@ -9,9 +9,22 @@ type IdeaRow = {
   problem: string;
   monthly_ask: number;
   status: string;
+  category: string;
   created_at: string;
   total_pledged: number;
   pledge_count: number;
+};
+
+const CATEGORY_LABELS: Record<string, string> = {
+  communication: "communication",
+  "project-management": "project management",
+  analytics: "analytics",
+  devtools: "devtools",
+  finance: "finance",
+  marketing: "marketing",
+  hr: "hr",
+  operations: "operations",
+  other: "other",
 };
 
 const STATUS_LABELS: Record<string, string> = {
@@ -43,11 +56,13 @@ type SortKey = (typeof SORT_OPTIONS)[number]["value"];
 export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [sort, setSort] = useState<SortKey>("pledged");
 
   const filtered = ideas
     .filter((idea) => {
       if (statusFilter !== "all" && idea.status !== statusFilter) return false;
+      if (categoryFilter !== "all" && idea.category !== categoryFilter) return false;
       if (search) {
         const q = search.toLowerCase();
         return (
@@ -65,8 +80,9 @@ export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
       return 0;
     });
 
-  // unique statuses present in the data
+  // unique statuses and categories present in the data
   const statuses = [...new Set(ideas.map((i) => i.status))];
+  const categories = [...new Set(ideas.map((i) => i.category))];
 
   return (
     <>
@@ -79,7 +95,19 @@ export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
           placeholder="search ideas..."
           className="flex-1 bg-[#111] border border-[#222] rounded px-3 py-2 text-sm text-white placeholder-gray-600 focus:border-gray-500 focus:outline-none transition-colors"
         />
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className="bg-[#111] border border-[#222] rounded px-3 py-2 text-sm text-gray-400 focus:border-gray-500 focus:outline-none transition-colors"
+          >
+            <option value="all">all categories</option>
+            {categories.map((c) => (
+              <option key={c} value={c}>
+                {CATEGORY_LABELS[c] ?? c}
+              </option>
+            ))}
+          </select>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -110,7 +138,7 @@ export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
       {filtered.length === 0 ? (
         <div className="border border-[#222] rounded-lg p-12 text-center">
           <p className="text-gray-600 mb-4">
-            {search || statusFilter !== "all"
+            {search || statusFilter !== "all" || categoryFilter !== "all"
               ? "no ideas match your filters."
               : "no ideas yet. be the first."}
           </p>
@@ -165,6 +193,10 @@ export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
                   className={`border rounded px-1.5 py-0.5 ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-700"}`}
                 >
                   {STATUS_LABELS[idea.status] ?? idea.status}
+                </span>
+                <span className="text-gray-700">·</span>
+                <span className="border border-blue-900 text-blue-400 rounded px-1.5 py-0.5">
+                  {CATEGORY_LABELS[idea.category] ?? idea.category}
                 </span>
               </div>
             </a>

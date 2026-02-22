@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { submitIdea, type SubmitIdeaResult } from "./actions";
+import { submitIdea, type SubmitIdeaResult, CATEGORIES } from "./actions";
 
 const input_classes =
   "mt-1 block w-full rounded border border-[#333] bg-[#111] px-3 py-2 text-sm text-[#f0f0f0] placeholder-gray-600 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600";
@@ -114,6 +114,29 @@ export default function IdeaForm() {
         />
         {errors?.monthly_ask && (
           <p className="mt-1 text-xs text-red-500">{errors.monthly_ask}</p>
+        )}
+      </div>
+
+      {/* category */}
+      <div>
+        <label htmlFor="category" className="block text-sm font-medium text-gray-300">
+          category
+        </label>
+        <select
+          id="category"
+          name="category"
+          required
+          defaultValue={prev?.category ?? "other"}
+          className={input_classes + " max-w-[240px]"}
+        >
+          {CATEGORIES.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat.replace("-", " ")}
+            </option>
+          ))}
+        </select>
+        {errors?.category && (
+          <p className="mt-1 text-xs text-red-500">{errors.category}</p>
         )}
       </div>
 

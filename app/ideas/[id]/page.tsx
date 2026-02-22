@@ -130,11 +130,16 @@ export default async function IdeaDetailPage({ params }: Props) {
         <div className="mt-8 mb-10">
           <div className="flex items-start justify-between gap-4 mb-4">
             <h1 className="text-3xl font-bold tracking-tight">{idea.title}</h1>
-            <span
-              className={`shrink-0 border rounded px-2 py-0.5 text-xs ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-700"}`}
-            >
-              {STATUS_LABELS[idea.status] ?? idea.status}
-            </span>
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="border border-blue-900 text-blue-400 rounded px-2 py-0.5 text-xs">
+                {(idea.category ?? "other").replace("-", " ")}
+              </span>
+              <span
+                className={`border rounded px-2 py-0.5 text-xs ${STATUS_COLORS[idea.status] ?? "text-gray-500 border-gray-700"}`}
+              >
+                {STATUS_LABELS[idea.status] ?? idea.status}
+              </span>
+            </div>
           </div>
 
           <p className="text-gray-300 leading-relaxed mb-6">{idea.description}</p>
