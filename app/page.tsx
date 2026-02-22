@@ -157,30 +157,6 @@ export default async function Home() {
           </a>
         </div>
 
-        {/* footer */}
-        <footer className="border-t border-[#1a1a1a] pt-8 flex justify-between items-center">
-          <p className="text-xs text-gray-700 italic">
-            the code is free. the network is the value.
-          </p>
-          <div className="flex gap-4 text-xs text-gray-700">
-            <a
-              href="https://github.com/ahoward/destroysass"
-              className="hover:text-gray-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              github
-            </a>
-            <a
-              href="https://github.com/ahoward/destroysass/tree/main/docs"
-              className="hover:text-gray-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              docs
-            </a>
-          </div>
-        </footer>
       </main>
     </div>
   );

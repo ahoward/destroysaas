@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { signIn, signUp } from "./actions";
+import { signIn, signUp, resetPassword } from "./actions";
 
 function AuthForm() {
   const searchParams = useSearchParams();
@@ -11,10 +11,18 @@ function AuthForm() {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [isForgot, setIsForgot] = useState(false);
 
   async function handleSubmit(formData: FormData) {
     setError(null);
     setMessage(null);
+
+    if (isForgot) {
+      const result = await resetPassword(formData);
+      if (result?.error) setError(result.error);
+      else if (result?.success) setMessage(result.success);
+      return;
+    }
 
     const result = isSignUp ? await signUp(formData) : await signIn(formData);
 
@@ -28,7 +36,7 @@ function AuthForm() {
   return (
     <div className="w-full max-w-sm space-y-6 px-4">
       <h1 className="text-2xl font-semibold text-center text-white">
-        {isSignUp ? "create account" : "sign in"}
+        {isForgot ? "reset password" : isSignUp ? "create account" : "sign in"}
       </h1>
 
       <form action={handleSubmit} className="space-y-4">
@@ -47,19 +55,21 @@ function AuthForm() {
           />
         </div>
 
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-300">
-            password
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            minLength={6}
-            className="mt-1 block w-full rounded border border-[#333] bg-[#111] px-3 py-2 text-sm text-[#f0f0f0] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
-          />
-        </div>
+        {!isForgot && (
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300">
+              password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              minLength={6}
+              className="mt-1 block w-full rounded border border-[#333] bg-[#111] px-3 py-2 text-sm text-[#f0f0f0] focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
+            />
+          </div>
+        )}
 
         {error && (
           <p className="text-sm text-red-500">{error}</p>
@@ -73,22 +83,44 @@ function AuthForm() {
           type="submit"
           className="w-full rounded bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 transition-colors"
         >
-          {isSignUp ? "sign up" : "sign in"}
+          {isForgot ? "send reset link" : isSignUp ? "sign up" : "sign in"}
         </button>
       </form>
 
+      {!isForgot && !isSignUp && (
+        <p className="text-center text-sm">
+          <button
+            onClick={() => { setIsForgot(true); setError(null); setMessage(null); }}
+            className="text-gray-500 hover:text-gray-300 transition-colors"
+          >
+            forgot password?
+          </button>
+        </p>
+      )}
+
       <p className="text-center text-sm text-gray-500">
-        {isSignUp ? "already have an account?" : "don\u2019t have an account?"}{" "}
-        <button
-          onClick={() => {
-            setIsSignUp(!isSignUp);
-            setError(null);
-            setMessage(null);
-          }}
-          className="font-medium text-white underline"
-        >
-          {isSignUp ? "sign in" : "sign up"}
-        </button>
+        {isForgot ? (
+          <button
+            onClick={() => { setIsForgot(false); setError(null); setMessage(null); }}
+            className="font-medium text-white underline"
+          >
+            back to sign in
+          </button>
+        ) : (
+          <>
+            {isSignUp ? "already have an account?" : "don\u2019t have an account?"}{" "}
+            <button
+              onClick={() => {
+                setIsSignUp(!isSignUp);
+                setError(null);
+                setMessage(null);
+              }}
+              className="font-medium text-white underline"
+            >
+              {isSignUp ? "sign in" : "sign up"}
+            </button>
+          </>
+        )}
       </p>
 
       <p className="text-center text-sm text-gray-600">
