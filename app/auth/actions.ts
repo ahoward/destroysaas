@@ -50,7 +50,7 @@ export async function resetPassword(formData: FormData) {
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "https://destroysass.vercel.app/auth",
+    redirectTo: "https://destroysass.coop/auth",
   });
 
   if (error) {

@@ -100,7 +100,7 @@ the portal does three things:
 
 ## status
 
-🔴 early. the portal scaffolding is live at [destroysass.vercel.app](https://destroysass.vercel.app).  
+🔴 early. the portal scaffolding is live at [destroysass.coop](https://destroysass.coop).  
 the first cell is being planned. if you're an smb with a software problem you wish a collective
 of peers would solve with you — [get in touch](mailto:ara.t.howard@gmail.com).
 

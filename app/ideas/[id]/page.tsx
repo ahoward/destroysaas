@@ -150,7 +150,7 @@ export default async function IdeaDetailPage({ params }: Props) {
             />
             <ShareButtons
               title={idea.title}
-              url={`https://destroysass.vercel.app/ideas/${id}`}
+              url={`https://destroysass.coop/ideas/${id}`}
             />
           </div>
         </div>
