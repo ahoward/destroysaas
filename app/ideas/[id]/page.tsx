@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/app/auth/actions";
+import Nav from "@/app/components/nav";
 import PledgePanel from "./pledge_panel";
 import EditIdea from "./edit_idea";
 import DeleteIdea from "./delete_idea";
@@ -102,30 +102,7 @@ export default async function IdeaDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      {/* nav */}
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <a
-          href="/"
-          className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors"
-        >
-          destroysass
-        </a>
-        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">ideas</a>
-          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
-          {user ? (
-            <>
-              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
-              <form action={signOut}>
-                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
-              </form>
-            </>
-          ) : (
-            <a href={`/auth?next=/ideas/${id}`} className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
-          )}
-        </div>
-      </nav>
+      <Nav currentPath="/ideas" />
 
       <main className="max-w-2xl mx-auto px-6 pt-8 pb-32">
         {/* back link */}

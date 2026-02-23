@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/app/auth/actions";
+import Nav from "@/app/components/nav";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -25,27 +25,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
 
-      {/* nav */}
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <span className="text-red-600 font-bold text-lg tracking-tight">
-          destroysass
-        </span>
-        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">ideas</a>
-          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
-          {user ? (
-            <>
-              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
-              <form action={signOut}>
-                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
-              </form>
-            </>
-          ) : (
-            <a href="/auth" className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
-          )}
-        </div>
-      </nav>
+      <Nav currentPath="/" />
 
       {/* hero */}
       <main className="max-w-2xl mx-auto px-6 pt-20 pb-32">

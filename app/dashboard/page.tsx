@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/app/auth/actions";
+import Nav from "@/app/components/nav";
 import WithdrawButton from "./withdraw_button";
 import VerifyBanner from "./verify_banner";
 
@@ -236,26 +236,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      {/* nav */}
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <a
-          href="/"
-          className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors"
-        >
-          destroysass
-        </a>
-        <div className="flex items-center gap-4">
-          <span className="text-sm text-[var(--text-muted)]">{user.email}</span>
-          <form action={signOut}>
-            <button
-              type="submit"
-              className="text-sm text-[var(--text-secondary)] border border-[var(--border-secondary)] px-3 py-1.5 rounded hover:border-[var(--border-secondary)] hover:text-[var(--text-primary)] transition-colors"
-            >
-              sign out
-            </button>
-          </form>
-        </div>
-      </nav>
+      <Nav currentPath="/dashboard" />
 
       <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">
         <div className="mb-10">

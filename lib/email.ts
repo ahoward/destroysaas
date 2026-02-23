@@ -28,7 +28,7 @@ function get_service_client() {
   return createClient(url, key);
 }
 
-function email_template(title: string, body_html: string): string {
+export function email_template(title: string, body_html: string): string {
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
@@ -47,7 +47,7 @@ function email_template(title: string, body_html: string): string {
 </html>`;
 }
 
-async function send_email(to: string, subject: string, html: string): Promise<void> {
+export async function send_email(to: string, subject: string, html: string): Promise<void> {
   const resend = get_resend();
   if (!resend) return;
 

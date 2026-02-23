@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/app/auth/actions";
+import Nav from "@/app/components/nav";
 import IdeasFilter from "./ideas_filter";
 
 export const metadata: Metadata = {
@@ -41,27 +41,7 @@ export default async function IdeasPage() {
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      {/* nav */}
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <a href="/" className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors">
-          destroysass
-        </a>
-        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-          <span className="text-[var(--text-primary)]">ideas</span>
-          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
-          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">about</a>
-          {user ? (
-            <>
-              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
-              <form action={signOut}>
-                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
-              </form>
-            </>
-          ) : (
-            <a href="/auth" className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
-          )}
-        </div>
-      </nav>
+      <Nav currentPath="/ideas" />
 
       {/* header */}
       <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">

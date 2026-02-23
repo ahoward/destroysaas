@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
+import Nav from "@/app/components/nav";
 
 const STATUS_LABELS: Record<string, string> = {
   proposed: "proposed",
@@ -117,22 +118,7 @@ export default async function ProfilePage({
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <a
-          href="/"
-          className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors"
-        >
-          destroysass
-        </a>
-        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">
-            ideas
-          </a>
-          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">
-            about
-          </a>
-        </div>
-      </nav>
+      <Nav currentPath="/profile" />
 
       <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">
         {/* profile header */}

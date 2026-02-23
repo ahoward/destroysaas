@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/app/auth/actions";
+import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
   title: "about — destroysass",
@@ -42,34 +41,9 @@ const faqs = [
 ];
 
 export default async function AboutPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      {/* nav */}
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <a href="/" className="text-red-600 font-bold text-lg tracking-tight">
-          destroysass
-        </a>
-        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">ideas</a>
-          <a href="/dev-cells" className="hover:text-[var(--text-primary)] transition-colors">dev cells</a>
-          <a href="/about" className="text-[var(--text-primary)]">about</a>
-          {user ? (
-            <>
-              <a href="/dashboard" className="hover:text-[var(--text-primary)] transition-colors">dashboard</a>
-              <form action={signOut}>
-                <button type="submit" className="hover:text-[var(--text-primary)] transition-colors">sign out</button>
-              </form>
-            </>
-          ) : (
-            <a href="/auth" className="hover:text-[var(--text-primary)] transition-colors">sign in</a>
-          )}
-        </div>
-      </nav>
+      <Nav currentPath="/about" />
 
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
         {/* hero */}
@@ -177,6 +151,16 @@ export default async function AboutPage() {
               <p className="font-semibold mb-1">the financial model</p>
               <p className="text-[var(--text-muted)] text-sm leading-relaxed">
                 how cells get funded, inventor equity, treasury mechanics, and exactly where every dollar goes.
+              </p>
+            </a>
+            <a
+              href="/about/authors"
+              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors sm:col-span-2"
+            >
+              <p className="font-semibold mb-1">the authors</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                the people behind destroysass and why they&apos;re building this. not theorists &mdash; practitioners
+                who&apos;ve already operated cooperatives, shipped infrastructure, and open-sourced the bylaws.
               </p>
             </a>
           </div>

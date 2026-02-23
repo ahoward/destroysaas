@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
   title: "terms of service — destroysass",
@@ -7,22 +8,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
-        <a
-          href="/"
-          className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors"
-        >
-          destroysass
-        </a>
-        <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-          <a href="/ideas" className="hover:text-[var(--text-primary)] transition-colors">
-            ideas
-          </a>
-          <a href="/about" className="hover:text-[var(--text-primary)] transition-colors">
-            about
-          </a>
-        </div>
-      </nav>
+      <Nav currentPath="/terms" />
 
       <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">
         <h1 className="text-3xl font-bold tracking-tight mb-2">

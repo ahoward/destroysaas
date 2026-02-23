@@ -310,9 +310,17 @@ export default async function AdminPage() {
 
       <main className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">admin panel</h1>
-        <p className="text-gray-500 text-sm mb-10">
+        <p className="text-gray-500 text-sm mb-4">
           logged in as <span className="text-gray-300">{user.email}</span>
         </p>
+        <div className="mb-10">
+          <a
+            href="/admin/invitations"
+            className="text-sm text-red-600 hover:text-red-500 transition-colors"
+          >
+            manage invitations &rarr;
+          </a>
+        </div>
 
         {/* --- analytics: platform overview --- */}
         <section className="mb-12">
