@@ -84,7 +84,7 @@ export default async function LegalPage() {
           </div>
         </section>
 
-        {/* dev cell contracts */}
+        {/* cell contracts */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">developer contracts</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
@@ -94,14 +94,14 @@ export default async function LegalPage() {
               think of it like hiring a builder for your house — they do the work, you own the result.
             </p>
             <p>
-              dev cells are bound by a{" "}
+              cells are bound by a{" "}
               <span className="text-[var(--text-primary)] font-medium">strict SLA</span> covering uptime,
               bug resolution, and delivery timelines. they draw from the cell&apos;s treasury monthly,
               contingent on hitting those metrics. all intellectual property belongs to the LCA, not the devs.
             </p>
             <p>
-              if a dev cell underperforms, abandons the project, or breaches the SLA, the collective votes
-              to sever the contract and route to a new certified dev cell.{" "}
+              if a cell underperforms, abandons the project, or breaches the SLA, the collective votes
+              to sever the contract and route to a new certified cell.{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 the software survives the developer
               </span>. always.
@@ -117,7 +117,7 @@ export default async function LegalPage() {
               {
                 step: "1",
                 title: "direct communication",
-                desc: "members and dev cells resolve issues through direct conversation first. most things get handled here.",
+                desc: "members and cells resolve issues through direct conversation first. most things get handled here.",
               },
               {
                 step: "2",

@@ -41,11 +41,11 @@ a stripe/opencollective hook that lets businesses put money on the line.
 
 a simple form for developer cooperatives to apply for platform certification.
 
-- certified dev cells are vetted for technical competence, cooperative structure, and financial
+- certified cells are vetted for technical competence, cooperative structure, and financial
   responsibility
-- when a cell triggers, certified dev cells can submit proposals to build and maintain the stack
-- the smb cell selects their dev cell via governed vote
-- the selected dev cell is bound by a standard sla contract (exhibit a of the lca operating
+- when a cell triggers, certified cells can submit proposals to build and maintain the stack
+- the smb cell selects their cell via governed vote
+- the selected cell is bound by a standard sla contract (exhibit a of the lca operating
   agreement)
 
 ---
@@ -63,9 +63,9 @@ other smbs pledge monthly amounts
       ↓
 lca is formed (wyoming) + dao initialized + opencollective treasury activated
       ↓
-certified dev cells submit proposals
+certified cells submit proposals
       ↓
-smb cell votes → dev cell selected
+smb cell votes → cell selected
       ↓
 build begins, funded by treasury
       ↓
@@ -86,7 +86,7 @@ vendor lock-in.
 **why it's the right first cell:**
 - smbs are drowning in notion/confluence subscription bloat and terrified of their proprietary
   data living on someone else's servers
-- it requires persistent hosting, robust maintenance, and zero downtime — proving the dev cell
+- it requires persistent hosting, robust maintenance, and zero downtime — proving the cell
   model immediately
 - the problem is universal enough to attract 10–15 sponsors easily, but specific enough to ship
   a focused v1
@@ -95,7 +95,7 @@ vendor lock-in.
 
 **target sponsors:** 10–15 small agencies, consultancies, or tech-adjacent smbs at $100/mo each  
 **initial treasury:** ~$1,000–1,500/mo  
-**dev cell scope:** containerized rails/bun app, sqlite backend, hosted on shared infra owned
+**cell scope:** containerized rails/bun app, sqlite backend, hosted on shared infra owned
 by the lca
 
 ---
@@ -112,13 +112,13 @@ every member of a cell is a co-owner. they have equity, they have a vote, they h
 this is the inversion of the saas relationship. you are not a user of someone else's product —
 you are an owner of your own.
 
-### the dev cell is labor, not governance
+### the cell is labor, not governance
 developers build and maintain the stack. they don't own the vision. the smb co-owners govern
 direction. this separation is intentional and important — it's the same reason you hire a
 contractor to build your house and don't let them decide where your kitchen goes.
 
 ### everything is replaceable except the network
-the dev cell can be fired. the hosting can be moved. the code can be forked. what cannot be
+the cell can be fired. the hosting can be moved. the code can be forked. what cannot be
 replaced is the trust network, the shared legal history, and the accumulated maintenance of the
 lca. that's the durable value — and it lives with the community, not the vendor.
 
@@ -135,13 +135,13 @@ one-size-fits-all is the saas disease. custom-fit-for-us is the cure.
 **year 1:**
 - 5–10 active cells, each with 8–15 smb members
 - ~$50–100k annual platform revenue
-- a handful of certified dev cells building reputation and recurring income
+- a handful of certified cells building reputation and recurring income
 - the lca boilerplate and onboarding is so smooth that "coop-in-a-box" is a real thing
 
 **year 2:**
 - 50+ cells across multiple verticals (knowledge management, team comms, inventory, scheduling)
 - cells starting to interoperate — the brane cell talking to the comms cell
-- dev cells competing for quality reputation, not just price
+- cells competing for quality reputation, not just price
 - destroysass.ai is the place you go when you've decided saas is not the answer
 
 **year 3:**

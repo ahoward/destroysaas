@@ -37,7 +37,7 @@ the app is live at https://destroysass.vercel.app
 - [x] 008 — search/sort/filter on ideas board + inline idea editing (creator only)
 - [x] 009 — idea deletion by creator (with confirmation, RLS policy)
 - [x] 010 — email notifications via resend (pledge, status change, cell formation)
-- [x] 011 — dev cell profiles & applications (/dev-cells, apply form, admin review)
+- [x] 011 — cell profiles & applications (/cells, apply form, admin review)
 - [x] 012 — idea comments & discussion (threaded, owner delete, display names)
 - [x] 013 — public stats & social sharing (twitter, linkedin, copy link)
 - [x] 014 — polish & UX (custom 404, shared footer, loading skeletons, password reset)
@@ -58,7 +58,7 @@ the app is live at https://destroysass.vercel.app
 - comments (id, idea_id, user_id, display_name, body, created_at)
 - upvotes (id, idea_id, user_id, created_at)
 - profiles (id→auth.users, display_name, bio, website, created_at)
-- dev_cells (id, name, description, website, skills[], contact_email, status, applied_by, timestamps)
+- cells (id, name, description, website, skills[], contact_email, status, applied_by, timestamps)
 - groups (id, name, description, created_at)
 - group_members (id, group_id, user_id, created_at)
 - invitations (id, token, created_by, recipient_name/email, group_names[], redirect_path, note, view_count, viewed_at, accepted_at/by, expires_at, created_at)
@@ -118,12 +118,12 @@ not a feature — this is manual work:
 - pattern-match the first cell's problem from conversations
 - see /cabal/bizops for the full playbook
 
-### dev cell recruitment (non-code)
+### cell recruitment (non-code)
 
 - find 3–5 dev cooperatives to certify
 - vet manually (interview, portfolio, references)
 - create certification checklist
-- white-glove onboard the first dev cell
+- white-glove onboard the first cell
 - see /cabal/bizops for details
 
 ### platform entity formation (non-code)
@@ -132,10 +132,10 @@ not a feature — this is manual work:
 - wyoming filing (~$100), EIN, bank account
 - needed before stripe can go live
 
-### dev cell bidding & selection
+### cell bidding & selection
 
-- mechanism for certified dev cells to bid on triggered cells
-- member voting on dev cell selection
+- mechanism for certified cells to bid on triggered cells
+- member voting on cell selection
 - SLA contract template generation
 
 ### opencollective integration
@@ -158,8 +158,8 @@ not a feature — this is manual work:
 
 - lca incorporation workflow ("coop-in-a-box" one-click formation)
 - inter-cell api routing + protocol fees
-- cell health dashboard (uptime, SLA metrics, dev cell activity)
-- automated dev cell payments (SLA metrics → auto-approve → auto-pay)
+- cell health dashboard (uptime, SLA metrics, cell activity)
+- automated cell payments (SLA metrics → auto-approve → auto-pay)
 - mobile-optimized views
 - public api for cell data
 
@@ -181,7 +181,7 @@ not a feature — this is manual work:
 - [x] 008 — search/sort/filter + idea editing
 - [x] 009 — idea deletion + RLS policy
 - [x] 010 — email notifications (resend)
-- [x] 011 — dev cell profiles & applications
+- [x] 011 — cell profiles & applications
 - [x] 012 — idea comments & discussion
 - [x] 013 — public stats & social sharing
 - [x] 014 — polish & UX (404, footer, skeletons, password reset)

@@ -27,8 +27,8 @@ export default function TermsPage() {
               destroysass is a platform where small businesses collectively
               fund, own, and control the software they depend on. we facilitate
               the process of proposing software ideas, gathering financial
-              commitments (pledges), and forming development cooperatives (dev
-              cells) to build and maintain that software.
+              commitments (pledges), and forming development cooperatives
+              (cells) to build and maintain that software.
             </p>
           </section>
 
@@ -43,7 +43,7 @@ export default function TermsPage() {
               payment obligations.
             </p>
             <p className="mt-2">
-              when an idea reaches its funding threshold and a dev cell is
+              when an idea reaches its funding threshold and a cell is
               formed, participating pledgers will be invited to enter into a
               binding cooperative agreement. only at that point do financial
               obligations begin. you may withdraw your pledge at any time before
@@ -57,7 +57,7 @@ export default function TermsPage() {
             </h2>
             <p>
               cell formation creates a cooperative structure among pledgers and
-              the assigned dev cell. upon cell formation, participants agree to
+              the assigned cell. upon cell formation, participants agree to
               their stated monthly contributions for an initial commitment
               period. the specific terms of each cooperative are defined at
               formation time.
@@ -107,7 +107,7 @@ export default function TermsPage() {
             <p>
               platform administrators reserve the right to moderate content,
               remove ideas or comments that violate these terms, approve or
-              reject dev cell applications, and trigger cell formation when
+              reject cell applications, and trigger cell formation when
               appropriate. admin actions are taken in the interest of platform
               health and community trust.
             </p>
@@ -133,7 +133,7 @@ export default function TermsPage() {
             <p>
               destroysass provides this platform &ldquo;as is&rdquo; without
               warranty of any kind. we are not liable for the quality, delivery,
-              or maintenance of software built by dev cells. we are not a party
+              or maintenance of software built by cells. we are not a party
               to cooperative agreements formed through the platform. our
               liability is limited to the direct fees paid to the platform, if
               any.

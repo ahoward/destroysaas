@@ -52,10 +52,10 @@ export default async function CabalPage() {
     .from("upvotes")
     .select("id", { count: "exact", head: true });
 
-  // service role for user count + dev cell counts
+  // service role for user count + cell counts
   let user_count = 0;
-  let dev_cells_pending = 0;
-  let dev_cells_approved = 0;
+  let cells_pending = 0;
+  let cells_approved = 0;
 
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
   if (serviceRoleKey) {
@@ -73,16 +73,16 @@ export default async function CabalPage() {
     user_count = api_total ?? 0;
 
     const { count: pending } = await adminClient
-      .from("dev_cells")
+      .from("cells")
       .select("id", { count: "exact", head: true })
       .eq("status", "pending");
-    dev_cells_pending = pending ?? 0;
+    cells_pending = pending ?? 0;
 
     const { count: approved } = await adminClient
-      .from("dev_cells")
+      .from("cells")
       .select("id", { count: "exact", head: true })
       .eq("status", "approved");
-    dev_cells_approved = approved ?? 0;
+    cells_approved = approved ?? 0;
   }
 
   return (
@@ -113,8 +113,8 @@ export default async function CabalPage() {
               { value: total_sponsors, label: "sponsors" },
               { value: upvote_count ?? 0, label: "upvotes" },
               { value: comment_count ?? 0, label: "comments" },
-              { value: dev_cells_approved, label: "dev cells approved" },
-              { value: dev_cells_pending, label: "dev cells pending" },
+              { value: cells_approved, label: "cells approved" },
+              { value: cells_pending, label: "cells pending" },
             ].map((stat) => (
               <div key={stat.label} className="border border-[var(--border-primary)] rounded-lg p-3 text-center">
                 <div className="text-2xl font-bold tabular-nums text-red-600">{stat.value}</div>
@@ -157,8 +157,8 @@ export default async function CabalPage() {
               "idea submission with validation + inline editing",
               "pledge mechanics ($25–$500/mo, progress bars, auto-status triggers)",
               "user dashboard with stats, activity feed, profile editing",
-              "admin panel with analytics, cell formation triggers, dev cell approval",
-              "dev cell applications and public profiles",
+              "admin panel with analytics, cell formation triggers, cell approval",
+              "cell applications and public profiles",
               "comments and upvoting",
               "email notifications via resend (pledge, status change, cell formation)",
               "public stats and social sharing (twitter, linkedin, copy link)",
@@ -211,8 +211,8 @@ export default async function CabalPage() {
                 desc: "treasury management doesn't exist yet. need to create collectives per cell, connect to stripe, set up transparent ledger.",
               },
               {
-                title: "dev cell bidding",
-                desc: "dev cells can apply and get approved, but there's no mechanism for them to bid on triggered cells or for members to vote on dev cell selection.",
+                title: "cell bidding",
+                desc: "cells can apply and get approved, but there's no mechanism for them to bid on triggered cells or for members to vote on cell selection.",
               },
               {
                 title: "dao governance layer",
@@ -244,7 +244,7 @@ export default async function CabalPage() {
                 "minimum pledge amount floor (stripe fees eat small amounts)",
                 "do pledges transfer to the cell's stripe account at formation, or does the platform hold?",
                 "trigger criteria — $1k/mo threshold only? minimum sponsor count?",
-                "tax implications — 1099s for dev cells? international pledgers? VAT?",
+                "tax implications — 1099s for cells? international pledgers? VAT?",
               ].map((q) => (
                 <div key={q} className="flex gap-2 text-sm">
                   <span className="text-red-600 shrink-0">?</span>
@@ -278,7 +278,7 @@ export default async function CabalPage() {
               {
                 num: "4",
                 title: "recruit 3–5 dev cooperatives",
-                desc: "vet manually. interview, portfolio review, references. the first certified dev cells are the supply side of the marketplace.",
+                desc: "vet manually. interview, portfolio review, references. the first certified cells are the supply side of the marketplace.",
               },
               {
                 num: "5",

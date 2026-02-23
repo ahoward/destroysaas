@@ -92,7 +92,7 @@ have no standing.
 in the cell model, smbs are **co-owners**. the lca gives them teeth.
 
 - they have **real legal standing** — not just a ticket in a support queue
-- they can **enforce slas** against their dev cell via contract
+- they can **enforce slas** against their cell via contract
 - they can **sue** for violation of terms — the services they're hosting are theirs
 - they collectively negotiate as a **legal syndicate**, not as atomized individual customers
 
@@ -101,17 +101,17 @@ in the cell model, smbs are **co-owners**. the lca gives them teeth.
 
 ---
 
-## the dev cell layer
+## the cell layer
 
-the dev cell is **capital vs. labor** — kept deliberately separate from governance.
+the cell is **capital vs. labor** — kept deliberately separate from governance.
 
 - dev cooperatives are **independent contractors**, not owners of the lca
 - they are bound by a strict **sla** with uptime and bug-resolution metrics
 - they access the opencollective treasury monthly, contingent on hitting those metrics
 - all code is **agpl/mit** — ip belongs to the lca, not the devs
-- if a dev cell abandons the project, the lca votes (simple majority) to sever the contract and
-  route the treasury to a new certified dev cell
-- the software survives the dev cell. that's the point.
+- if a cell abandons the project, the lca votes (simple majority) to sever the contract and
+  route the treasury to a new certified cell
+- the software survives the cell. that's the point.
 
 ---
 
@@ -124,7 +124,7 @@ destroysass.ai is the marketplace layer. it charges for trust, legal scaffolding
 | **cell formation fee** | 1 | one-time fee for lca incorporation, dao setup, opencollective onboarding ("coop-in-a-box") |
 | **premium listing** | 1 | smbs pay to boost idea visibility on the portal board |
 | **platform take-rate** | 2 | 5–10% of each cell's monthly treasury |
-| **dev cell certification** | 2 | vetting and credentialing developer cooperatives |
+| **cell certification** | 2 | vetting and credentialing developer cooperatives |
 | **inter-cell routing** | 3 | micro-transaction fees on cross-cell api calls and data liquidity |
 
 ---

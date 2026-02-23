@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { signOut } from "@/app/auth/actions";
 import CellFormButton from "./cell_form_button";
-import DevCellReviewButton from "./dev_cell_review_button";
+import CellReviewButton from "./cell_review_button";
 import GroupManager from "./group_manager";
 import { is_admin, ensure_root_membership } from "@/lib/groups";
 
@@ -36,7 +36,7 @@ type IdeaRow = {
   created_at: string;
 };
 
-type DevCellRow = {
+type CellRow = {
   id: string;
   name: string;
   description: string;
@@ -131,12 +131,12 @@ export default async function AdminPage() {
       .lt("created_at", one_week_ago),
   ]);
 
-  // service-role-only data: user count, dev cell counts
+  // service-role-only data: user count, cell counts
   let user_count = 0;
-  let dev_cells_approved = 0;
-  let dev_cells_pending = 0;
-  let dev_cells_rejected = 0;
-  let pendingCells: DevCellRow[] = [];
+  let cells_approved = 0;
+  let cells_pending = 0;
+  let cells_rejected = 0;
+  let pendingCells: CellRow[] = [];
   let users_this_week = 0;
   let users_last_week = 0;
 
@@ -151,19 +151,19 @@ export default async function AdminPage() {
     ] = await Promise.all([
       adminClient.auth.admin.listUsers({ page: 1, perPage: 1 }),
       adminClient
-        .from("dev_cells")
+        .from("cells")
         .select("id", { count: "exact", head: true })
         .eq("status", "approved"),
       adminClient
-        .from("dev_cells")
+        .from("cells")
         .select("id", { count: "exact", head: true })
         .eq("status", "pending"),
       adminClient
-        .from("dev_cells")
+        .from("cells")
         .select("id", { count: "exact", head: true })
         .eq("status", "rejected"),
       adminClient
-        .from("dev_cells")
+        .from("cells")
         .select(
           "id, name, description, website, skills, contact_email, created_at"
         )
@@ -184,9 +184,9 @@ export default async function AdminPage() {
           ?.length ?? 0;
     }
 
-    dev_cells_approved = cells_approved_result.count ?? 0;
-    dev_cells_pending = cells_pending_result.count ?? 0;
-    dev_cells_rejected = cells_rejected_result.count ?? 0;
+    cells_approved = cells_approved_result.count ?? 0;
+    cells_pending = cells_pending_result.count ?? 0;
+    cells_rejected = cells_rejected_result.count ?? 0;
     pendingCells = pending_cells_result.data ?? [];
 
     // user growth from full user list
@@ -290,8 +290,8 @@ export default async function AdminPage() {
           <a href="/ideas" className="hover:text-white transition-colors">
             ideas
           </a>
-          <a href="/dev-cells" className="hover:text-white transition-colors">
-            dev cells
+          <a href="/cells" className="hover:text-white transition-colors">
+            cells
           </a>
           <a href="/dashboard" className="hover:text-white transition-colors">
             dashboard
@@ -360,11 +360,11 @@ export default async function AdminPage() {
             </div>
             <div className="border border-gray-800 rounded-lg p-3 text-center">
               <div className="text-2xl font-bold tabular-nums">
-                <span className="text-green-400">{dev_cells_approved}</span>
+                <span className="text-green-400">{cells_approved}</span>
                 <span className="text-gray-600 text-lg"> / </span>
-                <span className="text-yellow-500">{dev_cells_pending}</span>
+                <span className="text-yellow-500">{cells_pending}</span>
                 <span className="text-gray-600 text-lg"> / </span>
-                <span className="text-red-800">{dev_cells_rejected}</span>
+                <span className="text-red-800">{cells_rejected}</span>
               </div>
               <div className="text-xs text-gray-500 mt-1">cells a/p/r</div>
             </div>
@@ -523,13 +523,13 @@ export default async function AdminPage() {
           )}
         </section>
 
-        {/* --- dev cell applications --- */}
+        {/* --- cell applications --- */}
         <section className="mb-12">
           <h2 className="text-xl font-semibold mb-1 text-purple-400">
-            dev cell applications
+            cell applications
           </h2>
           <p className="text-gray-500 text-sm mb-4">
-            pending cooperative applications — approve to list on /dev-cells.
+            pending cooperative applications — approve to list on /cells.
           </p>
 
           {pendingCells.length === 0 ? (
@@ -550,7 +550,7 @@ export default async function AdminPage() {
                         {cell.description}
                       </p>
                     </div>
-                    <DevCellReviewButton cellId={cell.id} />
+                    <CellReviewButton cellId={cell.id} />
                   </div>
                   <div className="flex flex-wrap items-center gap-2 mt-2 text-xs text-gray-500">
                     <span>{cell.contact_email}</span>

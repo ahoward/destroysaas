@@ -75,7 +75,7 @@ export async function triggerCellFormation(ideaId: string): Promise<ActionResult
   return { success: true };
 }
 
-export async function approveDevCell(id: string): Promise<ActionResult> {
+export async function approveCell(id: string): Promise<ActionResult> {
   if (!UUID_RE.test(id)) {
     return { error: "invalid id." };
   }
@@ -99,7 +99,7 @@ export async function approveDevCell(id: string): Promise<ActionResult> {
   const adminClient = createServiceClient(supabaseUrl, serviceRoleKey);
 
   const { error: updateError } = await adminClient
-    .from("dev_cells")
+    .from("cells")
     .update({ status: "approved", updated_at: new Date().toISOString() })
     .eq("id", id);
 
@@ -107,12 +107,12 @@ export async function approveDevCell(id: string): Promise<ActionResult> {
     return { error: `failed to approve: ${updateError.message}` };
   }
 
-  revalidatePath("/dev-cells");
+  revalidatePath("/cells");
   revalidatePath("/admin");
   return { success: true };
 }
 
-export async function rejectDevCell(id: string): Promise<ActionResult> {
+export async function rejectCell(id: string): Promise<ActionResult> {
   if (!UUID_RE.test(id)) {
     return { error: "invalid id." };
   }
@@ -136,7 +136,7 @@ export async function rejectDevCell(id: string): Promise<ActionResult> {
   const adminClient = createServiceClient(supabaseUrl, serviceRoleKey);
 
   const { error: updateError } = await adminClient
-    .from("dev_cells")
+    .from("cells")
     .update({ status: "rejected", updated_at: new Date().toISOString() })
     .eq("id", id);
 
@@ -144,7 +144,7 @@ export async function rejectDevCell(id: string): Promise<ActionResult> {
     return { error: `failed to reject: ${updateError.message}` };
   }
 
-  revalidatePath("/dev-cells");
+  revalidatePath("/cells");
   revalidatePath("/admin");
   return { success: true };
 }

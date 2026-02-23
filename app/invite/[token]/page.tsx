@@ -126,7 +126,7 @@ export default async function InviteLandingPage({ params }: Props) {
           </h2>
           <div className="space-y-3 text-sm">
             {[
-              "live platform metrics — users, ideas, pledges, dev cells",
+              "live platform metrics — users, ideas, pledges, cells",
               "honest state of the union — what's built, what's not, what's next",
               "the bizops playbook — legal formation, financial rails, customer discovery",
               "open business questions — the decisions that need answers before we scale",

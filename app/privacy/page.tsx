@@ -43,7 +43,7 @@ export default function PrivacyPage() {
                 <strong>upvotes:</strong> which ideas you&apos;ve upvoted
               </li>
               <li>
-                <strong>dev cell applications:</strong> organization name,
+                <strong>cell applications:</strong> organization name,
                 description, skills, contact email
               </li>
             </ul>

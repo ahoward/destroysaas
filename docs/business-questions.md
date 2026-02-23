@@ -35,7 +35,7 @@ These questions need answers before or during development of the corresponding f
 
 ## Legal & Compliance (blocks: Stripe, launch)
 
-- [ ] **Tax implications.** Monthly pledge collections are revenue. What tax entity handles this? Do we need to issue 1099s to dev cells?
+- [ ] **Tax implications.** Monthly pledge collections are revenue. What tax entity handles this? Do we need to issue 1099s to cells?
 - [ ] **International pledgers.** Do we accept pledges from outside the US? VAT implications?
 - [ ] **PCI compliance.** Stripe handles card data, but do we need any additional compliance documentation?
 

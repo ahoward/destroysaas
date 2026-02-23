@@ -14,10 +14,10 @@ export default function ApplicationForm() {
           your application is under review. we&apos;ll be in touch.
         </p>
         <a
-          href="/dev-cells"
+          href="/cells"
           className="text-red-500 hover:text-red-400 text-sm mt-4 inline-block transition-colors"
         >
-          &larr; back to dev cells
+          &larr; back to cells
         </a>
       </div>
     );
@@ -33,7 +33,7 @@ export default function ApplicationForm() {
 
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-1">
-          cooperative name
+          name
         </label>
         <input
           id="name"
@@ -60,7 +60,7 @@ export default function ApplicationForm() {
           rows={4}
           maxLength={1000}
           className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none resize-none"
-          placeholder="what does your cooperative do? what's your experience?"
+          placeholder="what does your group do? what's your experience?"
         />
         {state?.errors?.description && (
           <p className="text-red-400 text-xs mt-1">{state.errors.description}</p>
@@ -76,7 +76,7 @@ export default function ApplicationForm() {
           name="website"
           type="url"
           className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-          placeholder="https://yourcooperative.dev"
+          placeholder="https://yourgroup.dev"
         />
         {state?.errors?.website && (
           <p className="text-red-400 text-xs mt-1">{state.errors.website}</p>
@@ -110,7 +110,7 @@ export default function ApplicationForm() {
           type="email"
           required
           className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-          placeholder="hello@yourcooperative.dev"
+          placeholder="hello@yourgroup.dev"
         />
         {state?.errors?.contact_email && (
           <p className="text-red-400 text-xs mt-1">{state.errors.contact_email}</p>

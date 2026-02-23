@@ -107,10 +107,10 @@ export default async function MoneyPage() {
               each cell&apos;s treasury is managed through{" "}
               <span className="text-[var(--text-primary)] font-medium">OpenCollective</span> — fully
               transparent, every transaction visible to every member. monthly contributions from
-              co-sponsors flow in. dev cell payments flow out.
+              co-sponsors flow in. cell payments flow out.
             </p>
             <p>
-              the dev cell draws from the treasury monthly,{" "}
+              the cell draws from the treasury monthly,{" "}
               <span className="text-[var(--text-primary)] font-medium">contingent on hitting their SLA metrics</span>.
               uptime, bug resolution, delivery cadence — if they miss, they don&apos;t get paid in full.
               accountability is baked into the payment structure, not left to trust.
@@ -134,10 +134,10 @@ export default async function MoneyPage() {
               },
               {
                 label: "platform take-rate",
-                desc: "5\u201310% of each cell\u2019s monthly treasury. this funds platform development, support, and the certification infrastructure that keeps dev cells accountable.",
+                desc: "5\u201310% of each cell\u2019s monthly treasury. this funds platform development, support, and the certification infrastructure that keeps cells accountable.",
               },
               {
-                label: "dev cell certification",
+                label: "cell certification",
                 desc: "developer cooperatives pay to get vetted and listed. this covers technical review, cooperative structure verification, and ongoing compliance.",
               },
               {

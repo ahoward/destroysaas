@@ -174,7 +174,7 @@ export default async function Home() {
             </h3>
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
-                the dev cell model is simple: form a cooperative, get certified, and bid on cells that hit threshold.
+                the cell model is simple: form a cooperative, get certified, and bid on cells that hit threshold.
                 you build real software for real businesses under a real contract — not spec work, not exposure,
                 not &ldquo;equity&rdquo; in someone else&apos;s startup.
               </p>
@@ -189,10 +189,10 @@ export default async function Home() {
               </p>
             </div>
             <a
-              href="/dev-cells"
+              href="/cells"
               className="inline-block mt-4 text-sm text-red-600 hover:text-red-500 transition-colors"
             >
-              apply as a dev cell &rarr;
+              apply as a cell &rarr;
             </a>
           </section>
 
@@ -217,7 +217,7 @@ export default async function Home() {
               </p>
               <p>
                 revenue model: cell formation fees, platform take-rate (5&ndash;10% of each cell&apos;s treasury),
-                dev cell certification, and inter-cell API routing fees at scale.
+                cell certification, and inter-cell API routing fees at scale.
                 every cell that forms <span className="text-[var(--text-primary)] font-medium">increases the network and decreases churn</span> —
                 because owners don&apos;t churn the way customers do.
               </p>

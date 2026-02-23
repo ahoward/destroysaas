@@ -44,14 +44,14 @@ a **cell** is a micro-saas cooperative. it has three parts:
 |--|-----|------|
 | **founder** | the smb that proposed the idea | founding equity + roadmap steering |
 | **members** | co-sponsor smbs | monthly treasury fee + equity + legal standing |
-| **dev cell** | vetted developer cooperative | builds and maintains under sla |
+| **cell** | the group that builds and runs it | organizes ad-hoc, builds and maintains under sla |
 
 cells are governed via a **wyoming lca** (patron-owned cooperative) and a **dao** for
 operational voting. all code is agpl/mit. the ip belongs to the lca — not the devs, not the
 platform, not some vc.
 
-if the dev cell walks: the lca votes, fires them, and routes the treasury to a new one.  
-the software survives the dev cell. that's the point.
+if the cell walks: the lca votes, fires them, and routes the treasury to a new one.
+the software survives the cell. that's the point.
 
 ---
 
@@ -74,7 +74,7 @@ the portal does three things:
 1. **the board** — ranked list of proposed software concepts, sorted by committed monthly dollars
 2. **the pledge** — stripe/opencollective hook; put money on concepts you care about, held
    in escrow until a cell triggers
-3. **the dev marketplace** — certified developer cooperatives apply and bid on triggered cells
+3. **the marketplace** — certified cells apply and bid on triggered ideas
 
 ---
 

@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Nav from "@/app/components/nav";
 
-type DevCell = {
+type Cell = {
   id: string;
   name: string;
   description: string;
@@ -10,34 +10,34 @@ type DevCell = {
   created_at: string;
 };
 
-export default async function DevCellsPage() {
+export default async function CellsPage() {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const { data: cells } = await supabase
-    .from("dev_cells")
+  const { data: cellData } = await supabase
+    .from("cells")
     .select("id, name, description, website, skills, created_at")
     .order("name");
 
-  const approved: DevCell[] = cells ?? [];
+  const approved: Cell[] = cellData ?? [];
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <Nav currentPath="/dev-cells" />
+      <Nav currentPath="/cells" />
 
       <main className="max-w-2xl mx-auto px-6 py-12">
-        <h1 className="text-3xl font-bold mb-2">dev cells</h1>
+        <h1 className="text-3xl font-bold mb-2">cells</h1>
         <p className="text-[var(--text-muted)] text-sm mb-8">
-          certified developer cooperatives that build and maintain software for the collective.
+          the groups of people who organize to build and run software for the collective.
         </p>
 
         {approved.length === 0 ? (
           <div className="border border-[var(--border-primary)] rounded-lg p-8 text-center">
-            <p className="text-[var(--text-muted)] mb-4">no certified dev cells yet.</p>
+            <p className="text-[var(--text-muted)] mb-4">no certified cells yet.</p>
             <a
-              href="/dev-cells/apply"
+              href="/cells/apply"
               className="text-red-500 hover:text-red-400 text-sm transition-colors"
             >
               be the first to apply &rarr;
@@ -80,13 +80,13 @@ export default async function DevCellsPage() {
 
         <div className="border-t border-[var(--border-primary)] pt-8">
           <p className="text-[var(--text-muted)] text-sm mb-3">
-            are you a developer cooperative? join the network.
+            want to build and run software for the collective? get in.
           </p>
           <a
-            href="/dev-cells/apply"
+            href="/cells/apply"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded text-sm transition-colors"
           >
-            apply to become a certified dev cell &rarr;
+            apply to become a cell &rarr;
           </a>
         </div>
       </main>

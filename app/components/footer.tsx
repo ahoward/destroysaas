@@ -9,7 +9,7 @@ export default function Footer() {
           <a href="/" className="hover:text-[var(--text-secondary)] transition-colors">home</a>
           <a href="/ideas" className="hover:text-[var(--text-secondary)] transition-colors">ideas</a>
           <a href="/about" className="hover:text-[var(--text-secondary)] transition-colors">about</a>
-          <a href="/dev-cells" className="hover:text-[var(--text-secondary)] transition-colors">dev cells</a>
+          <a href="/cells" className="hover:text-[var(--text-secondary)] transition-colors">cells</a>
           <a href="/terms" className="hover:text-[var(--text-secondary)] transition-colors">terms</a>
           <a href="/privacy" className="hover:text-[var(--text-secondary)] transition-colors">privacy</a>
           <a

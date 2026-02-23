@@ -1,26 +1,26 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { approveDevCell, rejectDevCell } from "./actions";
+import { approveCell, rejectCell } from "./actions";
 
 type Props = {
   cellId: string;
 };
 
-export default function DevCellReviewButton({ cellId }: Props) {
+export default function CellReviewButton({ cellId }: Props) {
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<{ error?: string; success?: boolean; action?: string } | null>(null);
 
   function handleApprove() {
     startTransition(async () => {
-      const res = await approveDevCell(cellId);
+      const res = await approveCell(cellId);
       setResult(res ? { ...res, action: "approved" } : { success: true, action: "approved" });
     });
   }
 
   function handleReject() {
     startTransition(async () => {
-      const res = await rejectDevCell(cellId);
+      const res = await rejectCell(cellId);
       setResult(res ? { ...res, action: "rejected" } : { success: true, action: "rejected" });
     });
   }

@@ -10,7 +10,7 @@ export default async function ApplyPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/auth?next=/dev-cells/apply");
+    redirect("/auth?next=/cells/apply");
   }
 
   // check for existing pending application via service role
@@ -23,7 +23,7 @@ export default async function ApplyPage() {
       service_key
     );
     const { data: existing } = await admin
-      .from("dev_cells")
+      .from("cells")
       .select("id")
       .eq("applied_by", user.id)
       .eq("status", "pending")
@@ -33,13 +33,13 @@ export default async function ApplyPage() {
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <Nav currentPath="/dev-cells" />
+      <Nav currentPath="/cells" />
 
       <main className="max-w-2xl mx-auto px-6 py-12">
-        <h1 className="text-3xl font-bold mb-2">apply to become a dev cell</h1>
+        <h1 className="text-3xl font-bold mb-2">apply to become a cell</h1>
         <p className="text-[var(--text-muted)] text-sm mb-8">
-          tell us about your cooperative. approved cells appear on the public listing
-          and can be assigned to build funded ideas.
+          tell us about your group. approved cells appear on the public listing
+          and can be assigned to build and run funded ideas.
         </p>
 
         {has_pending ? (
@@ -49,10 +49,10 @@ export default async function ApplyPage() {
               you already have an application under review. we&apos;ll be in touch.
             </p>
             <a
-              href="/dev-cells"
+              href="/cells"
               className="text-red-500 hover:text-red-400 text-sm mt-4 inline-block transition-colors"
             >
-              &larr; back to dev cells
+              &larr; back to cells
             </a>
           </div>
         ) : (

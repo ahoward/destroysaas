@@ -30,7 +30,7 @@ export async function submitApplication(
   if (service_key) {
     const admin = createServiceClient(service_url, service_key);
     const { data: existing } = await admin
-      .from("dev_cells")
+      .from("cells")
       .select("id, status")
       .eq("applied_by", user.id)
       .eq("status", "pending")
@@ -74,7 +74,7 @@ export async function submitApplication(
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
 
-  const { error: insert_error } = await supabase.from("dev_cells").insert({
+  const { error: insert_error } = await supabase.from("cells").insert({
     name,
     description,
     website: website || null,
@@ -87,7 +87,7 @@ export async function submitApplication(
     return { errors: { _form: "failed to submit application. please try again." } };
   }
 
-  revalidatePath("/dev-cells");
+  revalidatePath("/cells");
   revalidatePath("/admin");
 
   return { success: true };

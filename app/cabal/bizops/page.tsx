@@ -82,7 +82,7 @@ export default async function BizOpsPage() {
             <h3 className="text-sm font-semibold text-[var(--text-primary)]">manual process (now)</h3>
             <div className="space-y-3 text-sm">
               {[
-                { step: "1", task: "draft operating agreement", detail: "template based on wyoming cooperative statute. defines share classes (A/B), voting rules, exit protections, dev cell SLA terms. need a lawyer to review the first one — then it becomes the template for every cell." },
+                { step: "1", task: "draft operating agreement", detail: "template based on wyoming cooperative statute. defines share classes (A/B), voting rules, exit protections, cell SLA terms. need a lawyer to review the first one — then it becomes the template for every cell." },
                 { step: "2", task: "file articles of organization", detail: "wyoming secretary of state. ~$100 filing fee. name reservation first ($50). registered agent required — use a $50/yr service or be your own initially." },
                 { step: "3", task: "get an EIN", detail: "IRS form SS-4. free. takes 15 minutes online. needed for bank account and stripe." },
                 { step: "4", task: "open a bank account", detail: "mercury or relay (startup-friendly banks). needs EIN, articles, operating agreement. this is the cell's treasury until opencollective is connected." },
@@ -113,7 +113,7 @@ export default async function BizOpsPage() {
           <h2 className="text-xs uppercase tracking-widest text-red-600 mb-6">financial rails</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p className="text-[var(--text-primary)] font-medium">
-              money needs to move: from pledgers to treasury, from treasury to dev cells.
+              money needs to move: from pledgers to treasury, from treasury to cells.
               every step needs an entity, an account, and a paper trail.
             </p>
           </div>
@@ -141,15 +141,15 @@ export default async function BizOpsPage() {
               <p className="font-semibold text-[var(--text-primary)] mb-1">treasury management (manual first)</p>
               <p className="text-sm text-[var(--text-muted)] leading-relaxed">
                 for the first cell: google sheet tracking inflows and outflows. monthly: collect pledges via stripe,
-                transfer to cell bank account, pay dev cell invoice, record in opencollective.
+                transfer to cell bank account, pay cell invoice, record in opencollective.
                 automate when we understand the flow. the spreadsheet is the spec for the software.
               </p>
             </div>
 
             <div className="border-l-2 border-[var(--border-primary)] pl-6">
-              <p className="font-semibold text-[var(--text-primary)] mb-1">dev cell payments</p>
+              <p className="font-semibold text-[var(--text-primary)] mb-1">cell payments</p>
               <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-                dev cells invoice the LCA monthly. payment contingent on SLA metrics (uptime, bug resolution, delivery).
+                cells invoice the LCA monthly. payment contingent on SLA metrics (uptime, bug resolution, delivery).
                 for the first cell: manual review of metrics, manual approval of invoice, manual bank transfer.
                 eventually: automated SLA monitoring, auto-approval, auto-payment via opencollective.
               </p>
@@ -157,12 +157,12 @@ export default async function BizOpsPage() {
           </div>
         </section>
 
-        {/* dev cell recruitment */}
+        {/* cell recruitment */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-red-600 mb-6">dev cell recruitment</h2>
+          <h2 className="text-xs uppercase tracking-widest text-red-600 mb-6">cell recruitment</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              the supply side. without certified dev cells, triggered ideas have nobody to build them.
+              the supply side. without certified cells, triggered ideas have nobody to build them.
               we need <span className="text-[var(--text-primary)] font-medium">3&ndash;5 certified cooperatives</span> before
               the first cell triggers.
             </p>
@@ -173,8 +173,8 @@ export default async function BizOpsPage() {
               { task: "define certification criteria", detail: "technical competence (portfolio, references), cooperative structure (actual co-op, not a consulting shop), financial responsibility (can they sustain a 6-month engagement?), communication standards." },
               { task: "find candidates", detail: "tech co-op directories, freelance cooperatives, worker-owned agencies. reach out directly. explain the model. see who's interested in guaranteed monthly revenue under an SLA vs. hustle-for-clients." },
               { task: "vet manually", detail: "video call. review portfolio. check references. review their cooperative bylaws. understand their capacity. this is a handshake deal with the first few — trust-based, not process-based." },
-              { task: "white-glove onboarding", detail: "walk the first dev cell through the entire process: SLA terms, how the treasury works, how governance works, what happens if they miss metrics, what happens if they want to leave." },
-              { task: "document everything", detail: "the vetting process becomes the certification checklist. the onboarding walkthrough becomes the dev cell handbook. the first one is expensive. the rest are cheap." },
+              { task: "white-glove onboarding", detail: "walk the first cell through the entire process: SLA terms, how the treasury works, how governance works, what happens if they miss metrics, what happens if they want to leave." },
+              { task: "document everything", detail: "the vetting process becomes the certification checklist. the onboarding walkthrough becomes the cell handbook. the first one is expensive. the rest are cheap." },
             ].map((item) => (
               <div key={item.task} className="flex gap-2">
                 <span className="text-red-600 shrink-0">&bull;</span>
@@ -203,8 +203,8 @@ export default async function BizOpsPage() {
               { step: "2", task: "validate sponsors", detail: "call every pledger. confirm they understand the model. confirm they'll actually pay. weed out tire-kickers." },
               { step: "3", task: "file the LCA", detail: "wyoming. articles of organization. operating agreement. EIN. bank account. registered agent. 1–2 weeks." },
               { step: "4", task: "set up financial rails", detail: "stripe connected account. opencollective collective. connect bank. test a real payment end-to-end." },
-              { step: "5", task: "select dev cell", detail: "present certified dev cells to the sponsor group. they vote (or we recommend). sign the SLA. transfer first month's treasury." },
-              { step: "6", task: "ship v1", detail: "dev cell builds. sponsors test. iterate. ship. this is where the model proves itself or breaks." },
+              { step: "5", task: "select cell", detail: "present certified cells to the sponsor group. they vote (or we recommend). sign the SLA. transfer first month's treasury." },
+              { step: "6", task: "ship v1", detail: "cell builds. sponsors test. iterate. ship. this is where the model proves itself or breaks." },
               { step: "7", task: "document the playbook", detail: "write down everything. every email, every filing, every phone call, every decision. this document becomes coop-in-a-box." },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -263,8 +263,8 @@ export default async function BizOpsPage() {
               { when: "month 1", what: "stripe integration — real pledges, real subscriptions, webhook lifecycle" },
               { when: "month 2", what: "automated pledge → treasury pipeline (stripe connect per cell)" },
               { when: "month 3", what: "opencollective API — auto-create collectives, transparent ledger sync" },
-              { when: "month 4", what: "dev cell SLA monitoring — automated uptime checks, bug resolution tracking" },
-              { when: "month 5", what: "automated dev cell payments — SLA metrics → auto-approve → auto-pay" },
+              { when: "month 4", what: "cell SLA monitoring — automated uptime checks, bug resolution tracking" },
+              { when: "month 5", what: "automated cell payments — SLA metrics → auto-approve → auto-pay" },
               { when: "month 6+", what: "coop-in-a-box — one-click LCA filing, operating agreement e-sign, bank account setup, full self-service cell formation" },
             ].map((item) => (
               <div key={item.when} className="flex gap-4">
