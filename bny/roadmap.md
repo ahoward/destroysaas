@@ -20,7 +20,7 @@ after every implement cycle: QA the live app per `bny/qa-playbook.md`.
 
 the app is live at https://destroysass.coop
 
-### what's built (27 features shipped)
+### what's built (31 features shipped)
 
 - [x] next.js 16 + supabase auth scaffolding
 - [x] deployed to vercel (production)
@@ -54,6 +54,10 @@ the app is live at https://destroysass.coop
 - [x] 025 — ghost users, sudo impersonation, seed data bootstrap (11 personas, 15 ideas, 59 pledges, 10 comments from N5 research)
 - [x] 026 — content & messaging (SaaS definition, credit union analogy, FSF/Stallman philosophy page, "code is free, maintenance is not" framing, MVP competition model for cells)
 - [x] 027 — soft gate: lobby dashboard + cabal application (is_inner() gate, /lobby with stats+roadmap+activity, /lobby/apply cabal application form, /admin/applications review queue, non-inner users redirected from /dashboard and /ideas/new)
+- [x] 028 — redefine cells as full-service product cooperatives (product+design+eng+ops, "what is a cell?" section, updated all cell language across site)
+- [x] 029 — lowercase legibility CSS (letter-spacing, word-spacing, line-height 1.75 on body text, ::first-letter weight anchoring, tightened headings)
+- [x] 030 — /why page: SMB economics + interactive SaaS cost calculator (the SaaS tax, destroysass math, industry examples, comparison table, "run your own numbers" calculator)
+- [x] 031 — production hardening: security headers (HSTS, X-Frame-Options, nosniff, XSS, referrer, permissions), robots.txt, dynamic sitemap, Vercel Analytics + Speed Insights
 
 ### database
 
@@ -78,7 +82,12 @@ the app is live at https://destroysass.coop
 - supabase (bjaejvgoifgdanwvglnv, us-east-1)
 - SUPABASE_SERVICE_ROLE_KEY in vercel env
 - SUPABASE_ACCESS_TOKEN for management API
-- resend integration (lib/email.ts) — RESEND_API_KEY not yet configured (issue #2)
+- resend integration (lib/email.ts) — RESEND_API_KEY configured, FROM: ara@destroysass.coop, domain verified
+- proton mail for inbound email (ara@destroysass.coop)
+- vercel analytics + speed insights enabled
+- security headers: HSTS, X-Frame-Options, nosniff, XSS, referrer, permissions
+- robots.txt + dynamic sitemap (static pages + all idea pages from supabase)
+- vercel CLI linked (project: destroysass, org: ahowards-projects)
 - groups-based RBAC (sudo > admin > cabal > ghost, root email fallback)
 - 13 migrations applied (001–013)
 - ghost acting-as: cookie-based sudo impersonation (lib/ghost.ts, /admin/ghosts)
@@ -95,7 +104,7 @@ the app is live at https://destroysass.coop
 
 ## Next
 
-### 028 — stripe integration (real pledges → real payments)
+### 032 — stripe integration (real pledges → real payments)
 
 **blocked by:** business questions in `docs/business-questions.md`
 
@@ -114,14 +123,6 @@ what to build:
 - pledge conversion from intent to real subscription at cell trigger
 - subscription management (upgrade/downgrade/cancel)
 
-### 029 — configure resend for real email delivery
-
-- get RESEND_API_KEY, add to .envrc + vercel env vars
-- verify custom domain with resend (SPF, DKIM, DMARC)
-- update FROM address in lib/email.ts from sandbox to verified domain
-- test all email paths: pledge notification, status change, cell formation, invitation
-- see github issue #2
-
 ---
 
 ## Backlog (in priority order)
@@ -137,7 +138,7 @@ not a feature — this is manual work:
 
 ### cell recruitment (non-code)
 
-- find 3–5 dev cooperatives to certify
+- find 3–5 product cooperatives to certify (product+design+eng+ops)
 - vet manually (interview, portfolio, references)
 - create certification checklist
 - white-glove onboard the first cell
@@ -217,3 +218,7 @@ not a feature — this is manual work:
 - [x] 025 — ghost users + sudo impersonation + seed data bootstrap
 - [x] 026 — content & messaging (SaaS definition, credit union analogy, /about/philosophy, MVP competition model)
 - [x] 027 — soft gate: lobby dashboard + cabal application system
+- [x] 028 — redefine cells as full-service product cooperatives
+- [x] 029 — lowercase legibility CSS + first-letter anchoring
+- [x] 030 — /why page (SMB economics, SaaS cost calculator, industry examples)
+- [x] 031 — production hardening (security headers, robots.txt, sitemap, analytics, Resend config)
