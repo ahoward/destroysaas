@@ -6,6 +6,7 @@ type NavProps = {
 };
 
 const PUBLIC_LINKS = [
+  { href: "/why", label: "why" },
   { href: "/ideas", label: "ideas" },
   { href: "/cells", label: "cells" },
   { href: "/about", label: "about" },

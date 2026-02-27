@@ -177,12 +177,18 @@ export default async function Home() {
                 if your vendor disappeared tomorrow, would your business survive? with destroysass, the answer is always yes.
               </p>
             </div>
-            <div className="flex gap-6 mt-4">
+            <div className="flex flex-wrap gap-6 mt-4">
               <a
                 href="/auth"
                 className="text-sm text-red-600 hover:text-red-500 transition-colors"
               >
                 join and propose what your business needs &rarr;
+              </a>
+              <a
+                href="/why"
+                className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+              >
+                see the math &rarr;
               </a>
               <a
                 href="/about/legal"

@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const FROM = "destroysass <onboarding@resend.dev>";
+const FROM = "destroysass <hello@destroysass.coop>";
 
 const STATUS_LABELS: Record<string, string> = {
   proposed: "Proposed",
@@ -40,7 +40,7 @@ export function email_template(title: string, body_html: string): string {
       ${body_html}
     </div>
     <div style="margin-top:32px;padding-top:16px;border-top:1px solid #262626;font-size:12px;color:#737373;">
-      <a href="${process.env.NEXT_PUBLIC_SUPABASE_URL ? "https://destroysass.vercel.app/dashboard" : "/dashboard"}" style="color:#737373;">Manage your account</a>
+      <a href="https://destroysass.coop/dashboard" style="color:#737373;">Manage your account</a>
     </div>
   </div>
 </body>
@@ -116,7 +116,7 @@ export async function notify_new_pledge(
        <strong>Pledgers:</strong> ${idea.pledge_count}
      </p>
      <p style="margin-top:12px;">
-       <a href="https://destroysass.vercel.app/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
+       <a href="https://destroysass.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
      </p>`
   );
 
@@ -155,7 +155,7 @@ export async function notify_status_change(
        <strong>Pledgers:</strong> ${idea.pledge_count}
      </p>
      <p style="margin-top:12px;">
-       <a href="https://destroysass.vercel.app/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
+       <a href="https://destroysass.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
      </p>`
   );
 
@@ -196,7 +196,7 @@ export async function notify_cell_formation(idea_id: string): Promise<void> {
      </p>
      <p style="margin-top:12px;">What happens next: the destroysass team will reach out to coordinate the cell formation process. Stay tuned.</p>
      <p style="margin-top:12px;">
-       <a href="https://destroysass.vercel.app/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
+       <a href="https://destroysass.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
      </p>`
   );
 
