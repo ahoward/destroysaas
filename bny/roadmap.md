@@ -20,7 +20,7 @@ after every implement cycle: QA the live app per `bny/qa-playbook.md`.
 
 the app is live at https://destroysass.coop
 
-### what's built (25 features shipped)
+### what's built (26 features shipped)
 
 - [x] next.js 16 + supabase auth scaffolding
 - [x] deployed to vercel (production)
@@ -52,6 +52,7 @@ the app is live at https://destroysass.coop
 - [x] 023 — shared nav component, /me account page, /about/authors (founder profile), /cabal investor update + bizops playbook, invitation system with tracking
 - [x] 024 — rename "dev cells" to "cells" (database, routes, code, docs — broadened concept)
 - [x] 025 — ghost users, sudo impersonation, seed data bootstrap (11 personas, 15 ideas, 59 pledges, 10 comments from N5 research)
+- [x] 026 — content & messaging (SaaS definition, credit union analogy, FSF/Stallman philosophy page, "code is free, maintenance is not" framing, MVP competition model for cells)
 
 ### database
 
@@ -92,7 +93,7 @@ the app is live at https://destroysass.coop
 
 ## Next
 
-### 026 — stripe integration (real pledges → real payments)
+### 027 — stripe integration (real pledges → real payments)
 
 **blocked by:** business questions in `docs/business-questions.md`
 
@@ -111,7 +112,7 @@ what to build:
 - pledge conversion from intent to real subscription at cell trigger
 - subscription management (upgrade/downgrade/cancel)
 
-### 027 — configure resend for real email delivery
+### 028 — configure resend for real email delivery
 
 - get RESEND_API_KEY, add to .envrc + vercel env vars
 - verify custom domain with resend (SPF, DKIM, DMARC)
@@ -148,8 +149,9 @@ not a feature — this is manual work:
 
 ### cell bidding & selection
 
-- mechanism for certified cells to bid on triggered cells
-- member voting on cell selection
+- certified cells compete by building working MVPs (not spec decks)
+- collective reviews and votes on best MVP
+- winning cell earns ongoing maintenance contract + SLA
 - SLA contract template generation
 
 ### opencollective integration
@@ -211,3 +213,4 @@ not a feature — this is manual work:
 - [x] 023 — shared nav, /me, /about/authors, cabal investor update + bizops, invitation system
 - [x] 024 — rename "dev cells" to "cells" (database + routes + all references)
 - [x] 025 — ghost users + sudo impersonation + seed data bootstrap
+- [x] 026 — content & messaging (SaaS definition, credit union analogy, /about/philosophy, MVP competition model)
