@@ -2,6 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { getActionContext } from "@/lib/ghost";
+import { createClient } from "@/lib/supabase/server";
+import { is_inner } from "@/lib/groups";
 import { notify_new_pledge, notify_status_change } from "@/lib/email";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -142,6 +144,13 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
     return { error: "you must be signed in to pledge." };
   }
 
+  if (!ctx.isActingAs) {
+    const supabase = await createClient();
+    if (!(await is_inner(supabase, ctx.user))) {
+      return { error: "access restricted to inner circle members." };
+    }
+  }
+
   const { effectiveUserId, client } = ctx;
 
   // validate amount: integer, 25-500, step of 25
@@ -216,6 +225,13 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
     return { error: "you must be signed in." };
   }
 
+  if (!ctx.isActingAs) {
+    const supabase = await createClient();
+    if (!(await is_inner(supabase, ctx.user))) {
+      return { error: "access restricted to inner circle members." };
+    }
+  }
+
   const { effectiveUserId, client } = ctx;
 
   // check idea status — cannot withdraw from locked ideas
@@ -277,6 +293,13 @@ export async function toggleUpvote(idea_id: string): Promise<ActionResult> {
     return { error: "you must be signed in to upvote." };
   }
 
+  if (!ctx.isActingAs) {
+    const supabase = await createClient();
+    if (!(await is_inner(supabase, ctx.user))) {
+      return { error: "access restricted to inner circle members." };
+    }
+  }
+
   const { effectiveUserId, client } = ctx;
 
   // check if already upvoted
@@ -320,6 +343,13 @@ export async function postComment(idea_id: string, body: string): Promise<Action
   const ctx = await getActionContext();
   if (!ctx) {
     return { error: "you must be signed in to comment." };
+  }
+
+  if (!ctx.isActingAs) {
+    const supabase = await createClient();
+    if (!(await is_inner(supabase, ctx.user))) {
+      return { error: "access restricted to inner circle members." };
+    }
   }
 
   const { effectiveUserId, client, isActingAs } = ctx;

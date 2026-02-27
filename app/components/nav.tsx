@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { is_member, is_sudo } from "@/lib/groups";
+import { is_member, is_sudo, is_inner } from "@/lib/groups";
 
 type NavProps = {
   currentPath: string;
@@ -22,12 +22,14 @@ export default async function Nav({ currentPath }: NavProps) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // check cabal access
+  // check access levels
   let showCabal = false;
+  let userIsInner = false;
   if (user) {
     showCabal =
       (await is_sudo(supabase, user)) ||
       (await is_member(supabase, user.id, "cabal"));
+    userIsInner = await is_inner(supabase, user);
   }
 
   // derive display name from email
@@ -67,6 +69,20 @@ export default async function Nav({ currentPath }: NavProps) {
             {link.label}
           </a>
         ))}
+
+        {/* lobby link for non-inner authenticated users */}
+        {user && !userIsInner && (
+          <a
+            href="/lobby"
+            className={
+              isActive(currentPath, "/lobby")
+                ? "text-[var(--text-primary)] font-medium"
+                : "hover:text-[var(--text-primary)] transition-colors"
+            }
+          >
+            lobby
+          </a>
+        )}
 
         {/* auth */}
         {user ? (

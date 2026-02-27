@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { is_inner } from "@/lib/groups";
 import Nav from "@/app/components/nav";
 import IdeaForm from "./form";
 
@@ -11,6 +12,10 @@ export default async function NewIdeaPage() {
 
   if (!user) {
     redirect("/auth?next=/ideas/new");
+  }
+
+  if (!(await is_inner(supabase, user))) {
+    redirect("/lobby");
   }
 
   return (

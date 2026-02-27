@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { is_inner } from "@/lib/groups";
 import Nav from "@/app/components/nav";
 import WithdrawButton from "./withdraw_button";
 import VerifyBanner from "./verify_banner";
@@ -75,6 +76,10 @@ export default async function DashboardPage() {
 
   if (!user) {
     redirect("/auth?next=/dashboard");
+  }
+
+  if (!(await is_inner(supabase, user))) {
+    redirect("/lobby");
   }
 
   // parallel fetch: ideas, pledges, upvotes received, comment counts, activity

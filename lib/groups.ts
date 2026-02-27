@@ -52,6 +52,25 @@ export async function is_admin(
 }
 
 /**
+ * check if user is in the inner circle (cabal, admin, or sudo group). root email always returns true.
+ */
+export async function is_inner(
+  supabase: SupabaseClient,
+  user: User
+): Promise<boolean> {
+  if (user.email === ROOT_EMAIL) return true;
+
+  const { data } = await supabase
+    .from("group_members")
+    .select("id, groups!inner(name)")
+    .eq("user_id", user.id)
+    .in("groups.name", ["cabal", "admin", "sudo"])
+    .limit(1);
+
+  return (data?.length ?? 0) > 0;
+}
+
+/**
  * get all group names for a user.
  */
 export async function user_groups(

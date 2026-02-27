@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getEffectiveUser } from "@/lib/ghost";
+import { is_inner } from "@/lib/groups";
 import Nav from "@/app/components/nav";
 import PledgePanel from "./pledge_panel";
 import EditIdea from "./edit_idea";
@@ -96,6 +97,8 @@ export default async function IdeaDetailPage({ params }: Props) {
 
   const comments = raw_comments ?? [];
 
+  const inner = user ? await is_inner(supabase, user) : false;
+
   const total = Number(idea.total_pledged) || 0;
   const count = Number(idea.pledge_count) || 0;
   const pct = Math.min(Math.round((total / THRESHOLD) * 100), 100);
@@ -186,6 +189,7 @@ export default async function IdeaDetailPage({ params }: Props) {
           user_id={effectiveUserId ?? null}
           existing_amount={existing_pledge?.amount_monthly ?? null}
           is_creator={is_creator}
+          is_inner={inner}
         />
 
         {/* edit + delete (creator only, early-stage only) */}
@@ -207,6 +211,7 @@ export default async function IdeaDetailPage({ params }: Props) {
           idea_id={id}
           user_id={effectiveUserId ?? null}
           comments={comments}
+          is_inner={inner}
         />
       </main>
     </div>

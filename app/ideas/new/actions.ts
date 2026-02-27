@@ -2,6 +2,8 @@
 
 import { redirect } from "next/navigation";
 import { getActionContext } from "@/lib/ghost";
+import { createClient } from "@/lib/supabase/server";
+import { is_inner } from "@/lib/groups";
 
 const CATEGORIES = [
   "communication",
@@ -46,6 +48,13 @@ export async function submitIdea(
 
   if (!ctx) {
     return { errors: { general: "you must be signed in to submit an idea." } };
+  }
+
+  if (!ctx.isActingAs) {
+    const supabase = await createClient();
+    if (!(await is_inner(supabase, ctx.user))) {
+      return { errors: { general: "access restricted to inner circle members." } };
+    }
   }
 
   const { effectiveUserId, client } = ctx;

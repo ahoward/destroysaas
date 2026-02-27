@@ -8,6 +8,7 @@ type PledgePanelProps = {
   user_id: string | null;
   existing_amount: number | null;
   is_creator: boolean;
+  is_inner: boolean;
 };
 
 export default function PledgePanel({
@@ -15,6 +16,7 @@ export default function PledgePanel({
   user_id,
   existing_amount,
   is_creator,
+  is_inner,
 }: PledgePanelProps) {
   const [amount, setAmount] = useState(existing_amount ?? 50);
   const [error, setError] = useState<string | null>(null);
@@ -33,6 +35,23 @@ export default function PledgePanel({
         <p className="text-xs text-[var(--text-faint)] mt-3 text-center">
           no charges yet &mdash; this is a commitment, not a payment.
         </p>
+      </div>
+    );
+  }
+
+  // not in inner circle
+  if (!is_inner) {
+    return (
+      <div className="border border-[var(--border-primary)] rounded-lg p-6 text-center">
+        <p className="text-sm text-[var(--text-secondary)] mb-3">
+          pledging is currently limited to inner circle members.
+        </p>
+        <a
+          href="/lobby/apply"
+          className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded text-sm transition-colors"
+        >
+          apply to join &rarr;
+        </a>
       </div>
     );
   }

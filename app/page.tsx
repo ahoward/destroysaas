@@ -179,10 +179,10 @@ export default async function Home() {
             </div>
             <div className="flex gap-6 mt-4">
               <a
-                href="/ideas/new"
+                href="/auth"
                 className="text-sm text-red-600 hover:text-red-500 transition-colors"
               >
-                propose what your business needs &rarr;
+                join and propose what your business needs &rarr;
               </a>
               <a
                 href="/about/legal"
@@ -269,10 +269,10 @@ export default async function Home() {
         {/* cta */}
         <div className="mb-24 border-t border-[var(--border-primary)] pt-12">
           <a
-            href="/ideas/new"
+            href="/auth"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
-            submit an idea &rarr;
+            join destroysass &rarr;
           </a>
           <a
             href="/ideas"

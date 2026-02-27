@@ -15,6 +15,7 @@ type Props = {
   idea_id: string;
   user_id: string | null;
   comments: Comment[];
+  is_inner?: boolean;
 };
 
 function relative_time(iso: string): string {
@@ -32,7 +33,7 @@ function relative_time(iso: string): string {
   return new Date(iso).toLocaleDateString();
 }
 
-export default function Comments({ idea_id, user_id, comments }: Props) {
+export default function Comments({ idea_id, user_id, comments, is_inner }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const formRef = useRef<HTMLFormElement>(null);
@@ -75,7 +76,19 @@ export default function Comments({ idea_id, user_id, comments }: Props) {
       </h2>
 
       {/* comment form */}
-      {user_id ? (
+      {user_id && !is_inner ? (
+        <div className="border border-[var(--border-primary)] rounded p-4 mb-6 text-center">
+          <p className="text-sm text-[var(--text-muted)] mb-2">
+            commenting is limited to inner circle members.
+          </p>
+          <a
+            href="/lobby/apply"
+            className="text-red-500 hover:text-red-400 text-sm transition-colors"
+          >
+            apply to join &rarr;
+          </a>
+        </div>
+      ) : user_id ? (
         <form ref={formRef} onSubmit={handleSubmit} className="mb-6">
           <textarea
             name="body"

@@ -326,6 +326,12 @@ export default async function AdminPage() {
           >
             ghost roster &rarr;
           </a>
+          <a
+            href="/admin/applications"
+            className="text-sm text-red-600 hover:text-red-500 transition-colors"
+          >
+            cabal applications &rarr;
+          </a>
         </div>
 
         {/* --- analytics: platform overview --- */}
