@@ -20,7 +20,7 @@ after every implement cycle: QA the live app per `bny/qa-playbook.md`.
 
 the app is live at https://destroysass.coop
 
-### what's built (26 features shipped)
+### what's built (27 features shipped)
 
 - [x] next.js 16 + supabase auth scaffolding
 - [x] deployed to vercel (production)
@@ -53,6 +53,7 @@ the app is live at https://destroysass.coop
 - [x] 024 — rename "dev cells" to "cells" (database, routes, code, docs — broadened concept)
 - [x] 025 — ghost users, sudo impersonation, seed data bootstrap (11 personas, 15 ideas, 59 pledges, 10 comments from N5 research)
 - [x] 026 — content & messaging (SaaS definition, credit union analogy, FSF/Stallman philosophy page, "code is free, maintenance is not" framing, MVP competition model for cells)
+- [x] 027 — soft gate: lobby dashboard + cabal application (is_inner() gate, /lobby with stats+roadmap+activity, /lobby/apply cabal application form, /admin/applications review queue, non-inner users redirected from /dashboard and /ideas/new)
 
 ### database
 
@@ -65,6 +66,7 @@ the app is live at https://destroysass.coop
 - groups (id, name, description, created_at) — sudo, admin, cabal, ghost
 - group_members (id, group_id, user_id, created_at)
 - invitations (id, token, created_by, recipient_name/email, group_names[], redirect_path, note, view_count, viewed_at, accepted_at/by, expires_at, created_at)
+- cabal_applications (id, user_id, name, reason, contribution, status, reviewed_by, reviewed_at, created_at) — unique per user
 - idea_board view (ideas + aggregated pledge totals + upvote counts)
 - auto-status trigger: proposed→gaining_traction@$300, →threshold_reached@$1000
 - RLS on all tables with ownership checks; service role for admin ops
@@ -78,7 +80,7 @@ the app is live at https://destroysass.coop
 - SUPABASE_ACCESS_TOKEN for management API
 - resend integration (lib/email.ts) — RESEND_API_KEY not yet configured (issue #2)
 - groups-based RBAC (sudo > admin > cabal > ghost, root email fallback)
-- 12 migrations applied (001–012)
+- 13 migrations applied (001–013)
 - ghost acting-as: cookie-based sudo impersonation (lib/ghost.ts, /admin/ghosts)
 - seed script: scripts/seed_ghosts.ts (idempotent, bun)
 
@@ -93,7 +95,7 @@ the app is live at https://destroysass.coop
 
 ## Next
 
-### 027 — stripe integration (real pledges → real payments)
+### 028 — stripe integration (real pledges → real payments)
 
 **blocked by:** business questions in `docs/business-questions.md`
 
@@ -112,7 +114,7 @@ what to build:
 - pledge conversion from intent to real subscription at cell trigger
 - subscription management (upgrade/downgrade/cancel)
 
-### 028 — configure resend for real email delivery
+### 029 — configure resend for real email delivery
 
 - get RESEND_API_KEY, add to .envrc + vercel env vars
 - verify custom domain with resend (SPF, DKIM, DMARC)
@@ -214,3 +216,4 @@ not a feature — this is manual work:
 - [x] 024 — rename "dev cells" to "cells" (database + routes + all references)
 - [x] 025 — ghost users + sudo impersonation + seed data bootstrap
 - [x] 026 — content & messaging (SaaS definition, credit union analogy, /about/philosophy, MVP competition model)
+- [x] 027 — soft gate: lobby dashboard + cabal application system
