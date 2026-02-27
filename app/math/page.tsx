@@ -3,7 +3,7 @@ import Nav from "@/app/components/nav";
 import Calculator from "./calculator";
 
 export const metadata: Metadata = {
-  title: "why — destroysass",
+  title: "the math — destroysass",
   description:
     "the economics of SaaS don't work for small business. here's the math on collective software ownership.",
 };
@@ -54,7 +54,7 @@ const COMPARISON = [
 export default async function WhyPage() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <Nav currentPath="/why" />
+      <Nav currentPath="/math" />
 
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
         {/* hero */}
