@@ -164,6 +164,16 @@ export default async function AboutPage() {
               </p>
             </a>
             <a
+              href="/about/governance"
+              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
+            >
+              <p className="font-semibold mb-1">the governance</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                how destroysaas itself is structured, funded, and governed &mdash;
+                and why we&apos;re being transparent about what it is today.
+              </p>
+            </a>
+            <a
               href="/about/authors"
               className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors sm:col-span-2"
             >
