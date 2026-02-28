@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     title: "destroysass — own the software you use",
     description:
       "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
+    url: "https://destroysass.coop",
     type: "website",
     siteName: "destroysass",
   },
