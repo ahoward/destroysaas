@@ -42,18 +42,30 @@ export default async function Nav({ currentPath }: NavProps) {
         destroysaas
       </a>
       <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-        {/* cabal — first, only if member */}
+        {/* cabal — only if member */}
         {showCabal && (
-          <a
-            href="/cabal"
-            className={
-              isActive(currentPath, "/cabal")
-                ? "text-red-600 font-medium"
-                : "hover:text-[var(--text-primary)] transition-colors"
-            }
-          >
-            cabal
-          </a>
+          <>
+            <a
+              href="/cabal"
+              className={
+                isActive(currentPath, "/cabal")
+                  ? "text-red-600 font-medium"
+                  : "hover:text-[var(--text-primary)] transition-colors"
+              }
+            >
+              cabal
+            </a>
+            <a
+              href="/models"
+              className={
+                isActive(currentPath, "/models")
+                  ? "text-red-600 font-medium"
+                  : "hover:text-[var(--text-primary)] transition-colors"
+              }
+            >
+              models
+            </a>
+          </>
         )}
 
         {/* public links */}
