@@ -56,6 +56,44 @@ export default async function Home() {
           </p>
         </div>
 
+        {/* the saaspocalypse */}
+        <div className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
+            the saaspocalypse
+          </h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              in february 2026, wall street finally caught up.{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                $2 trillion in saas market cap evaporated in weeks
+              </span>.
+              atlassian dropped 35%. salesforce dropped 28%. workday, hubspot,
+              zendesk &mdash; all cratering. analysts are calling it the{" "}
+              <span className="text-[var(--text-primary)] font-medium">saaspocalypse</span>.
+            </p>
+            <p>
+              the cause? ai agents are replacing entire software categories.
+              per-seat pricing collapses when one agent does the work of ten
+              employees. project management, customer support, crm data entry
+              &mdash; the most commoditized saas workflows are being automated
+              out of existence.
+            </p>
+            <p>
+              investors now understand what we&apos;ve been saying:{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                the build-vs-buy decision is shifting toward build
+              </span>.
+              the barriers to creating software are so low that paying rent to a
+              saas vendor is no longer the default. but building alone leaves you
+              stranded when it breaks. the answer isn&apos;t build <em>or</em>{" "}
+              buy &mdash; it&apos;s{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                own collectively
+              </span>.
+            </p>
+          </div>
+        </div>
+
         {/* 3 steps */}
         <div className="mb-16 space-y-8">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">

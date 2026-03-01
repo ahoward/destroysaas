@@ -189,6 +189,58 @@ export default async function PhilosophyPage() {
           </div>
         </section>
 
+        {/* the saaspocalypse */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">the saaspocalypse</h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              in february 2026, the market validated what we&apos;ve been saying.{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                $2 trillion in saas market capitalization evaporated
+              </span>{" "}
+              as ai agents began replacing entire product categories. atlassian
+              lost 35% &mdash; their first enterprise seat decline in company
+              history. salesforce dropped 28%. servicenow, workday, hubspot,
+              zendesk &mdash; all in freefall.
+            </p>
+            <p>
+              wall street calls it the saaspocalypse. marc benioff mentioned the
+              term six times on salesforce&apos;s earnings call. the iShares
+              software ETF fell 22% year-to-date. analysts are calling it the
+              end of the &ldquo;saas era&rdquo; and the beginning of the
+              &ldquo;agentic era.&rdquo;
+            </p>
+            <p>
+              the structural threats are exactly what we predicted. ai agents
+              perform tasks that previously required dedicated software tools.
+              per-seat pricing collapses when one agent replaces multiple human
+              positions. switching costs decline as ai operates across platforms.
+              the most vulnerable categories &mdash; project management, customer
+              support, crm data entry &mdash; are exactly the commoditized
+              workflows that traditional saas vendors charge the most for.
+            </p>
+            <p>
+              but here&apos;s what the market analysts miss:{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                ai doesn&apos;t eliminate the need for software. it eliminates the
+                justification for renting it
+              </span>.
+              the code is cheaper to write. the maintenance is still expensive.
+              and the question of who owns and controls the result is more
+              urgent than ever. mega-corporations are internalizing ai-driven
+              development into proprietary walled gardens. ordinary businesses
+              are left holding compiled binaries they can&apos;t inspect, can&apos;t
+              modify, and can&apos;t keep running when the vendor pivots.
+            </p>
+            <p className="text-[var(--text-primary)] font-medium">
+              the saaspocalypse isn&apos;t a crisis. it&apos;s a window. the old
+              model is collapsing, and the question is whether what replaces it
+              will be owned by the people who use it &mdash; or by the next
+              generation of extractors.
+            </p>
+          </div>
+        </section>
+
         {/* monocultures fail */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">monocultures fail</h2>
