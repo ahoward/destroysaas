@@ -167,7 +167,7 @@ export async function postReply(
     (ctx.user.email ?? "").split("@")[0] || "anonymous";
 
   const { error } = await ctx.client.from("cabal_responses").insert({
-    post_id,
+    discussion_id: post_id,
     user_id: ctx.effectiveUserId,
     display_name,
     body: trimmed,

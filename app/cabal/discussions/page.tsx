@@ -73,9 +73,6 @@ export default async function CabalDiscussionsPage() {
           everything is public because trust is the foundation.
         </p>
 
-        {/* create form — admin/sudo only */}
-        {canPost && <NewDiscussionForm />}
-
         {/* discussion list */}
         {(discussions ?? []).length === 0 ? (
           <p className="text-[var(--text-faint)] text-sm italic">
@@ -107,6 +104,9 @@ export default async function CabalDiscussionsPage() {
             })}
           </div>
         )}
+
+        {/* create form — admin/sudo only, after the list */}
+        {canPost && <NewDiscussionForm />}
       </main>
     </div>
   );
