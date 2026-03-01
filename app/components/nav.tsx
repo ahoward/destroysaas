@@ -56,14 +56,14 @@ export default async function Nav({ currentPath }: NavProps) {
               cabal
             </a>
             <a
-              href="/models"
+              href="/cabal/posts"
               className={
-                isActive(currentPath, "/models")
+                isActive(currentPath, "/cabal/posts")
                   ? "text-red-600 font-medium"
                   : "hover:text-[var(--text-primary)] transition-colors"
               }
             >
-              models
+              posts
             </a>
           </>
         )}
