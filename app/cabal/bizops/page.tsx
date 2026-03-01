@@ -32,6 +32,7 @@ export default async function BizOpsPage() {
       {/* cabal sub-nav */}
       <div className="max-w-2xl mx-auto px-6 pt-2 flex gap-4 text-sm border-b border-red-600 pb-3">
         <a href="/cabal" className="text-[var(--text-muted)] hover:text-red-600 transition-colors">status</a>
+        <a href="/cabal/discussions" className="text-[var(--text-muted)] hover:text-red-600 transition-colors">discussions</a>
         <a href="/cabal/bizops" className="text-red-600 font-medium">bizops</a>
       </div>
 

@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { is_inner } from "@/lib/groups";
 import { getEffectiveUser } from "@/lib/ghost";
 import Nav from "@/app/components/nav";
-import Replies from "./replies";
+import Responses from "./replies";
 
 export async function generateMetadata({
   params,
@@ -13,18 +13,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const supabase = await createClient();
-  const { data: post } = await supabase
-    .from("cabal_posts")
+  const { data: disc } = await supabase
+    .from("cabal_discussions")
     .select("title")
     .eq("id", id)
     .single();
 
   return {
-    title: post ? `${post.title} — cabal — destroysaas` : "post not found",
+    title: disc ? `${disc.title} — cabal — destroysaas` : "not found",
   };
 }
 
-export default async function CabalPostPage({
+export default async function CabalDiscussionPage({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -32,13 +32,13 @@ export default async function CabalPostPage({
   const { id } = await params;
   const supabase = await createClient();
 
-  const { data: post } = await supabase
-    .from("cabal_posts")
+  const { data: disc } = await supabase
+    .from("cabal_discussions")
     .select("id, title, body, created_by, created_at, updated_at")
     .eq("id", id)
     .single();
 
-  if (!post) {
+  if (!disc) {
     notFound();
   }
 
@@ -49,39 +49,46 @@ export default async function CabalPostPage({
   const { data: profile } = await supabase
     .from("profiles")
     .select("display_name")
-    .eq("id", post.created_by)
+    .eq("id", disc.created_by)
     .single();
 
   const author = profile?.display_name || "anonymous";
 
-  // fetch replies
-  const { data: replies } = await supabase
-    .from("cabal_replies")
+  // fetch responses
+  const { data: responses } = await supabase
+    .from("cabal_responses")
     .select("id, user_id, display_name, body, created_at")
-    .eq("post_id", id)
+    .eq("discussion_id", id)
     .order("created_at", { ascending: true });
-  const date = new Date(post.created_at).toLocaleDateString();
+
+  const date = new Date(disc.created_at).toLocaleDateString();
   const edited =
-    post.updated_at !== post.created_at
-      ? new Date(post.updated_at).toLocaleDateString()
+    disc.updated_at !== disc.created_at
+      ? new Date(disc.updated_at).toLocaleDateString()
       : null;
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <Nav currentPath="/cabal/posts" />
+      <Nav currentPath="/cabal" />
+      {/* cabal sub-nav */}
+      <div className="max-w-2xl mx-auto px-6 pt-2 flex gap-4 text-sm border-b border-red-600 pb-3">
+        <a href="/cabal" className="text-[var(--text-muted)] hover:text-red-600 transition-colors">status</a>
+        <a href="/cabal/discussions" className="text-red-600 font-medium">discussions</a>
+        <a href="/cabal/bizops" className="text-[var(--text-muted)] hover:text-red-600 transition-colors">bizops</a>
+      </div>
 
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
         {/* back link */}
         <a
-          href="/cabal/posts"
+          href="/cabal/discussions"
           className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
         >
-          &larr; all posts
+          &larr; all discussions
         </a>
 
-        {/* post header */}
+        {/* header */}
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight lowercase mt-4 mb-2">
-          {post.title}
+          {disc.title}
         </h1>
         <div className="flex gap-3 text-xs text-[var(--text-muted)] mb-8">
           <span>{author}</span>
@@ -89,16 +96,16 @@ export default async function CabalPostPage({
           {edited && <span>(edited {edited})</span>}
         </div>
 
-        {/* post body */}
+        {/* body */}
         <div className="text-[var(--text-secondary)] leading-relaxed whitespace-pre-wrap mb-8">
-          {post.body}
+          {disc.body}
         </div>
 
-        {/* replies */}
-        <Replies
-          post_id={post.id}
+        {/* responses */}
+        <Responses
+          post_id={disc.id}
           user_id={effectiveUserId ?? null}
-          replies={replies ?? []}
+          replies={responses ?? []}
           can_reply={canReply}
         />
       </main>

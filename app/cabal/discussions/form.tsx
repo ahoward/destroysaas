@@ -3,12 +3,12 @@
 import { useActionState } from "react";
 import { createPost } from "./actions";
 
-export default function NewPostForm() {
+export default function NewDiscussionForm() {
   const [state, action, pending] = useActionState(createPost, null);
 
   return (
     <form action={action} className="border border-[var(--border-primary)] rounded-lg p-6 mb-10">
-      <h2 className="text-sm font-semibold mb-4">new post</h2>
+      <h2 className="text-sm font-semibold mb-4">new discussion</h2>
 
       <input
         name="title"
@@ -37,7 +37,7 @@ export default function NewPostForm() {
         disabled={pending}
         className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-4 py-1.5 rounded transition-colors disabled:opacity-50"
       >
-        {pending ? "posting..." : "post"}
+        {pending ? "starting..." : "start discussion"}
       </button>
     </form>
   );

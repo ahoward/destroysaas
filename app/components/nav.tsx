@@ -44,28 +44,16 @@ export default async function Nav({ currentPath }: NavProps) {
       <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
         {/* cabal — only if member */}
         {showCabal && (
-          <>
-            <a
-              href="/cabal"
-              className={
-                isActive(currentPath, "/cabal")
-                  ? "text-red-600 font-medium"
-                  : "hover:text-[var(--text-primary)] transition-colors"
-              }
-            >
-              cabal
-            </a>
-            <a
-              href="/cabal/posts"
-              className={
-                isActive(currentPath, "/cabal/posts")
-                  ? "text-red-600 font-medium"
-                  : "hover:text-[var(--text-primary)] transition-colors"
-              }
-            >
-              posts
-            </a>
-          </>
+          <a
+            href="/cabal"
+            className={
+              isActive(currentPath, "/cabal")
+                ? "text-red-600 font-medium"
+                : "hover:text-[var(--text-primary)] transition-colors"
+            }
+          >
+            cabal
+          </a>
         )}
 
         {/* public links */}

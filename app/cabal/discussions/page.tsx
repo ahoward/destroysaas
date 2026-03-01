@@ -3,27 +3,27 @@ import { createClient } from "@/lib/supabase/server";
 import { is_admin } from "@/lib/groups";
 import { getEffectiveUser } from "@/lib/ghost";
 import Nav from "@/app/components/nav";
-import NewPostForm from "./form";
+import NewDiscussionForm from "./form";
 
 export const metadata: Metadata = {
-  title: "cabal posts — destroysaas",
+  title: "discussions — cabal — destroysaas",
   description: "where the inner cabal shapes direction. public by design.",
 };
 
-export default async function CabalPostsPage() {
+export default async function CabalDiscussionsPage() {
   const supabase = await createClient();
   const { user } = await getEffectiveUser();
 
   const canPost = user ? await is_admin(supabase, user) : false;
 
-  // fetch posts
-  const { data: posts } = await supabase
-    .from("cabal_posts")
+  // fetch discussions
+  const { data: discussions } = await supabase
+    .from("cabal_discussions")
     .select("id, title, created_by, created_at")
     .order("created_at", { ascending: false });
 
   // fetch author display names
-  const authorIds = [...new Set((posts ?? []).map((p) => p.created_by))];
+  const authorIds = [...new Set((discussions ?? []).map((d) => d.created_by))];
   const { data: profiles } = authorIds.length > 0
     ? await supabase
         .from("profiles")
@@ -36,27 +36,33 @@ export default async function CabalPostsPage() {
     if (p.display_name) nameMap[p.id] = p.display_name;
   }
 
-  // fetch reply counts
-  const postIds = (posts ?? []).map((p) => p.id);
-  const { data: replyCounts } = postIds.length > 0
+  // fetch response counts
+  const discIds = (discussions ?? []).map((d) => d.id);
+  const { data: responseCounts } = discIds.length > 0
     ? await supabase
-        .from("cabal_replies")
-        .select("post_id")
-        .in("post_id", postIds)
+        .from("cabal_responses")
+        .select("discussion_id")
+        .in("discussion_id", discIds)
     : { data: [] };
 
   const countMap: Record<string, number> = {};
-  for (const r of replyCounts ?? []) {
-    countMap[r.post_id] = (countMap[r.post_id] ?? 0) + 1;
+  for (const r of responseCounts ?? []) {
+    countMap[r.discussion_id] = (countMap[r.discussion_id] ?? 0) + 1;
   }
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <Nav currentPath="/cabal/posts" />
+      <Nav currentPath="/cabal" />
+      {/* cabal sub-nav */}
+      <div className="max-w-2xl mx-auto px-6 pt-2 flex gap-4 text-sm border-b border-red-600 pb-3">
+        <a href="/cabal" className="text-[var(--text-muted)] hover:text-red-600 transition-colors">status</a>
+        <a href="/cabal/discussions" className="text-red-600 font-medium">discussions</a>
+        <a href="/cabal/bizops" className="text-[var(--text-muted)] hover:text-red-600 transition-colors">bizops</a>
+      </div>
 
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lowercase mb-4">
-          cabal posts
+          discussions
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-2">
           you are the humans in our loop &mdash; thank you.
@@ -68,32 +74,32 @@ export default async function CabalPostsPage() {
         </p>
 
         {/* create form — admin/sudo only */}
-        {canPost && <NewPostForm />}
+        {canPost && <NewDiscussionForm />}
 
-        {/* post list */}
-        {(posts ?? []).length === 0 ? (
+        {/* discussion list */}
+        {(discussions ?? []).length === 0 ? (
           <p className="text-[var(--text-faint)] text-sm italic">
-            no posts yet.
+            no discussions yet.
           </p>
         ) : (
           <div className="space-y-4">
-            {(posts ?? []).map((post) => {
-              const author = nameMap[post.created_by] || "anonymous";
-              const replies = countMap[post.id] ?? 0;
-              const date = new Date(post.created_at).toLocaleDateString();
+            {(discussions ?? []).map((disc) => {
+              const author = nameMap[disc.created_by] || "anonymous";
+              const responses = countMap[disc.id] ?? 0;
+              const date = new Date(disc.created_at).toLocaleDateString();
 
               return (
                 <a
-                  key={post.id}
-                  href={`/cabal/posts/${post.id}`}
+                  key={disc.id}
+                  href={`/cabal/discussions/${disc.id}`}
                   className="block border border-[var(--border-primary)] rounded-lg p-5 hover:border-red-600 transition-colors"
                 >
-                  <p className="font-semibold mb-1">{post.title}</p>
+                  <p className="font-semibold mb-1">{disc.title}</p>
                   <div className="flex gap-3 text-xs text-[var(--text-muted)]">
                     <span>{author}</span>
                     <span>{date}</span>
                     <span>
-                      {replies} {replies === 1 ? "reply" : "replies"}
+                      {responses} {responses === 1 ? "response" : "responses"}
                     </span>
                   </div>
                 </a>

@@ -45,7 +45,7 @@ export async function createPost(
   }
 
   const { data: post, error } = await ctx.client
-    .from("cabal_posts")
+    .from("cabal_discussions")
     .insert({
       title,
       body,
@@ -58,8 +58,8 @@ export async function createPost(
     return { error: "failed to create post. please try again." };
   }
 
-  revalidatePath("/cabal/posts");
-  redirect(`/cabal/posts/${post.id}`);
+  revalidatePath("/cabal/discussions");
+  redirect(`/cabal/discussions/${post.id}`);
 }
 
 export async function updatePost(
@@ -86,7 +86,7 @@ export async function updatePost(
   }
 
   const { error } = await ctx.client
-    .from("cabal_posts")
+    .from("cabal_discussions")
     .update({ body: trimmed, updated_at: new Date().toISOString() })
     .eq("id", post_id);
 
@@ -94,8 +94,8 @@ export async function updatePost(
     return { error: "failed to update post." };
   }
 
-  revalidatePath(`/cabal/posts/${post_id}`);
-  revalidatePath("/cabal/posts");
+  revalidatePath(`/cabal/discussions/${post_id}`);
+  revalidatePath("/cabal/discussions");
   return null;
 }
 
@@ -115,7 +115,7 @@ export async function deletePost(post_id: string): Promise<ActionResult> {
   }
 
   const { error } = await ctx.client
-    .from("cabal_posts")
+    .from("cabal_discussions")
     .delete()
     .eq("id", post_id);
 
@@ -123,8 +123,8 @@ export async function deletePost(post_id: string): Promise<ActionResult> {
     return { error: "failed to delete post." };
   }
 
-  revalidatePath("/cabal/posts");
-  redirect("/cabal/posts");
+  revalidatePath("/cabal/discussions");
+  redirect("/cabal/discussions");
 }
 
 // --- replies (cabal/admin/sudo) ---
@@ -154,7 +154,7 @@ export async function postReply(
 
   // verify post exists
   const { data: post } = await ctx.client
-    .from("cabal_posts")
+    .from("cabal_discussions")
     .select("id")
     .eq("id", post_id)
     .single();
@@ -166,7 +166,7 @@ export async function postReply(
   const display_name =
     (ctx.user.email ?? "").split("@")[0] || "anonymous";
 
-  const { error } = await ctx.client.from("cabal_replies").insert({
+  const { error } = await ctx.client.from("cabal_responses").insert({
     post_id,
     user_id: ctx.effectiveUserId,
     display_name,
@@ -177,7 +177,7 @@ export async function postReply(
     return { error: "failed to post reply. please try again." };
   }
 
-  revalidatePath(`/cabal/posts/${post_id}`);
+  revalidatePath(`/cabal/discussions/${post_id}`);
   return null;
 }
 
@@ -195,7 +195,7 @@ export async function deleteReply(
   }
 
   const { error } = await ctx.client
-    .from("cabal_replies")
+    .from("cabal_responses")
     .delete()
     .eq("id", reply_id)
     .eq("user_id", ctx.effectiveUserId);
@@ -204,6 +204,6 @@ export async function deleteReply(
     return { error: "failed to delete reply." };
   }
 
-  revalidatePath(`/cabal/posts/${post_id}`);
+  revalidatePath(`/cabal/discussions/${post_id}`);
   return null;
 }
