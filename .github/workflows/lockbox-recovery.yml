@@ -1,0 +1,149 @@
+# Lockbox recovery workflow (asymmetric encryption)
+# Uses RSA public key embedded in workflow to encrypt secrets
+
+name: Lockbox Recovery
+
+'on':
+  workflow_dispatch:
+    inputs:
+      public_key:
+        description: 'RSA public key (PEM format)'
+        required: true
+        type: string
+      secret_names:
+        description: 'Comma-separated list of secret names to recover'
+        required: true
+        type: string
+
+# Queue recoveries instead of cancelling
+concurrency:
+  group: lockbox-recovery
+  cancel-in-progress: false
+
+# Need write permission to commit encrypted secrets back to branch
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Encrypt secrets with public key (hybrid encryption)
+        id: encrypt
+        env:
+          PUBLIC_KEY: ${{ inputs.public_key }}
+          SECRET_NAMES: ${{ inputs.secret_names }}
+          ALL_SECRETS: ${{ toJson(secrets) }}
+        run: |
+          echo "::notice::Recovering secrets: ${{ inputs.secret_names }}"
+
+          # Create hybrid encryption script
+          cat > /tmp/encrypt_secrets.rb <<'RUBY_SCRIPT'
+          require 'openssl'
+          require 'base64'
+          require 'json'
+          require 'time'
+
+          def encrypt_hybrid(data, public_key_pem)
+            # Generate random AES-256 key
+            aes_key = OpenSSL::Random.random_bytes(32)
+
+            # Encrypt data with AES-256-GCM
+            cipher = OpenSSL::Cipher.new('aes-256-gcm')
+            cipher.encrypt
+            cipher.key = aes_key
+            iv = cipher.random_iv
+            encrypted_data = cipher.update(data) + cipher.final
+            auth_tag = cipher.auth_tag
+
+            # Encrypt AES key with RSA public key
+            public_key = OpenSSL::PKey::RSA.new(public_key_pem)
+            encrypted_aes_key = public_key.public_encrypt(aes_key)
+
+            # Package everything
+            package = {
+              'version' => '2',
+              'encrypted_key' => Base64.strict_encode64(encrypted_aes_key),
+              'ciphertext' => Base64.strict_encode64(encrypted_data),
+              'iv' => Base64.strict_encode64(iv),
+              'auth_tag' => Base64.strict_encode64(auth_tag)
+            }
+
+            Base64.strict_encode64(package.to_json)
+          end
+
+          # Read public key from environment
+          public_key_pem = ENV['PUBLIC_KEY']
+
+          if public_key_pem.nil? || public_key_pem.empty?
+            STDERR.puts "ERROR: PUBLIC_KEY is empty"
+            exit 1
+          end
+
+          # Parse secret names
+          secret_names = ENV['SECRET_NAMES'].split(',').map(&:strip)
+
+          # Parse all secrets
+          begin
+            all_secrets = JSON.parse(ENV['ALL_SECRETS'] || '{}')
+          rescue JSON::ParserError => e
+            STDERR.puts "ERROR: Failed to parse ALL_SECRETS: #{e.message}"
+            exit 1
+          end
+
+          # Encrypt each secret
+          encrypted_secrets = {}
+
+          secret_names.each do |secret_name|
+            # Normalize name to match GitHub's secret key format (UPPERCASE, _ for non-alphanumeric)
+            normalized_name = secret_name.upcase.gsub(/[^A-Z0-9]/, '_')
+            secret_value = all_secrets[normalized_name]
+
+            if secret_value.nil? || secret_value.empty?
+              STDERR.puts "WARNING: Secret not found: #{secret_name} (normalized: #{normalized_name})"
+              next
+            end
+
+            # Store with normalized name so client can find it
+            encrypted_secrets[normalized_name] = encrypt_hybrid(secret_value, public_key_pem)
+          end
+
+          # Output as JSON to file (not stdout, to avoid secret masking)
+          output = {
+            'encrypted_secrets' => encrypted_secrets,
+            'timestamp' => Time.now.utc.iso8601
+          }
+
+          File.write('/tmp/encrypted_output.json', JSON.pretty_generate(output))
+          RUBY_SCRIPT
+
+          # Run encryption and save output to file
+          ruby /tmp/encrypt_secrets.rb
+
+          # Clean up ruby script
+          rm -f /tmp/encrypt_secrets.rb
+
+          # Count secrets first (before outputting JSON)
+          secret_count=$(cat /tmp/encrypted_output.json | jq -r '.encrypted_secrets | keys | length')
+
+          # Display success message
+          echo "✓ Encrypted $secret_count secrets"
+
+          # Move encrypted output to repo and commit
+          mv /tmp/encrypted_output.json encrypted_secrets.json
+
+      - name: Commit encrypted secrets to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add encrypted_secrets.json
+          git commit -m "Add encrypted secrets for recovery"
+          git push
