@@ -16,13 +16,27 @@ export default async function CabalPostsPage() {
 
   const canPost = user ? await is_admin(supabase, user) : false;
 
-  // fetch posts with reply counts
+  // fetch posts
   const { data: posts } = await supabase
     .from("cabal_posts")
-    .select("id, title, created_by, created_at, profiles(display_name)")
+    .select("id, title, created_by, created_at")
     .order("created_at", { ascending: false });
 
-  // get reply counts
+  // fetch author display names
+  const authorIds = [...new Set((posts ?? []).map((p) => p.created_by))];
+  const { data: profiles } = authorIds.length > 0
+    ? await supabase
+        .from("profiles")
+        .select("id, display_name")
+        .in("id", authorIds)
+    : { data: [] };
+
+  const nameMap: Record<string, string> = {};
+  for (const p of profiles ?? []) {
+    if (p.display_name) nameMap[p.id] = p.display_name;
+  }
+
+  // fetch reply counts
   const postIds = (posts ?? []).map((p) => p.id);
   const { data: replyCounts } = postIds.length > 0
     ? await supabase
@@ -64,8 +78,7 @@ export default async function CabalPostsPage() {
         ) : (
           <div className="space-y-4">
             {(posts ?? []).map((post) => {
-              const profile = post.profiles as unknown as { display_name: string } | null;
-              const author = profile?.display_name || "anonymous";
+              const author = nameMap[post.created_by] || "anonymous";
               const replies = countMap[post.id] ?? 0;
               const date = new Date(post.created_at).toLocaleDateString();
 

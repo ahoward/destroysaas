@@ -34,7 +34,7 @@ export default async function CabalPostPage({
 
   const { data: post } = await supabase
     .from("cabal_posts")
-    .select("id, title, body, created_by, created_at, updated_at, profiles(display_name)")
+    .select("id, title, body, created_by, created_at, updated_at")
     .eq("id", id)
     .single();
 
@@ -45,15 +45,21 @@ export default async function CabalPostPage({
   const { user, effectiveUserId } = await getEffectiveUser();
   const canReply = user ? await is_inner(supabase, user) : false;
 
+  // fetch author name
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("display_name")
+    .eq("id", post.created_by)
+    .single();
+
+  const author = profile?.display_name || "anonymous";
+
   // fetch replies
   const { data: replies } = await supabase
     .from("cabal_replies")
     .select("id, user_id, display_name, body, created_at")
     .eq("post_id", id)
     .order("created_at", { ascending: true });
-
-  const profile = post.profiles as unknown as { display_name: string } | null;
-  const author = profile?.display_name || "anonymous";
   const date = new Date(post.created_at).toLocaleDateString();
   const edited =
     post.updated_at !== post.created_at
