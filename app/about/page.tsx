@@ -169,8 +169,10 @@ export default async function AboutPage() {
             >
               <p className="font-semibold mb-1">the governance</p>
               <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                how destroysaas itself is structured, funded, and governed &mdash;
-                and why we&apos;re being transparent about what it is today.
+                how destroysaas itself is structured, funded, and governed.
+                we&apos;re forming as a Colorado LCA &mdash; our draft{" "}
+                <span className="text-red-500">bylaws</span> and{" "}
+                <span className="text-red-500">articles of organization</span> are public.
               </p>
             </a>
             <a

@@ -5,11 +5,12 @@ export default function Footer() {
         <p className="text-xs text-[var(--text-separator)] italic">
           the code is free. the network is the value.
         </p>
-        <div className="flex gap-4 text-xs text-[var(--text-separator)]">
+        <div className="flex flex-wrap gap-4 text-xs text-[var(--text-separator)]">
           <a href="/" className="hover:text-[var(--text-secondary)] transition-colors">home</a>
           <a href="/ideas" className="hover:text-[var(--text-secondary)] transition-colors">ideas</a>
           <a href="/about" className="hover:text-[var(--text-secondary)] transition-colors">about</a>
           <a href="/cells" className="hover:text-[var(--text-secondary)] transition-colors">cells</a>
+          <a href="/about/governance/bylaws" className="hover:text-[var(--text-secondary)] transition-colors">bylaws</a>
           <a href="/terms" className="hover:text-[var(--text-secondary)] transition-colors">terms</a>
           <a href="/privacy" className="hover:text-[var(--text-secondary)] transition-colors">privacy</a>
           <a

@@ -49,74 +49,75 @@ export default async function GovernancePage() {
           </div>
         </section>
 
-        {/* why it's not an LCA yet */}
+        {/* formation in progress */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            why it&apos;s not an LCA yet
+            becoming an LCA
           </h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              we tell every cell that forms through this platform to organize as an LCA —
-              a Limited Cooperative Association with real legal standing. so why isn&apos;t
-              destroysaas itself one?
-            </p>
-            <p>
-              because{" "}
+              destroysaas is in the process of formalizing as a{" "}
               <span className="text-[var(--text-primary)] font-medium">
-                premature formalization kills projects
-              </span>.
-              forming a legal entity before you have members, revenue, and a working product
-              is theater. it&apos;s optimizing for structure before you&apos;ve proven the idea.
+                Colorado Limited Cooperative Association
+              </span>{" "}
+              under the Uniform Limited Cooperative Association Act (C.R.S. Title 7, Article 58).
+              we&apos;re eating our own cooking — the platform that tells every cell to organize
+              as a cooperative is becoming one itself.
             </p>
             <p>
-              the platform needs to work first. real businesses need to submit real ideas.
-              real cells need to form. real software needs to ship. once there&apos;s something
-              worth governing, the governance will formalize.
+              the structure is a multi-stakeholder cooperative with three patron member classes:
+              SMB members (businesses that fund software), commons members (individuals who
+              join the movement), and cell members (product cooperatives that build the tools).
+              no investor members. one member, one vote.
+            </p>
+            <p>
+              our formation documents are public and open for review. this is how we do things
+              — in the open, with trust as the foundation.
             </p>
           </div>
         </section>
 
-        {/* what we're considering */}
+        {/* formation documents */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            what we&apos;re considering
+            formation documents
           </h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>
-              the right structure for destroysaas itself is an open question. the options
-              on the table:
-            </p>
-          </div>
-          <div className="space-y-4 mt-6">
-            {[
-              {
-                label: "LCA",
-                desc: "eat our own cooking. destroysaas becomes a cooperative owned by the businesses and cells that use it. the platform belongs to its participants.",
-              },
-              {
-                label: "non-profit",
-                desc: "destroysaas operates as infrastructure — a public good that facilitates cooperative formation. no profit motive, funded by membership fees or grants.",
-              },
-              {
-                label: "B-corp",
-                desc: "a for-profit entity with a legal mandate to serve stakeholders, not just shareholders. sustainable revenue model with accountability baked in.",
-              },
-              {
-                label: "stay informal",
-                desc: "keep it as a personal project with open-source code and radical transparency. no legal entity, no overhead, no governance theater.",
-              },
-            ].map((item) => (
-              <div key={item.label} className="border border-[var(--border-primary)] rounded-lg p-5">
-                <p className="font-semibold mb-1">{item.label}</p>
-                <p className="text-sm text-[var(--text-muted)] leading-relaxed">{item.desc}</p>
+          <div className="space-y-4">
+            <a
+              href="/about/governance/bylaws"
+              className="block border border-[var(--border-primary)] rounded-lg p-5 hover:border-red-600 transition-colors"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <p className="font-semibold">bylaws</p>
+                <span className="text-xs text-red-600 font-medium border border-red-600 rounded px-1.5 py-0.5">draft</span>
               </div>
-            ))}
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                the internal governance document. member classes, voting rights, board structure,
+                patronage allocation, transparency commitments, and dispute resolution.
+              </p>
+            </a>
+            <a
+              href="/about/governance/articles"
+              className="block border border-[var(--border-primary)] rounded-lg p-5 hover:border-red-600 transition-colors"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <p className="font-semibold">articles of organization</p>
+                <span className="text-xs text-red-600 font-medium border border-red-600 rounded px-1.5 py-0.5">draft</span>
+              </div>
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                the formation filing for the Colorado Secretary of State. purpose, member classes,
+                liability protections, and organizer information.
+              </p>
+            </a>
           </div>
           <p className="text-[var(--text-secondary)] text-sm mt-6 leading-relaxed">
-            the decision will be made publicly, with input from the people who are actually
-            using the platform. if you have opinions,{" "}
+            these documents are inspired by the open-source governance of{" "}
+            <a href="https://www.dojo4.com/resources" className="text-red-500 hover:text-red-400 transition-colors" target="_blank" rel="noopener noreferrer">
+              dojo4 LCA
+            </a>, a Boulder cooperative that published its bylaws under a Creative Commons license.
+            if you have feedback,{" "}
             <a href="mailto:ara@destroysaas.coop" className="text-red-500 hover:text-red-400 transition-colors">
-              we want to hear them
+              we want to hear it
             </a>.
           </p>
         </section>
