@@ -43,20 +43,6 @@ export default async function Nav({ currentPath }: NavProps) {
         destroysaas
       </a>
       <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
-        {/* cabal — only if member */}
-        {showCabal && (
-          <a
-            href="/cabal"
-            className={
-              isActive(currentPath, "/cabal")
-                ? "text-red-600 font-medium"
-                : "hover:text-[var(--text-primary)] transition-colors"
-            }
-          >
-            cabal
-          </a>
-        )}
-
         {/* public links */}
         {PUBLIC_LINKS.map((link) => (
           <a
@@ -101,6 +87,20 @@ export default async function Nav({ currentPath }: NavProps) {
         ) : (
           <a href="/auth" className="hover:text-[var(--text-primary)] transition-colors">
             sign in
+          </a>
+        )}
+
+        {/* cabal — after auth, red callout */}
+        {showCabal && (
+          <a
+            href="/cabal"
+            className={
+              isActive(currentPath, "/cabal")
+                ? "text-red-600 font-bold"
+                : "text-red-600 hover:text-red-500 transition-colors"
+            }
+          >
+            cabal
           </a>
         )}
       </div>
