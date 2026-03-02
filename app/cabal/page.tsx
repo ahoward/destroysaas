@@ -99,9 +99,25 @@ export default async function CabalPage() {
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lowercase mb-2">
           state of the union
         </h1>
-        <p className="text-[var(--text-muted)] text-sm mb-16">
-          february 2026 &mdash; logged in as {user.email}
+        <p className="text-[var(--text-muted)] text-sm mb-8">
+          march 2026 &mdash; logged in as {user.email}
         </p>
+
+        {/* live and in the open */}
+        <div className="border border-red-600 rounded-lg p-5 mb-16 bg-red-600/5">
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            <span className="text-red-600 font-bold">this is happening live and in the open.</span>{" "}
+            you&apos;re not reading a pitch deck or a roadmap written after the fact.
+            you&apos;re watching a cooperative form in real time &mdash; every decision,
+            every discussion, every line of code. the{" "}
+            <a href="https://github.com/ahoward/destroysaas" className="text-red-500 hover:text-red-400 transition-colors" target="_blank" rel="noopener noreferrer">
+              codebase is public
+            </a>.
+            the <a href="/about/governance/bylaws" className="text-red-500 hover:text-red-400 transition-colors">bylaws are public</a>.
+            the financials will be public. we build trust by making it impossible to hide.
+            if you&apos;re in this room, you&apos;re not an audience &mdash; you&apos;re a co-author.
+          </p>
+        </div>
 
         {/* key numbers */}
         <section className="mb-16">
