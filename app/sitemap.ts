@@ -6,14 +6,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, changeFrequency: "daily", priority: 1 },
-    { url: `${base}/math`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/ideas`, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/cells`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/commons`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/about`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/about/math`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/about/philosophy`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/about/legal`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/about/money`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/about/governance`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${base}/about/governance/bylaws`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/about/governance/articles`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${base}/about/authors`, changeFrequency: "monthly", priority: 0.5 },
   ];
 

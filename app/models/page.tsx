@@ -377,7 +377,7 @@ export default async function ModelsPage() {
             see how the numbers work in practice
           </p>
           <a
-            href="/math"
+            href="/about/math"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
             the math &rarr;

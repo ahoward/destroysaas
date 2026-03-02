@@ -223,7 +223,7 @@ export default async function Home() {
                 join and propose what your business needs &rarr;
               </a>
               <a
-                href="/math"
+                href="/about/math"
                 className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
               >
                 see the math &rarr;

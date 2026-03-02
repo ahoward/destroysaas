@@ -135,6 +135,16 @@ export default async function AboutPage() {
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">go deeper</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
+              href="/about/math"
+              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
+            >
+              <p className="font-semibold mb-1">the math</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                the economics of SaaS don&apos;t work for small business. here&apos;s the
+                math on collective ownership &mdash; with a calculator to run your own numbers.
+              </p>
+            </a>
+            <a
               href="/about/legal"
               className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
             >
