@@ -5,6 +5,7 @@ import { is_inner } from "@/lib/groups";
 import { getEffectiveUser } from "@/lib/ghost";
 import Nav from "@/app/components/nav";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Responses from "./replies";
 
 export async function generateMetadata({
@@ -99,7 +100,7 @@ export default async function CabalDiscussionPage({
 
         {/* body */}
         <div className="prose prose-sm dark:prose-invert max-w-none mb-8 text-[var(--text-secondary)] prose-headings:text-[var(--text-primary)] prose-headings:lowercase prose-headings:tracking-tight prose-strong:text-[var(--text-primary)] prose-a:text-red-500 prose-hr:border-[var(--border-primary)]">
-          <Markdown>{disc.body}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{disc.body}</Markdown>
         </div>
 
         {/* responses */}
