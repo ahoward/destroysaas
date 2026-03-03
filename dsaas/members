@@ -1,0 +1,77 @@
+#!/usr/bin/env bun
+//
+// dsaas members — list members and group memberships
+//
+// usage:
+//   dsaas members                  # all members
+//   dsaas members --group cabal    # filter by group
+//
+
+import { getAdminClient, parseArgs, die, ok } from "./lib/client.ts"
+
+const { flags } = parseArgs(process.argv.slice(2))
+const groupFilter = flags.group || null
+
+const client = getAdminClient()
+
+// get all users
+const { data: usersData } = await client.auth.admin.listUsers({ page: 1, perPage: 1000 })
+const users = usersData?.users || []
+const emailById = new Map<string, string>()
+for (const u of users) {
+  if (u.email) emailById.set(u.id, u.email)
+}
+
+// get group memberships
+let query = client
+  .from("group_members")
+  .select("user_id, created_at, groups!inner(name)")
+
+if (groupFilter) {
+  query = query.eq("groups.name", groupFilter)
+}
+
+const { data: memberships, error } = await query
+
+if (error) {
+  die(`failed to fetch memberships: ${error.message}`)
+}
+
+if (!memberships || memberships.length === 0) {
+  ok(groupFilter ? `no members in group: ${groupFilter}` : "no group memberships found")
+  process.exit(0)
+}
+
+// aggregate: email → [groups]
+const memberGroups = new Map<string, { email: string; groups: string[]; joined: string }>()
+
+for (const m of memberships) {
+  const email = emailById.get(m.user_id) || m.user_id
+  const groupName = (m.groups as { name: string }).name
+  const existing = memberGroups.get(email)
+  if (existing) {
+    existing.groups.push(groupName)
+  } else {
+    memberGroups.set(email, {
+      email,
+      groups: [groupName],
+      joined: m.created_at?.slice(0, 10) || "—",
+    })
+  }
+}
+
+// sort by email
+const sorted = [...memberGroups.values()].sort((a, b) => a.email.localeCompare(b.email))
+
+// output
+const maxEmail = Math.max(...sorted.map((m) => m.email.length), 5)
+const maxGroups = Math.max(...sorted.map((m) => m.groups.join(", ").length), 6)
+
+ok(`${"email".padEnd(maxEmail)}  ${"groups".padEnd(maxGroups)}  joined`)
+ok(`${"—".repeat(maxEmail)}  ${"—".repeat(maxGroups)}  ${"—".repeat(10)}`)
+
+for (const m of sorted) {
+  ok(`${m.email.padEnd(maxEmail)}  ${m.groups.join(", ").padEnd(maxGroups)}  ${m.joined}`)
+}
+
+ok(`\n${sorted.length} member(s)`)

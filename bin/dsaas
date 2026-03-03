@@ -1,0 +1,75 @@
+#!/usr/bin/env bun
+//
+// dsaas — destroysaas platform CLI
+//
+// git-style subcommand dispatcher:
+//   dsaas <cmd> [args...]  →  ./dsaas/<cmd> [args...]
+//
+
+import { existsSync } from "node:fs"
+import { resolve, dirname } from "node:path"
+
+function find_root(): string {
+  let dir = dirname(new URL(import.meta.url).pathname)
+  dir = resolve(dir, "..")
+  if (existsSync(resolve(dir, "dsaas"))) return dir
+
+  dir = process.cwd()
+  while (dir !== "/") {
+    if (existsSync(resolve(dir, "dsaas"))) return dir
+    dir = dirname(dir)
+  }
+  process.stderr.write("dsaas: cannot find project root (no dsaas/ directory found)\n")
+  process.exit(1)
+}
+
+const ROOT = find_root()
+const DSAAS_DIR = resolve(ROOT, "dsaas")
+
+function usage(): void {
+  process.stderr.write(`dsaas — destroysaas platform CLI
+
+usage:
+  dsaas <command> [args...]
+
+commands:
+  invite <email>       invite a user (sends email, creates invitation)
+  members              list members and group memberships
+  discuss "title"      create a cabal discussion
+  stats                show platform stats
+
+examples:
+  dsaas invite nico@2c.io --groups cabal --name "Nico"
+  dsaas members --group cabal
+  dsaas discuss "new topic" --body-file topic.md
+  dsaas stats
+`)
+}
+
+const args = process.argv.slice(2)
+
+if (args.length === 0 || args[0] === "--help" || args[0] === "-h") {
+  usage()
+  process.exit(args.length === 0 ? 1 : 0)
+}
+
+const cmd = args[0]
+const rest = args.slice(1)
+const cmd_path = resolve(DSAAS_DIR, cmd)
+
+if (!existsSync(cmd_path)) {
+  process.stderr.write(`dsaas: unknown command '${cmd}'\n`)
+  process.stderr.write(`dsaas: looked for ${cmd_path}\n\n`)
+  usage()
+  process.exit(1)
+}
+
+const proc = Bun.spawn([cmd_path, ...rest], {
+  stdout: "inherit",
+  stderr: "inherit",
+  stdin: "inherit",
+  cwd: ROOT,
+})
+
+const exit_code = await proc.exited
+process.exit(exit_code)

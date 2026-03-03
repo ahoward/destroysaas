@@ -1,0 +1,73 @@
+#!/usr/bin/env bun
+//
+// dsaas stats — show platform stats
+//
+// usage:
+//   dsaas stats
+//
+
+import { getAdminClient, ok } from "./lib/client.ts"
+
+const client = getAdminClient()
+
+// user count
+const { data: usersData } = await client.auth.admin.listUsers({ page: 1, perPage: 1 })
+const userCount = (usersData as unknown as { total?: number } | null)?.total ?? 0
+
+// ideas
+const { count: ideaCount } = await client
+  .from("idea_board")
+  .select("id", { count: "exact", head: true })
+
+// pledges
+const { data: pledgeStats } = await client
+  .from("pledges")
+  .select("amount_monthly, user_id")
+
+const totalPledged = (pledgeStats ?? []).reduce((sum, p) => sum + Number(p.amount_monthly), 0)
+const totalSponsors = new Set((pledgeStats ?? []).map((p) => p.user_id)).size
+
+// comments
+const { count: commentCount } = await client
+  .from("comments")
+  .select("id", { count: "exact", head: true })
+
+// upvotes
+const { count: upvoteCount } = await client
+  .from("upvotes")
+  .select("id", { count: "exact", head: true })
+
+// cells
+const { count: cellsPending } = await client
+  .from("cells")
+  .select("id", { count: "exact", head: true })
+  .eq("status", "pending")
+
+const { count: cellsApproved } = await client
+  .from("cells")
+  .select("id", { count: "exact", head: true })
+  .eq("status", "approved")
+
+// discussions
+const { count: discussionCount } = await client
+  .from("cabal_discussions")
+  .select("id", { count: "exact", head: true })
+
+// group members
+const { count: groupMemberCount } = await client
+  .from("group_members")
+  .select("id", { count: "exact", head: true })
+
+// output
+ok("destroysaas — platform stats")
+ok("—".repeat(40))
+ok(`  users:            ${userCount}`)
+ok(`  ideas:            ${ideaCount ?? 0}`)
+ok(`  pledged/mo:       $${totalPledged.toLocaleString()}`)
+ok(`  sponsors:         ${totalSponsors}`)
+ok(`  upvotes:          ${upvoteCount ?? 0}`)
+ok(`  comments:         ${commentCount ?? 0}`)
+ok(`  cells approved:   ${cellsApproved ?? 0}`)
+ok(`  cells pending:    ${cellsPending ?? 0}`)
+ok(`  discussions:      ${discussionCount ?? 0}`)
+ok(`  group members:    ${groupMemberCount ?? 0}`)

@@ -1,0 +1,93 @@
+#!/usr/bin/env bun
+//
+// dsaas invite — create invitation + send email
+//
+// usage:
+//   dsaas invite <email> [--groups cabal,admin] [--name "Name"] [--note "welcome"]
+//
+
+import { getAdminClient, getResend, getRootUserId, emailTemplate, FROM, REPLY_TO, parseArgs, die, ok } from "./lib/client.ts"
+
+const { flags, positional } = parseArgs(process.argv.slice(2))
+
+if (positional.length === 0 || positional[0] === "--help") {
+  die("usage: dsaas invite <email> [--groups cabal] [--name \"Name\"] [--note \"welcome\"]")
+}
+
+const email = positional[0]
+const groupNames = (flags.groups || "cabal").split(",").map((g: string) => g.trim()).filter(Boolean)
+const name = flags.name || null
+const note = flags.note || null
+
+const client = getAdminClient()
+
+// validate groups exist
+const { data: groups } = await client
+  .from("groups")
+  .select("name")
+  .in("name", groupNames)
+
+const found = new Set((groups ?? []).map((g) => g.name))
+const missing = groupNames.filter((n: string) => !found.has(n))
+if (missing.length > 0) {
+  die(`groups not found: ${missing.join(", ")}`)
+}
+
+// get creator (root user)
+const creatorId = await getRootUserId()
+
+// create invitation
+const { data: invitation, error } = await client
+  .from("invitations")
+  .insert({
+    created_by: creatorId,
+    recipient_name: name,
+    recipient_email: email,
+    group_names: groupNames,
+    redirect_path: "/cabal",
+    note,
+    expires_at: null,
+  })
+  .select("token")
+  .single()
+
+if (error || !invitation) {
+  die(`failed to create invitation: ${error?.message || "unknown error"}`)
+}
+
+// send email
+const inviteUrl = `https://destroysaas.coop/invite/${invitation.token}`
+const greeting = name ? `hi ${name},` : "hi,"
+
+const html = emailTemplate(
+  "you're invited to destroysaas",
+  `<p>${greeting}</p>
+   ${note ? `<p style="margin-top:12px;">${note}</p>` : ""}
+   <p style="margin-top:12px;">
+     you've been invited to join an inner circle at destroysaas &mdash;
+     the platform where small businesses stop renting software and start owning it.
+   </p>
+   <p style="margin-top:16px;">
+     <a href="${inviteUrl}" style="display:inline-block;background:#dc2626;color:#fff;padding:10px 24px;border-radius:4px;text-decoration:none;font-weight:600;">
+       view invitation &rarr;
+     </a>
+   </p>
+   <p style="margin-top:16px;font-size:12px;color:#737373;">
+     or copy this link: ${inviteUrl}
+   </p>`
+)
+
+const resend = getResend()
+try {
+  await resend.emails.send({
+    from: FROM,
+    replyTo: REPLY_TO,
+    to: email,
+    subject: "you're invited to destroysaas",
+    html,
+  })
+  ok(`invited ${email} → groups: ${groupNames.join(", ")} | token: ${invitation.token}`)
+} catch (err) {
+  process.stderr.write(`dsaas: email send failed: ${err}\n`)
+  ok(`invited ${email} → groups: ${groupNames.join(", ")} | token: ${invitation.token} (email failed)`)
+}

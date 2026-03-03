@@ -1,0 +1,59 @@
+#!/usr/bin/env bun
+//
+// dsaas discuss — create a cabal discussion
+//
+// usage:
+//   dsaas discuss "title" --body "markdown body"
+//   dsaas discuss "title" --body-file discussion.md
+//
+
+import { readFileSync } from "node:fs"
+import { getAdminClient, getRootUserId, parseArgs, die, ok } from "./lib/client.ts"
+
+const { flags, positional } = parseArgs(process.argv.slice(2))
+
+if (positional.length === 0 || positional[0] === "--help") {
+  die('usage: dsaas discuss "title" --body "markdown" | --body-file file.md')
+}
+
+const title = positional[0]
+
+let body = flags.body || null
+if (flags["body-file"]) {
+  try {
+    body = readFileSync(flags["body-file"], "utf-8")
+  } catch {
+    die(`cannot read file: ${flags["body-file"]}`)
+  }
+}
+
+if (!body) {
+  die("--body or --body-file is required")
+}
+
+if (title.length > 200) {
+  die("title must be 200 chars or less")
+}
+
+if (body.length > 20000) {
+  die("body must be 20,000 chars or less")
+}
+
+const client = getAdminClient()
+const creatorId = await getRootUserId()
+
+const { data: disc, error } = await client
+  .from("cabal_discussions")
+  .insert({
+    title,
+    body,
+    created_by: creatorId,
+  })
+  .select("id")
+  .single()
+
+if (error || !disc) {
+  die(`failed to create discussion: ${error?.message || "unknown error"}`)
+}
+
+ok(`created discussion: ${title} → /cabal/discussions/${disc.id}`)

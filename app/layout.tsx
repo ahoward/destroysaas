@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Footer from "@/app/components/footer";
-import ThemeToggle from "@/app/components/theme_toggle";
 import GhostBanner from "@/app/components/ghost_banner";
 
 export const metadata: Metadata = {
@@ -50,9 +49,6 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]">
         <GhostBanner />
-        <div className="fixed top-4 right-4 z-50">
-          <ThemeToggle />
-        </div>
         {children}
         <Footer />
         <Analytics />

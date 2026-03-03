@@ -170,7 +170,7 @@ export default async function Home() {
 
         {/* stats */}
         {(idea_count ?? 0) > 0 && (
-          <div className="grid grid-cols-3 gap-6 mb-16 border border-[var(--border-primary)] rounded-lg p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 border border-[var(--border-primary)] rounded-lg p-6">
             <div className="text-center">
               <p className="text-3xl font-bold text-red-600">{idea_count}</p>
               <p className="text-xs text-[var(--text-muted)] mt-1">ideas submitted</p>
