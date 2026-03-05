@@ -3,6 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 import Nav from "@/app/components/nav";
 import IdeasFilter from "./ideas_filter";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "ideas — destroysaas",
 };
