@@ -4,7 +4,7 @@ import Nav from "@/app/components/nav";
 export const metadata: Metadata = {
   title: "financial model — destroysaas",
   description:
-    "how cells get funded, where the money goes, and how equity works. transparent economics for collective software ownership.",
+    "how the co-op gets funded, where the money goes, and how surplus is shared. transparent economics for collective software ownership.",
 };
 
 export default async function MoneyPage() {
@@ -19,58 +19,28 @@ export default async function MoneyPage() {
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-16">
           here&apos;s exactly where the money goes. no hidden fees. no investor-first economics.
+          one cooperative. two member types. every dollar visible.
         </p>
 
-        {/* how cells get funded */}
+        {/* money in */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">how cells get funded</h2>
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">money in</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              a business submits an idea for software they need and names what they&apos;d pay monthly.
-              other businesses with the same problem pledge their own monthly commitment —{" "}
-              <span className="text-[var(--text-primary)] font-medium">$25 to $500 per month</span>, whatever
-              they can afford.
-            </p>
-            <p>
-              pledges are held until total monthly commitments hit the{" "}
-              <span className="text-[var(--text-primary)] font-medium">$1,000/month threshold</span>.
-              at that point, pledges lock and convert into monthly treasury contributions.
-              a legal entity forms. certified cells compete by shipping working MVPs &mdash;
-              product vision, design, and code. the collective selects the best one, and that
-              cell earns the contract to design, build, and operate it long-term.
-            </p>
-            <p>
-              if the threshold is never reached, nobody pays anything. there&apos;s no risk in pledging —
-              only in <em>not</em> pledging for software you actually need.
-            </p>
-          </div>
-        </section>
-
-        {/* inventor equity */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">inventor equity</h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>
-              the person who submits the original idea takes real risk — they&apos;re putting a concept
-              out there and rallying others around it. that should be rewarded.
+              the cooperative has two revenue streams. both are straightforward.
             </p>
           </div>
           <div className="mt-6 space-y-4">
             {[
               {
-                label: "founding grant",
-                value: "200,000 class A shares",
-                desc: "the idea submitter receives these at cell formation. sweat equity for taking the first step.",
+                label: "monthly dues",
+                value: "all members",
+                desc: "every member — businesses and cells alike — pays monthly dues. this funds operating costs: legal fees, insurance, hosting, platform maintenance, board expenses, and the reserve fund.",
               },
               {
-                label: "co-sponsor shares",
-                value: "10,000 class B shares",
-                desc: "every business that pledges receives class B shares when the cell forms. skin in the game = seat at the table.",
-              },
-              {
-                label: "recruitment bounty",
-                value: "+2,000 class A per recruit",
-                desc: "the founder earns bonus shares for the first 10 co-sponsors they bring in. growth should reward the grower.",
+                label: "project pledges",
+                value: "businesses",
+                desc: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations. if pledges never hit the funding threshold, nobody pays.",
               },
             ].map((item) => (
               <div key={item.label} className="border-l-2 border-[var(--border-primary)] pl-6">
@@ -84,67 +54,34 @@ export default async function MoneyPage() {
           </div>
         </section>
 
-        {/* voting weight */}
+        {/* money out */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">voting weight</h2>
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">money out</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              during the <span className="text-[var(--text-primary)] font-medium">genesis phase (months 0&ndash;18)</span>,
-              voting power is weighted by shares. founders and early sponsors have more influence while the cell
-              is getting off the ground. this protects the people who took the initial bet.
-            </p>
-            <p>
-              after month 18, the cell shifts to{" "}
-              <span className="text-[var(--text-primary)] font-medium">one-member-one-vote</span>.
-              every paying member has equal say. the cell is now a mature cooperative, governed democratically.
-            </p>
-          </div>
-        </section>
-
-        {/* treasury mechanics */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">treasury mechanics</h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>
-              each cell&apos;s treasury is managed through{" "}
-              <span className="text-[var(--text-primary)] font-medium">OpenCollective</span> — fully
-              transparent, every transaction visible to every member. monthly contributions from
-              co-sponsors flow in. cell payments flow out.
-            </p>
-            <p>
-              the cell draws from the treasury monthly,{" "}
-              <span className="text-[var(--text-primary)] font-medium">contingent on hitting their SLA metrics</span>.
-              uptime, bug resolution, delivery cadence, product responsiveness &mdash; if they miss,
-              they don&apos;t get paid in full. accountability is baked into the payment structure, not left to trust.
-            </p>
-          </div>
-        </section>
-
-        {/* platform economics */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">platform economics</h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>
-              destroysaas is the infrastructure that makes cells possible. the platform earns revenue through:
+              cells submit a{" "}
+              <span className="text-[var(--text-primary)] font-semibold">monthly budget</span> for
+              the coming month&apos;s work — labor, hosting, tools, everything. the budget is
+              submitted ahead of time, not after the fact. here&apos;s how it flows:
             </p>
           </div>
           <div className="mt-6 space-y-4">
             {[
               {
-                label: "cell formation fee",
-                desc: "one-time fee for LCA creation, DAO initialization, and OpenCollective onboarding. you pay once to set up the legal and financial rails.",
+                label: "public budgets",
+                desc: "every budget is visible to every member of the cooperative. no secret line items. no hidden costs. sunlight is the disinfectant.",
               },
               {
-                label: "platform take-rate",
-                desc: "5\u201310% of each cell\u2019s monthly treasury. this funds platform development, support, and the certification infrastructure that keeps cells accountable.",
+                label: "board review",
+                desc: "the elected board reviews and approves budgets as part of routine operations. they can flag anomalies and request justification before payment.",
               },
               {
-                label: "cell certification",
-                desc: "product cooperatives pay to get vetted and listed. this covers product capability review, technical assessment, cooperative structure verification, and ongoing compliance.",
+                label: "efficiency margin",
+                desc: "if a cell budgets 100 hours and finishes in 80, they keep the difference. this is by design — it rewards honest, efficient work.",
               },
               {
-                label: "inter-cell routing",
-                desc: "as cells mature and interoperate, micro-transaction fees on cross-cell API calls. this is the long-term network revenue — every cell that connects increases the value of every other cell.",
+                label: "budget overruns",
+                desc: "the board approves overruns up to 20% of the original budget. anything beyond that requires a vote of the project\u2019s pledging businesses. the cell bears the risk of bad estimates.",
               },
             ].map((item) => (
               <div key={item.label} className="flex gap-4">
@@ -158,34 +95,124 @@ export default async function MoneyPage() {
           </div>
         </section>
 
+        {/* governance */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">one member, one vote</h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              every member gets one vote on cooperative-wide decisions, regardless of how much
+              they&apos;ve pledged or invoiced. a{" "}
+              <span className="text-[var(--text-primary)] font-semibold">$50/month business</span> has
+              the same vote as a $500/month business. a two-person cell has the same vote as a
+              ten-person cell.
+            </p>
+            <p>
+              this is the cooperative principle. from day one. no genesis phase, no weighted voting,
+              no special privileges for early members. patronage determines surplus distribution.
+              voting is equal.
+            </p>
+          </div>
+        </section>
+
+        {/* cooperative treasury */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">cooperative treasury</h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              there is one treasury for the entire cooperative — not one per cell, not one per
+              project.{" "}
+              <span className="text-[var(--text-primary)] font-semibold">
+                every transaction is visible to every member
+              </span>
+              . dues flow in. project pledges flow into ring-fenced funds. approved budgets flow out
+              to cells.
+            </p>
+            <p>
+              the board manages the treasury as part of their elected duties. they report monthly to
+              the full membership. if the membership doesn&apos;t like what they see, they elect a
+              new board.
+            </p>
+          </div>
+        </section>
+
+        {/* patronage */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">patronage &amp; surplus</h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              the cooperative tracks{" "}
+              <span className="text-[var(--text-primary)] font-semibold">patronage</span> — how much
+              each member has contributed over time. this is standard cooperative practice and
+              determines how year-end surplus gets distributed.
+            </p>
+          </div>
+          <div className="mt-6 space-y-4">
+            {[
+              {
+                label: "business patronage",
+                value: "dues + pledges",
+                desc: "you contributed money toward operating costs and specific projects — that\u2019s your patronage.",
+              },
+              {
+                label: "cell patronage",
+                value: "dues + paid budgets",
+                desc: "your dues plus the budgets the cooperative actually paid for your work. based on what was spent, not what was requested.",
+              },
+              {
+                label: "surplus split",
+                value: "50/50",
+                desc: "year-end surplus is split into two pools. 50% to the business pool, distributed pro-rata by each business\u2019s total dues + pledges. 50% to the cell pool, distributed pro-rata by each cell\u2019s total dues + paid budgets. each class benefits from the value they created.",
+              },
+            ].map((item) => (
+              <div key={item.label} className="border-l-2 border-[var(--border-primary)] pl-6">
+                <div className="flex items-baseline gap-3 mb-1">
+                  <p className="font-semibold text-[var(--text-primary)]">{item.label}</p>
+                  <p className="text-red-600 font-bold text-sm">{item.value}</p>
+                </div>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              the 50/50 split is a starting point. the membership can vote to adjust it.
+              patronage is tracked automatically. no manual accounting.
+            </p>
+          </div>
+        </section>
+
         {/* exit protections */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">exit protections</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
               the system is designed so{" "}
-              <span className="text-[var(--text-primary)] font-medium">nobody gets screwed on the way out</span>:
+              <span className="text-[var(--text-primary)] font-semibold">nobody gets screwed on the way out</span>:
             </p>
             <div className="border-l-2 border-[var(--border-primary)] pl-6 space-y-3 mt-4">
               <p>
-                <span className="text-[var(--text-primary)] font-medium">right of first refusal</span> —
-                the LCA can buy back shares at 24x MRR before any external sale. the collective gets first
-                dibs, always.
+                <span className="text-[var(--text-primary)] font-semibold">membership is voluntary</span> —
+                any member can leave at any time. you stop paying dues, you lose governance rights.
+                no lock-in, no penalties.
               </p>
               <p>
-                <span className="text-[var(--text-primary)] font-medium">no external sales</span> —
-                shares can&apos;t be sold to outside parties without collective approval. this prevents
-                hostile takeovers and ensures the cell stays in the hands of the people who use it.
+                <span className="text-[var(--text-primary)] font-semibold">no external sales</span> —
+                membership interests can&apos;t be sold to outside parties without cooperative
+                approval. this prevents hostile takeovers and ensures the co-op stays in the hands
+                of the people who use it.
               </p>
               <p>
-                <span className="text-[var(--text-primary)] font-medium">class B freeze</span> —
-                if a member stops paying, their class B shares freeze after a 60-day grace period.
-                you can&apos;t stop contributing and keep voting. skin in the game is continuous.
-              </p>
-              <p>
-                <span className="text-[var(--text-primary)] font-medium">fork freedom</span> —
+                <span className="text-[var(--text-primary)] font-semibold">fork freedom</span> —
                 if you leave, you take the code and your data. the software is open-source.
-                you lose governance rights, not access.
+                you lose governance rights, not access. you can fork the code — you can&apos;t fork
+                the membership, the brand, or the treasury.
+              </p>
+              <p>
+                <span className="text-[var(--text-primary)] font-semibold">the safety valve</span> —
+                if the cooperative ever stops serving its members, the members can walk. the code
+                goes with them. what you get as a member that you don&apos;t get from just forking:
+                hosted infrastructure, ongoing maintenance, governance rights, community support,
+                new features, and the cooperative&apos;s brand and trust.
               </p>
             </div>
           </div>
@@ -194,9 +221,10 @@ export default async function MoneyPage() {
         {/* bottom line */}
         <section className="mb-16">
           <div className="border-l-2 border-red-600 pl-6">
-            <p className="text-[var(--text-primary)] font-medium leading-relaxed">
-              the bottom line: every dollar is visible. every payment is earned. every member has equity.
-              and if you leave, you leave with everything except the governance rights you chose to walk away from.
+            <p className="text-[var(--text-primary)] font-semibold leading-relaxed">
+              the bottom line: every dollar is visible. every budget is public. every member has
+              one vote. surplus goes back to the people who created it. and if you leave, you leave
+              with the code — the only thing you lose is the seat you chose to walk away from.
             </p>
           </div>
         </section>

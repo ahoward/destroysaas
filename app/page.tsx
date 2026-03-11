@@ -168,7 +168,7 @@ export default async function Home() {
               <span className="text-[var(--text-primary)] font-semibold">owned by their members</span>.
             </p>
             <p>
-              saas vendors extract from you. destroysaas collectives are{" "}
+              saas vendors extract from you. destroysaas is{" "}
               <span className="text-[var(--text-primary)] font-semibold">owned by their members</span>.
             </p>
             <p>
@@ -219,10 +219,10 @@ export default async function Home() {
                 do anything about it.
               </p>
               <p>
-                destroysaas makes you a <span className="text-[var(--text-primary)] font-semibold">co-owner</span>, not a customer.
-                you fund software collectively with other businesses who need the same thing. a vetted product
-                cooperative designs, builds, and operates it under contract <em>to you</em>. the code is open-source.
-                the data is yours. the legal entity gives you voting rights and enforceable contracts.
+                destroysaas makes you a <span className="text-[var(--text-primary)] font-semibold">co-owner of the cooperative itself</span>, not a customer.
+                you pay dues, propose ideas, pledge toward projects, and vote on what gets built and who builds it.
+                cells bid on the work within your pledge budget. the code is open-source.
+                the data is yours. one member, one vote, enforceable contracts.
               </p>
               <p className="text-[var(--text-primary)] font-semibold">
                 if your vendor disappeared tomorrow, would your business survive? with destroysaas, the answer is always yes.
@@ -261,28 +261,28 @@ export default async function Home() {
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
                 a cell is a{" "}
-                <span className="text-[var(--text-primary)] font-semibold">full-service product cooperative</span> &mdash;
+                <span className="text-[var(--text-primary)] font-semibold">full-service product team and an equal member of the cooperative</span> &mdash;
                 product management, design, engineering, and operations under one roof.
-                you don&apos;t just write code. you own the whole problem: what to build, how it
-                looks, how it works, and keeping it running.
+                you pay dues, you vote on cooperative decisions, and you bid on projects alongside
+                the businesses who fund them. you&apos;re not a vendor. you&apos;re a co-owner.
               </p>
               <p>
-                when an idea hits threshold, certified cells compete by shipping a working MVP.
+                when a project is approved, certified cells bid within the pledge budget. you submit
+                a monthly budget for your work &mdash; public, reviewed by the board, visible to every member.
                 not a spec deck. not a slide deck.{" "}
                 <span className="text-[var(--text-primary)] font-semibold">a running product</span>.
-                the collective picks the best one and contracts that cell for ongoing design,
+                the cooperative selects the best bid and contracts that cell for ongoing design,
                 development, hosting, and evolution.
               </p>
               <p>
-                your MVP is your audition. if you ship great work, you win a maintenance contract
-                that pays monthly. the treasury pays contingent on hitting your SLA.
-                all code is open-source. if you do great work, your reputation compounds and more
-                collectives come to you. if you walk away, the collective replaces you.{" "}
+                efficient cells keep the margin. if you budget 100 hours and finish in 80, the
+                difference is yours. all code is open-source. if you do great work, your reputation
+                compounds and you win more projects. if you walk away, the cooperative replaces you.{" "}
                 <span className="text-[var(--text-primary)] font-semibold">no one is trapped</span> &mdash;
                 not the businesses, not you.
               </p>
               <p className="text-[var(--text-primary)] font-semibold">
-                this is a product company that scales on contract revenue, without giving up ownership of your labor.
+                this is a product company that scales on contract revenue, with equal say in how the cooperative runs.
               </p>
             </div>
             <a
@@ -304,22 +304,23 @@ export default async function Home() {
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
                 traditional saas is a rent-seeking monoculture. one vendor, millions of customers, and a single point
-                of failure. ai is collapsing that model — building software is no longer the moat. the winners of the
+                of failure. ai is collapsing that model &mdash; building software is no longer the moat. the winners of the
                 next decade will own the <span className="text-[var(--text-primary)] font-semibold">network</span>, not the code.
               </p>
               <p>
-                destroysaas is a platform that spawns self-sustaining micro-cooperatives. each cell funds its own
-                development, governs its own roadmap, and pays platform fees for infrastructure. the code is free.
-                the network, legal rails, and treasury infrastructure are the value.
+                destroysaas is a single cooperative where businesses and product teams are equal members.
+                no platform fee. no take-rate. revenue comes from membership dues and project pledges &mdash;
+                recurring, predictable, and growing with every new member. one cooperative with many programs,
+                not many cooperatives on a platform.
               </p>
               <p>
-                revenue model: cell formation fees, platform take-rate (5&ndash;10% of each cell&apos;s treasury),
-                cell certification, and inter-cell API routing fees at scale.
-                every cell that forms <span className="text-[var(--text-primary)] font-semibold">increases the network and decreases churn</span> —
-                because owners don&apos;t churn the way customers do.
+                every new member increases the network value. every new project increases switching cost.
+                and owners don&apos;t churn the way customers do &mdash;{" "}
+                <span className="text-[var(--text-primary)] font-semibold">zero churn is the structural default</span>{" "}
+                when your members are co-owners with voting rights, patronage, and surplus distribution.
               </p>
               <p className="text-[var(--text-primary)] font-semibold">
-                this isn&apos;t a saas company. it&apos;s the protocol layer that replaces saas companies.
+                this isn&apos;t a saas company. it&apos;s the cooperative that replaces saas companies.
               </p>
             </div>
             <a

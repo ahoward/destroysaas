@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     q: "who builds the software?",
-    a: "vetted product cooperatives — small teams that handle product, design, engineering, and operations. not offshore agencies. not solo freelancers. real cooperatives with skin in the game that own the whole problem, not just the code.",
+    a: "certified cell members — small product teams that handle product, design, engineering, and operations. not offshore agencies. not solo freelancers. real cooperatives with skin in the game that own the whole problem, not just the code. they're members of the cooperative, same as the businesses.",
   },
   {
     q: "what's the legal structure?",
-    a: "an LCA/DAO hybrid. a limited cooperative association gives you real legal standing — enforceable contracts, voting rights, and the ability to sue if terms are breached. the DAO layer handles governance and transparency.",
+    a: "a limited cooperative association (LCA). a real legal entity that gives you enforceable contracts, voting rights, and the ability to sue if terms are breached. businesses and cells are equal members with one-member-one-vote governance.",
   },
   {
     q: "can I change my pledge amount?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "what happens after cell formation?",
-    a: "the winning cell takes over — product direction, design, development, hosting, and support. members vote on priorities. you get a working product designed and maintained by people accountable to you — not shareholders.",
+    a: "the winning cell takes over — product direction, design, development, hosting, and support. all members vote on priorities. businesses and cells are equal members of the cooperative, accountable to each other — not shareholders.",
   },
   {
     q: "is the code really open source?",
@@ -80,12 +80,12 @@ export default async function AboutPage() {
             <p>
               destroysaas flips the script. instead of renting from a vendor, businesses{" "}
               <span className="text-[var(--text-primary)] font-medium">collectively fund the software they need</span>.
-              a vetted product cooperative designs, builds, and operates it under contract to your collective.
+              certified member cells design, build, and operate it — accountable to the same cooperative you belong to.
             </p>
             <p>
-              the code is open-source. the data belongs to you. the legal structure — an{" "}
-              <span className="text-[var(--text-primary)] font-medium">LCA/DAO hybrid</span> — gives you real enforceable rights.
-              voting power. the ability to sue if terms are breached. fork freedom if you want to leave.
+              the code is open-source. the data belongs to you. the legal structure — a{" "}
+              <span className="text-[var(--text-primary)] font-medium">limited cooperative association</span> — gives you real enforceable rights.
+              one member, one vote. the ability to sue if terms are breached. fork freedom if you want to leave.
             </p>
             <p>
               the person who submits the original idea gets a revenue share if the cell scales.
@@ -113,11 +113,11 @@ export default async function AboutPage() {
               },
               {
                 step: "cell formation",
-                desc: "an admin triggers cell formation. the legal entity (LCA) is created. contracts are signed.",
+                desc: "the cooperative triggers cell formation. contracts are signed. businesses and the winning cell become equal members of the LCA.",
               },
               {
                 step: "build + own",
-                desc: "a product cooperative designs, builds, and operates it. members vote on priorities. you own what you paid for.",
+                desc: "a certified member cell designs, builds, and operates it. all members vote on priorities. you own what you paid for.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -150,7 +150,7 @@ export default async function AboutPage() {
             >
               <p className="font-semibold mb-1">the legal model</p>
               <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                LCA/DAO hybrid, enforceable contracts, fork freedom, and why you have more rights here than
+                limited cooperative association, enforceable contracts, fork freedom, and why you have more rights here than
                 you&apos;ve ever had as a saas customer.
               </p>
             </a>

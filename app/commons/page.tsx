@@ -21,7 +21,7 @@ export default function CommonsPage() {
           pay $25/year. get the tools.
         </p>
         <p className="text-sm text-[var(--text-muted)] mb-16">
-          every tool built on destroysaas is open source. the foundation curates
+          every tool built by the co-op is open source. destroysaas curates
           the best ones, runs public instances, and gives every member access.
           real software &mdash; not a demo, not a trial, not a newsletter.
         </p>
@@ -35,18 +35,18 @@ export default function CommonsPage() {
             {[
               {
                 step: "01",
-                title: "businesses fund development",
-                body: "small businesses collectively fund the software they need through local cooperative associations. cells (product teams) build and operate it. all code is open source.",
+                title: "members fund development",
+                body: "businesses propose ideas and pledge toward specific projects. cells (product teams) bid on the work and build it. all members pay dues. all code is open source.",
               },
               {
                 step: "02",
-                title: "the foundation curates the best tools",
-                body: "not everything makes the cut. destroysaas identifies the most useful, most stable tools the ecosystem produces \u2014 the ones with broad appeal beyond the original sponsors.",
+                title: "the co-op curates the best tools",
+                body: "not everything makes the cut. destroysaas identifies the most useful, most stable tools the cooperative produces \u2014 the ones with broad appeal beyond the original sponsors.",
               },
               {
                 step: "03",
-                title: "members get access",
-                body: "the foundation runs separate public instances of the curated tools. you join, you get in. same codebase, different infrastructure. no mixing with SMB data.",
+                title: "community members get access",
+                body: "the co-op runs separate public instances of the curated tools. you join, you get in. same codebase, different infrastructure. no mixing with business data.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -76,8 +76,8 @@ export default function CommonsPage() {
               </p>
               <p className="text-sm">
                 the full product. not a limited tier, not a freemium gate. the same
-                software the SMBs use, running on foundation-hosted infrastructure.
-                we&apos;re a co-op, not a SaaS company with extra steps.
+                software the businesses use, running on co-op-hosted infrastructure.
+                we&apos;re a cooperative, not a SaaS company with extra steps.
               </p>
             </div>
             <div className="border border-[var(--border-primary)] rounded-lg p-5">
@@ -85,7 +85,7 @@ export default function CommonsPage() {
                 a vote
               </p>
               <p className="text-sm">
-                governance voice on platform-level decisions. board elections, policy,
+                governance voice on cooperative-wide decisions. board elections, policy,
                 direction. one member, one vote. not weighted by how much you pay.
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function CommonsPage() {
               </p>
               <p className="text-sm">
                 if you start a business and need dedicated infrastructure, you&apos;re
-                already in the ecosystem. upgrade from commons to a full SMB
+                already in the cooperative. upgrade from community to a full business
                 membership with a dedicated instance, SLA, and support.
               </p>
             </div>
@@ -114,25 +114,26 @@ export default function CommonsPage() {
         {/* the difference */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            commons vs SMB
+            community vs business
           </h2>
           <div className="overflow-x-auto border border-[var(--border-primary)] rounded-lg">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-[var(--border-primary)]">
                   <th className="text-left p-3 font-medium text-[var(--text-muted)]" />
-                  <th className="text-left p-3 font-medium text-red-600">commons</th>
-                  <th className="text-left p-3 font-medium text-[var(--text-muted)]">SMB</th>
+                  <th className="text-left p-3 font-medium text-red-600">community</th>
+                  <th className="text-left p-3 font-medium text-[var(--text-muted)]">business</th>
                 </tr>
               </thead>
               <tbody className="text-[var(--text-secondary)]">
                 {[
-                  ["price", "$25/year", "$25\u2013$500/mo per tool"],
+                  ["price", "$25/year", "monthly dues + project pledges"],
                   ["infrastructure", "shared, multi-tenant", "dedicated, single-tenant"],
                   ["SLA", "best-effort", "99% uptime, 48hr response"],
                   ["data", "shared instance", "isolated, yours"],
                   ["customization", "default config", "custom features & integrations"],
-                  ["governance", "platform-level votes", "platform + LCA-level votes"],
+                  ["governance", "one member, one vote", "one member, one vote"],
+                  ["project pledges", "no", "yes"],
                   ["support", "community", "direct cell support"],
                 ].map(([label, commons, smb]) => (
                   <tr key={label} className="border-b border-[var(--border-faint)]">
@@ -156,12 +157,12 @@ export default function CommonsPage() {
             the flywheel
           </h2>
           <div className="border border-[var(--border-primary)] rounded-lg p-6 bg-[var(--bg-secondary)] font-mono text-sm space-y-1 text-[var(--text-secondary)]">
-            <p>SMBs fund development</p>
+            <p>businesses pledge toward projects</p>
             <p className="pl-4">&rarr; cells build open-source tools</p>
-            <p className="pl-8">&rarr; foundation curates the best ones</p>
-            <p className="pl-12">&rarr; commons members get access</p>
+            <p className="pl-8">&rarr; the co-op curates the best ones</p>
+            <p className="pl-12">&rarr; community members get access</p>
             <p className="pl-16">&rarr; members start businesses</p>
-            <p className="pl-20">&rarr; new SMBs fund more development</p>
+            <p className="pl-20">&rarr; new businesses fund more development</p>
           </div>
         </section>
 

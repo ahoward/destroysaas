@@ -1,0 +1,438 @@
+Co-Owned Software Model License (COSM)
+Version 1.0
+
+Copyright (c) 2026 destroysaas cooperative and contributors.
+
+======================================================================
+
+PREAMBLE
+
+This is a software license for the Co-Owned Software Model (COSM).
+
+Most open-source licenses protect the freedom to read, modify, and
+share code. That is necessary but not sufficient. When software is
+operated as a service, the people who depend on it — the users, the
+customers, the communities — have no seat at the table. The operator
+makes every decision: pricing, privacy, availability, direction. The
+source code is technically open, but the power is closed.
+
+COSM addresses this gap. It starts from a strong copyleft foundation:
+all source code must remain available, and network use triggers the
+same obligations as distribution. Then it adds one further requirement:
+if you operate this software as a service for paying users, those
+users must have meaningful governance rights over the operation of
+that service.
+
+The philosophy is simple. Code should be free. Governance should be
+shared. If you profit from other people's dependence on software, those
+people deserve a voice in how it is run.
+
+You are free to use, study, modify, and share this software without
+restriction. You are free to run it for yourself or within your
+organization. The governance requirement activates only when you
+operate it as a commercial service for others — and only above a
+revenue threshold that keeps small projects unburdened.
+
+This license was created by the destroysaas cooperative, where
+businesses and product teams (called "cells") collectively own and
+govern shared software infrastructure. COSM is our attempt to encode
+that model into a license that anyone can use.
+
+======================================================================
+
+TERMS AND CONDITIONS
+
+----------------------------------------------------------------------
+1. Definitions
+----------------------------------------------------------------------
+
+1.1 "This License" means version 1.0 of the Co-Owned Software Model
+    License (COSM).
+
+1.2 "The Software" means the source code, object code, documentation,
+    and any other material to which the copyright holder has attached a
+    notice stating that it is released under This License.
+
+1.3 "You" (or "Your") means an individual or legal entity exercising
+    permissions granted by This License. For legal entities, "You"
+    includes any entity that controls, is controlled by, or is under
+    common control with You. "Control" means ownership of more than
+    fifty percent (50%) of the voting power of an entity.
+
+1.4 "Contribution" means any work of authorship submitted to the
+    copyright holder for inclusion in The Software, including
+    modifications, additions, and new files.
+
+1.5 "Contributor" means any individual or legal entity that creates or
+    contributes to a Contribution.
+
+1.6 "Source Code" means the preferred form of the work for making
+    modifications to it, including all modules it contains, plus any
+    associated interface definition files, scripts used to control
+    compilation and installation, and documentation.
+
+1.7 "Modified Version" means any work that contains The Software or
+    any portion of it, whether verbatim or with modifications, and/or
+    translated into another language or format.
+
+1.8 "Distribute" means to make copies of The Software available to
+    third parties, whether by transfer, publication, or any other
+    means.
+
+1.9 "Operate as a Service" means to make the functionality of The
+    Software or a Modified Version available to third parties over a
+    computer network, where those third parties interact with the
+    running software remotely, regardless of whether they receive a
+    copy of The Software itself.
+
+1.10 "Service Users" means the third parties who use, access, or
+     interact with The Software when it is Operated as a Service.
+
+1.11 "Commercial Service" means Operating as a Service where:
+     (a) Service Users pay fees, subscriptions, or other charges to
+         access or use The Software; or
+     (b) the operator derives revenue from The Software's operation
+         through advertising, data licensing, or other commercial
+         activity directly tied to the service; or
+     (c) the operator charges for support, hosting, or managed
+         services where The Software provides the primary
+         functionality.
+
+1.12 "Revenue Threshold" means one hundred thousand United States
+     dollars (USD $100,000) in annual gross revenue derived from a
+     Commercial Service. Revenue is measured per legal entity (and its
+     controlled affiliates) per calendar year.
+
+1.13 "Cooperative Governance" means a governance structure that
+     satisfies the requirements of Section 7.
+
+1.14 "Major Decision" means any decision concerning:
+     (a) pricing changes that exceed twenty percent (20%) in any
+         twelve-month period;
+     (b) changes to the privacy policy or data handling practices;
+     (c) discontinuation or material reduction of the service;
+     (d) transfer of ownership or control of the service operation;
+     (e) changes to the terms of service that materially affect
+         Service Users' rights; or
+     (f) allocation of surplus revenue beyond operational costs and
+         reasonable reserves.
+
+----------------------------------------------------------------------
+2. Grant of Copyright License
+----------------------------------------------------------------------
+
+Subject to the terms of This License, each Contributor hereby grants
+You a worldwide, royalty-free, non-exclusive license to:
+
+(a) use, reproduce, and prepare Modified Versions of The Software;
+(b) Distribute The Software and Modified Versions in Source Code or
+    compiled form; and
+(c) Operate The Software and Modified Versions as a Service.
+
+These rights are granted for the full duration of the copyright on
+The Software.
+
+----------------------------------------------------------------------
+3. Grant of Patent License
+----------------------------------------------------------------------
+
+Each Contributor hereby grants You a worldwide, royalty-free,
+non-exclusive, perpetual license under any patent claims that the
+Contributor can license, or becomes able to license, that are
+necessarily infringed by their Contribution (either alone or in
+combination with The Software), to make, have made, use, sell, offer
+for sale, import, and otherwise transfer The Software.
+
+If You institute patent litigation against any entity (including a
+cross-claim or counterclaim in a lawsuit) alleging that The Software
+or a Contribution constitutes patent infringement, then all patent
+licenses granted to You under This License for The Software terminate
+as of the date such litigation is filed.
+
+----------------------------------------------------------------------
+4. Source Code Availability
+----------------------------------------------------------------------
+
+4.1 If You Distribute The Software or a Modified Version, You must
+    make the complete Source Code available to all recipients under
+    the terms of This License.
+
+4.2 If You Operate The Software or a Modified Version as a Service,
+    You must make the complete Source Code available to all Service
+    Users. The Source Code must be available at no charge, through a
+    publicly accessible network server, and must correspond to the
+    version of The Software in use. You must provide clear notice to
+    Service Users of how to obtain the Source Code.
+
+4.3 "Complete Source Code" means the Source Code of The Software and
+    all Modified Versions, including all modules, build scripts,
+    configuration files, and installation instructions necessary for
+    a reasonably skilled developer to build and run the software.
+
+4.4 You must retain all copyright notices, license notices, and
+    attribution notices present in The Software in all copies and
+    Modified Versions.
+
+----------------------------------------------------------------------
+5. Free Use: No Restrictions
+----------------------------------------------------------------------
+
+The following uses of The Software carry no obligations beyond
+attribution (Section 4.4) and source availability (Section 4):
+
+(a) Personal use for any purpose.
+(b) Internal use within Your organization, even if Your organization
+    is a commercial entity, provided the software is not Operated as
+    a Service for third parties.
+(c) Use for research, education, experimentation, or evaluation.
+(d) Use by nonprofit organizations and charitable institutions for
+    any purpose, including Operating as a Service, provided no
+    individual or entity derives private commercial benefit from the
+    operation.
+(e) Operating as a Service on a non-commercial basis (no fees
+    charged, no revenue derived).
+
+----------------------------------------------------------------------
+6. Commercial Service: Governance Threshold
+----------------------------------------------------------------------
+
+6.1 If You Operate The Software as a Commercial Service and Your
+    annual gross revenue from that Commercial Service exceeds the
+    Revenue Threshold, You must establish and maintain Cooperative
+    Governance as defined in Section 7 within one hundred eighty
+    (180) days of exceeding the threshold.
+
+6.2 If Your annual gross revenue from the Commercial Service is at
+    or below the Revenue Threshold, the Cooperative Governance
+    requirement does not apply. You must still comply with all other
+    terms of This License, including source availability.
+
+6.3 The Revenue Threshold is calculated per distinct Commercial
+    Service. Revenue from unrelated products or services does not
+    count toward the threshold.
+
+6.4 Once the Cooperative Governance requirement has been triggered,
+    it remains in effect for as long as You continue to Operate the
+    Commercial Service, even if revenue subsequently falls below the
+    Revenue Threshold.
+
+----------------------------------------------------------------------
+7. Cooperative Governance Requirements
+----------------------------------------------------------------------
+
+When the Cooperative Governance requirement applies under Section 6,
+the operator of the Commercial Service must satisfy all of the
+following conditions:
+
+7.1 VOTING RIGHTS
+
+    All Service Users who have maintained an active account or
+    membership for at least ninety (90) days must have the right to
+    vote on Major Decisions. Voting must be conducted by a method
+    that is accessible and transparent to all eligible voters.
+
+    Each eligible Service User gets one vote. Voting power may not
+    be allocated in proportion to fees paid, data contributed, or
+    any other measure of economic activity.
+
+7.2 LIMITS ON CONCENTRATION OF POWER
+
+    No single entity (including its controlled affiliates) may hold
+    or exercise more than forty-nine percent (49%) of the total
+    voting power on any Major Decision. If a governance structure
+    includes multiple classes of voting rights (for example, an
+    operator class and a user class), no single class held primarily
+    by one entity may constitute a majority.
+
+7.3 FINANCIAL TRANSPARENCY
+
+    The operator must publish, at least annually and in a form
+    accessible to all Service Users:
+    (a) total revenue derived from the Commercial Service;
+    (b) a summary of operating expenses in reasonable categories;
+    (c) compensation paid to the five highest-compensated
+        individuals or entities involved in operating the service;
+    (d) how surplus revenue (revenue exceeding operating expenses
+        and reasonable reserves) has been allocated; and
+    (e) any material financial relationships between the operator
+        and third parties that could create conflicts of interest.
+
+7.4 OPERATIONAL TRANSPARENCY
+
+    The operator must provide Service Users with:
+    (a) a public roadmap of planned material changes, updated at
+        least quarterly;
+    (b) notice of Major Decisions at least thirty (30) days before
+        a vote is held; and
+    (c) a published process for Service Users to propose items for
+        vote.
+
+7.5 RIGHT OF EXIT
+
+    The operator must provide Service Users with:
+    (a) the ability to export their data in a standard,
+        machine-readable format at any time; and
+    (b) at least one hundred eighty (180) days notice before any
+        discontinuation of the service.
+
+7.6 GOVERNANCE DOCUMENTATION
+
+    The operator must publish a governance document that describes
+    how each of the requirements in this Section 7 is satisfied.
+    This document must be accessible to all Service Users and kept
+    up to date.
+
+----------------------------------------------------------------------
+8. Compatibility With Other Licenses
+----------------------------------------------------------------------
+
+8.1 You may create a Larger Work that combines The Software with
+    code licensed under other terms, provided that:
+    (a) The Software and any Modified Versions of it remain subject
+        to This License;
+    (b) the combined work's license does not restrict the rights
+        granted by This License with respect to The Software; and
+    (c) You clearly identify which portions of the Larger Work are
+        covered by This License.
+
+8.2 Code licensed under the GNU Affero General Public License
+    version 3 (or later), the Mozilla Public License version 2.0
+    (or later), or the GNU General Public License version 3 (or
+    later) may be combined with The Software in a Larger Work. The
+    resulting Larger Work may be Distributed under the terms of the
+    applicable secondary license, but the Cooperative Governance
+    requirements of Section 7 continue to apply to any Commercial
+    Service that includes The Software.
+
+8.3 If there is a conflict between This License and a secondary
+    license, the terms of This License govern with respect to The
+    Software itself.
+
+----------------------------------------------------------------------
+9. Notices and Attribution
+----------------------------------------------------------------------
+
+9.1 You must include a copy of This License (or a prominent link
+    to it) with every copy of The Software You Distribute.
+
+9.2 You must not remove or alter any copyright, patent, trademark,
+    or attribution notices in The Software.
+
+9.3 If You Operate The Software as a Service, You must display a
+    clear and prominent notice to Service Users stating:
+    (a) that the service is powered by software licensed under the
+        COSM License;
+    (b) where to obtain the Source Code; and
+    (c) if Cooperative Governance applies, where to find the
+        governance documentation.
+
+----------------------------------------------------------------------
+10. Termination
+----------------------------------------------------------------------
+
+10.1 Your rights under This License terminate automatically if You
+     fail to comply with any of its terms.
+
+10.2 If You cure the violation within sixty (60) days of becoming
+     aware of it (or being notified of it), Your rights are
+     reinstated retroactively, provided this is Your first
+     violation. For subsequent violations, reinstatement requires
+     explicit written permission from the copyright holder.
+
+10.3 Termination of Your rights does not terminate the rights of
+     any party who received copies or rights from You, provided
+     they remain in compliance.
+
+----------------------------------------------------------------------
+11. Disclaimer of Warranty
+----------------------------------------------------------------------
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE
+OF THE SOFTWARE IS WITH YOU. SHOULD THE SOFTWARE PROVE DEFECTIVE,
+YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR
+CORRECTION.
+
+----------------------------------------------------------------------
+12. Limitation of Liability
+----------------------------------------------------------------------
+
+IN NO EVENT SHALL ANY CONTRIBUTOR BE LIABLE TO YOU FOR ANY DAMAGES,
+INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE
+(INCLUDING BUT NOT LIMITED TO LOSS OF DATA, DATA BEING RENDERED
+INACCURATE, LOSSES SUSTAINED BY YOU OR THIRD PARTIES, OR A FAILURE
+OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF SUCH
+CONTRIBUTOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+----------------------------------------------------------------------
+13. Interpretation
+----------------------------------------------------------------------
+
+13.1 If any provision of This License is held to be unenforceable,
+     that provision shall be reformed only to the extent necessary
+     to make it enforceable, and the remaining provisions shall
+     continue in full force.
+
+13.2 This License shall be governed by and construed in accordance
+     with the laws of the jurisdiction of the principal copyright
+     holder, without regard to conflict-of-law principles.
+
+13.3 Nothing in This License shall be construed to reduce, limit,
+     or restrict any rights arising from fair use, first sale, or
+     other limitations on the exclusive rights of the copyright
+     holder under applicable law.
+
+----------------------------------------------------------------------
+14. Versioning
+----------------------------------------------------------------------
+
+14.1 The destroysaas cooperative may publish revised versions of
+     This License from time to time. Each version will be given a
+     distinguishing version number.
+
+14.2 If The Software specifies a version number of This License,
+     You may choose to follow the terms of that version or any
+     later version published by the destroysaas cooperative. If
+     The Software does not specify a version number, You may
+     choose any version ever published.
+
+======================================================================
+
+EXHIBIT A — License Notice
+
+Include the following notice at the top of each source file:
+
+  This file is part of [Name of Software].
+
+  Licensed under the Co-Owned Software Model License (COSM),
+  Version 1.0. You may obtain a copy of the License at:
+
+    https://destroysaas.com/cosm-license
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under this License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+  either express or implied. See the License for the specific
+  language governing permissions and limitations.
+
+======================================================================
+
+EXHIBIT B — Cooperative Governance Summary Template
+
+When Cooperative Governance applies, publish a document containing
+at minimum:
+
+  1. Governance Structure: How voting rights are organized.
+  2. Eligible Voters: How Service Users qualify to vote.
+  3. Voting Process: How votes are conducted, counted, and published.
+  4. Financial Reports: Where and when financial disclosures are made.
+  5. Decision Calendar: How Major Decisions are scheduled and noticed.
+  6. Data Export: How Service Users export their data.
+  7. Contact: How Service Users can raise governance questions.
+
+======================================================================
+
+END OF LICENSE

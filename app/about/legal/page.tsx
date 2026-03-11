@@ -4,7 +4,7 @@ import Nav from "@/app/components/nav";
 export const metadata: Metadata = {
   title: "legal model — destroysaas",
   description:
-    "how destroysaas gives you real legal standing over the software you fund. LCA/DAO hybrid, enforceable contracts, fork freedom.",
+    "how destroysaas gives you real legal standing over the software you fund. one cooperative, real ownership, fork freedom.",
 };
 
 export default async function LegalPage() {
@@ -26,15 +26,15 @@ export default async function LegalPage() {
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">what you own</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              when a cell forms, it creates a{" "}
+              destroysaas is a{" "}
               <span className="text-[var(--text-primary)] font-medium">Limited Cooperative Association (LCA)</span> —
               a real legal entity recognized by state law. you&apos;re not a &ldquo;user.&rdquo;
               you&apos;re a <span className="text-[var(--text-primary)] font-medium">member-owner</span> with
-              equity shares, voting rights, and enforceable contracts.
+              a share of the cooperative, voting rights, and enforceable standing.
             </p>
             <p>
               this is the core difference. a saas vendor can change terms, raise prices, get acquired, or shut down —
-              and your only recourse is to cancel. an LCA member can{" "}
+              and your only recourse is to cancel. a cooperative member can{" "}
               <span className="text-[var(--text-primary)] font-medium">vote, sue, and enforce</span>.
               you have standing in court. you have a seat at the table. the software answers to you, not shareholders.
             </p>
@@ -46,23 +46,26 @@ export default async function LegalPage() {
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">governance</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              governance has two phases. during the{" "}
-              <span className="text-[var(--text-primary)] font-medium">genesis phase (months 0&ndash;18)</span>,
-              voting is weighted by share class — founders and early sponsors have more say while the cell
-              is finding its footing. this prevents late joiners from overriding the people who took the initial risk.
+              governance is simple:{" "}
+              <span className="text-[var(--text-primary)] font-medium">one member, one vote</span> from
+              day one. a $50/month business has the same vote as a $500/month business. a two-person
+              cell has the same vote as a ten-person cell. no weighted voting, no special share classes,
+              no genesis phases.
             </p>
             <p>
-              after month 18, governance shifts to{" "}
-              <span className="text-[var(--text-primary)] font-medium">one-member-one-vote</span>.
-              the cell is now mature. every paying member has equal say regardless of when they joined or how
-              many shares they hold.
+              the cooperative elects a{" "}
+              <span className="text-[var(--text-primary)] font-medium">board of directors</span> annually
+              from its membership. the board handles day-to-day operations — reviewing monthly budgets,
+              approving routine new members, fast-tracking uncontested projects, mediating disputes, and
+              managing the cooperative&apos;s operating expenses. any member can run. the board reports
+              monthly to the full membership.
             </p>
             <p>
-              a DAO layer handles the mechanics — proposals, voting records, treasury transparency.
-              the LCA handles the law — contracts, disputes, liability. together they give you{" "}
+              big decisions — changing bylaws, adjusting dues, replacing a cell, admitting new cell
+              members — go to a{" "}
               <span className="text-[var(--text-primary)] font-medium">
-                both on-chain transparency and real-world legal teeth
-              </span>.
+                full member vote
+              </span>. transparent by default.
             </p>
           </div>
         </section>
@@ -84,26 +87,31 @@ export default async function LegalPage() {
           </div>
         </section>
 
-        {/* cell contracts */}
+        {/* cells */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">cell contracts</h2>
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">cells</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              product cooperatives design, build, and operate your software, but they don&apos;t govern it.
-              they&apos;re <span className="text-[var(--text-primary)] font-medium">contractors, not owners</span>.
-              think of it like hiring an architect and builder for your house &mdash; they handle the
-              design and construction, you own the result.
+              cells are small product teams — typically cooperatives themselves — that design, build,
+              and maintain software. they&apos;re not outside contractors.
+              they&apos;re{" "}
+              <span className="text-[var(--text-primary)] font-medium">member organizations</span> of
+              the cooperative, with the same voting rights as any business member. they pay dues.
+              they have skin in the game.
             </p>
             <p>
-              cells own the full product lifecycle &mdash; product direction, design, engineering,
-              hosting, and support. they&apos;re bound by a{" "}
-              <span className="text-[var(--text-primary)] font-medium">strict SLA</span> covering uptime,
-              bug resolution, and delivery timelines. they draw from the cell&apos;s treasury monthly,
-              contingent on hitting those metrics. all intellectual property belongs to the LCA, not the cell.
+              cells bid on approved projects and submit{" "}
+              <span className="text-[var(--text-primary)] font-medium">monthly budgets</span> for
+              their work. every budget is public — every member of the cooperative can review every
+              line item. the board reviews and approves budgets as part of routine operations.
+              no secret costs, no hidden margins.
             </p>
             <p>
-              if a cell underperforms, abandons the project, or breaches the SLA, the collective votes
-              to sever the contract and route to a new certified cell.{" "}
+              all work is{" "}
+              <span className="text-[var(--text-primary)] font-medium">work-for-hire</span>.
+              intellectual property belongs to the cooperative, not the cell.
+              if a cell underperforms or walks away, the cooperative votes to replace them and
+              routes the project to a new cell.{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 the software survives the cell
               </span>. always.
@@ -123,8 +131,8 @@ export default async function LegalPage() {
               },
               {
                 step: "2",
-                title: "cooperative governance",
-                desc: "if direct communication fails, the issue goes to a member vote. the DAO records the proposal, the LCA enforces the outcome.",
+                title: "board mediation",
+                desc: "if direct communication fails, the board reviews the deliverables against the cell's proposal and budget, and makes a ruling. either party can appeal to a full member vote.",
               },
               {
                 step: "3",
@@ -149,8 +157,8 @@ export default async function LegalPage() {
         <section className="mb-16">
           <div className="border-l-2 border-red-600 pl-6">
             <p className="text-[var(--text-primary)] font-medium leading-relaxed">
-              the bottom line: you own equity in a legal entity that owns the software, the data,
-              and the contracts. you can vote, sue, fork, and leave. try doing that with salesforce.
+              the bottom line: you own a share of a cooperative that owns the software, the data,
+              and the infrastructure. you can vote, sue, fork, and leave. try doing that with salesforce.
             </p>
           </div>
         </section>

@@ -144,9 +144,10 @@ export default async function PhilosophyPage() {
               saas vendors use to extract from you indefinitely.
             </p>
             <p>
-              in the destroysaas model, certified product cooperatives compete by shipping
-              working MVPs &mdash; product thinking, design, and code. the initial build is
-              their audition. the collective picks the best one and contracts that cell for
+              in the destroysaas model, member cells &mdash; small product teams who are
+              co-owners of the same cooperative &mdash; bid on projects by shipping
+              working MVPs. product thinking, design, and code. the initial build is
+              their audition. the membership votes on the best one and contracts that cell for
               the hard part:{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 keeping it alive, secure, and evolving for years
@@ -307,13 +308,14 @@ export default async function PhilosophyPage() {
               </span>.
             </p>
             <p>
-              destroysaas isn&apos;t a software company. it&apos;s an{" "}
+              destroysaas isn&apos;t a software company. it&apos;s a{" "}
               <span className="text-[var(--text-primary)] font-medium">
-                economic infrastructure project
-              </span>.
-              every cell that forms is a pocket of genuine independence &mdash; businesses
-              that own their tools, control their data, and govern their own roadmap.
-              no single point of failure. no single point of control.
+                cooperative
+              </span>
+              &mdash; one organization where businesses and the teams who build for them
+              are peers with equal votes. every member owns their tools, controls their
+              data, and governs their own roadmap. no platform above. no single point
+              of control.
             </p>
             <p className="text-[var(--text-primary)] font-medium">
               when small businesses own their own infrastructure, they can&apos;t be captured.

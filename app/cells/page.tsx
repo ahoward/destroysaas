@@ -5,7 +5,7 @@ import Nav from "@/app/components/nav";
 export const metadata: Metadata = {
   title: "cells — destroysaas",
   description:
-    "full-service product cooperatives that design, build, and operate software for the collective. not dev shops — micro product companies.",
+    "small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and vote alongside businesses.",
 };
 
 type Cell = {
@@ -40,8 +40,8 @@ export default async function CellsPage() {
           cells
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-16">
-          full-service product cooperatives that design, build, and operate
-          software for the collective.
+          small product teams that join destroysaas as equal cooperative members.
+          they bid on projects, submit public budgets, and share in governance.
         </p>
 
         {/* cell listing */}
@@ -95,7 +95,7 @@ export default async function CellsPage() {
           )}
         </section>
 
-        {/* the cell model */}
+        {/* how it works */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
             how it works
@@ -114,18 +114,18 @@ export default async function CellsPage() {
               },
               {
                 step: "3",
-                title: "the threshold hits",
-                desc: "when total monthly pledges reach $1,000/month, pledges lock. a legal entity forms. the idea is now funded.",
+                title: "the board approves the project",
+                desc: "when total monthly pledges reach $1,000/month, pledges lock. the cooperative board reviews and approves the project.",
               },
               {
                 step: "4",
-                title: "cells compete",
-                desc: "certified cells build working MVPs — product thinking, design, and code. no spec decks. no pitch decks. running product.",
+                title: "cells bid",
+                desc: "certified cells submit bids on the approved project. each bid establishes a monthly cap — the maximum the cell can draw each month to deliver and operate it.",
               },
               {
                 step: "5",
-                title: "the collective picks the winner",
-                desc: "the business owners who funded the idea choose the best product. that cell earns the contract to build and operate it long-term.",
+                title: "the cooperative picks the winner",
+                desc: "business members who funded the idea evaluate bids and select a cell. that cell becomes responsible for building, shipping, and operating the product.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -141,23 +141,23 @@ export default async function CellsPage() {
           </div>
         </section>
 
-        {/* what a cell owns */}
+        {/* what a cell is */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            what a cell owns
+            what a cell is
           </h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              a cell is not a dev shop. it&apos;s a{" "}
-              <span className="text-[var(--text-primary)] font-medium">micro product company</span> that
-              operates under contract to its collective.
+              a cell is a{" "}
+              <span className="text-[var(--text-primary)] font-medium">small product team</span> &mdash;
+              typically a cooperative themselves &mdash; that joins destroysaas as a full member.
+              not a vendor. not a contractor. a{" "}
+              <span className="text-[var(--text-primary)] font-medium">co-owner</span>.
             </p>
             <p>
-              cells own the full stack &mdash;{" "}
-              <span className="text-[var(--text-primary)] font-medium">product, design, engineering, and operations</span>.
-              they take a problem from a business owner, figure out what to build, build it, ship it,
-              and keep it running. there is no separate &ldquo;product manager&rdquo; role &mdash;
-              the cell <em>is</em> the product team.
+              cells pay dues, vote on cooperative decisions, and sit at the same table as the
+              businesses they serve. one member, one vote &mdash; whether you&apos;re a cell or a
+              business. that&apos;s the deal.
             </p>
             <div className="grid grid-cols-2 gap-3 mt-6">
               {[
@@ -175,75 +175,85 @@ export default async function CellsPage() {
           </div>
         </section>
 
-        {/* how cells compete */}
+        {/* bids and budgets */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            how cells compete
+            bids and budgets
           </h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              when an idea gets funded, certified cells compete by{" "}
-              <span className="text-[var(--text-primary)] font-medium">shipping working MVPs</span>.
-              not slide decks. not architecture diagrams. running product that solves the problem.
+              when a cell wins a project, their bid establishes a{" "}
+              <span className="text-[var(--text-primary)] font-medium">monthly cap</span> &mdash;
+              the maximum they can draw from the cooperative treasury each month for that project.
             </p>
             <p>
-              the business owners who funded the idea evaluate the MVPs and pick the winner.
-              they&apos;re not judging code quality — they&apos;re judging{" "}
-              <span className="text-[var(--text-primary)] font-medium">product vision + execution</span>.
-              does this solve my problem? is it easy to use? does the team understand my business?
+              every month the cell submits a{" "}
+              <span className="text-[var(--text-primary)] font-medium">public budget</span> drawn
+              against that cap. every member can see it. the board reviews it.
+              there are no hidden invoices.
             </p>
             <p>
-              the winning cell earns the long-term contract. the losing cells walk away with
-              experience and a public portfolio piece. everybody ships.
+              efficient cells keep the margin. if your cap is $4,000/month and you deliver for
+              $2,800, you keep the $1,200. this{" "}
+              <span className="text-[var(--text-primary)] font-medium">rewards good work</span>,
+              not billable hours.
             </p>
           </div>
         </section>
 
-        {/* the contract */}
+        {/* governance */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            the contract
+            governance
           </h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
               cells are{" "}
-              <span className="text-[var(--text-primary)] font-medium">contractors, not owners</span>.
-              the collective owns the software, the data, and the IP. the cell operates it under a
-              strict SLA covering uptime, bug resolution, and delivery timelines.
+              <span className="text-[var(--text-primary)] font-medium">equal members</span> of
+              the cooperative. they vote on budgets, new members, project approvals, and
+              everything else &mdash; same as any business member.
             </p>
             <p>
-              cells draw from the collective&apos;s treasury monthly, contingent on hitting their
-              metrics. if a cell underperforms, abandons the project, or breaches the SLA, the
-              collective votes to sever the contract and route to a new cell.
+              if a cell underperforms on a project, the cooperative can vote to{" "}
+              <span className="text-[var(--text-primary)] font-medium">reassign the project</span> to
+              another cell. but the cell keeps their membership. losing a project is not
+              losing your seat.
+            </p>
+            <p>
+              the cooperative owns the code &mdash; all work is{" "}
+              <span className="text-[var(--text-primary)] font-medium">work-for-hire</span>.
+              but all code is open-source, so the work is public and the software survives
+              any single team. no lock-in. no single point of failure.
             </p>
           </div>
           <div className="border-l-2 border-red-600 pl-6 mt-6">
             <p className="text-[var(--text-primary)] font-medium leading-relaxed">
               the software survives the cell. always. the code is open-source, the data belongs
-              to the collective, and the legal entity ensures continuity. no single point of failure.
+              to the cooperative, and collective ownership ensures continuity.
             </p>
           </div>
         </section>
 
-        {/* who should apply */}
+        {/* certification */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            who should apply
+            becoming a cell
           </h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              cells are small, opinionated teams who can own a product end-to-end.
-              if you need a 20-person org chart to ship, this isn&apos;t for you.
-              if you can go from problem to production with 2&ndash;5 people, keep reading.
+              cell certification has three steps: you apply, the board reviews your team,
+              and existing members vote to admit you. once admitted, you&apos;re a{" "}
+              <span className="text-[var(--text-primary)] font-medium">full member</span> of
+              the cooperative with all the rights and responsibilities that entails.
             </p>
           </div>
           <div className="space-y-3 mt-6">
             {[
               "you think in products, not tickets",
-              "you can design, build, and deploy without a PM hovering",
-              "you want to own the outcome, not just write code",
+              "you can design, build, and deploy with 2\u20135 people",
+              "you want to co-own the outcome, not just bill for hours",
               "you believe small teams beat big teams",
-              "you want recurring revenue tied to real impact",
+              "you want a vote in how the cooperative runs",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="text-red-600 font-bold shrink-0 mt-0.5">&bull;</span>
@@ -259,7 +269,7 @@ export default async function CellsPage() {
             <p className="text-[var(--text-primary)] font-medium leading-relaxed">
               cells are how software gets built without venture capital, without enterprise
               sales teams, and without extracting wealth from the people who need it most.
-              if you can ship product, there&apos;s a seat at the table.
+              if you can ship product, there&apos;s a seat at the table &mdash; as an equal.
             </p>
           </div>
         </section>
@@ -267,7 +277,7 @@ export default async function CellsPage() {
         {/* cta */}
         <div className="border-t border-[var(--border-primary)] pt-12 text-center">
           <p className="text-[var(--text-muted)] mb-6">
-            ready to build software that belongs to the people who use it?
+            ready to co-own software that belongs to the people who use it?
           </p>
           <a
             href="/cells/apply"
@@ -279,7 +289,7 @@ export default async function CellsPage() {
             href="/ideas"
             className="inline-block text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mt-3 sm:mt-0"
           >
-            browse funded ideas &rarr;
+            browse approved projects &rarr;
           </a>
         </div>
       </main>
