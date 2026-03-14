@@ -1,3 +1,5 @@
+![ara t. howard](./assets/ara.jpg)
+
 ## the short version
 
 > ara howard has shipped **102 rubygems with 481 million+ total downloads**, won the **ruby hero award**, founded a **B-Corp certified worker-owned cooperative**, and **open-sourced its legal bylaws** so anyone could follow. destroysaas is the productization of everything he learned doing it the hard way first.
