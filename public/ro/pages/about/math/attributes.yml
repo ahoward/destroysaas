@@ -1,11 +1,71 @@
-title: "the math — destroysaas"
-description: "the economics of SaaS don't work for small business. here's the math on collective software ownership."
-heading: "the math doesn't work.\nhere's math that does."
-subheading: "you don't need ideology. you need a spreadsheet."
-cta_text: "ready to stop paying rent?"
+title: the math — destroysaas
+description: the economics of SaaS don't work for small business. here's the math on collective software ownership.
+heading: 'the math doesn''t work.
+
+  here''s math that does.'
+subheading: you don't need ideology. you need a spreadsheet.
+cta_text: ready to stop paying rent?
 cta_primary:
-  text: "join destroysaas →"
-  href: "/auth"
+  text: join destroysaas →
+  href: /auth
 cta_secondary:
-  text: "browse ideas →"
-  href: "/ideas"
+  text: browse ideas →
+  href: /ideas
+comparison:
+- label: monthly cost
+  saas: $200–$500 across 5–8 tools
+  ds: $50/month per collective you join
+- label: 10-year cost
+  saas: $24,000–$60,000
+  ds: $6,000–$12,000
+- label: who owns the code
+  saas: the vendor
+  ds: you do — open-source, always
+- label: who owns your data
+  saas: the vendor
+  ds: you do — legally enforceable
+- label: vendor raises prices
+  saas: you pay or you leave
+  ds: the collective votes on the budget
+- label: vendor shuts down
+  saas: you start over
+  ds: the code is yours. hire a new cell
+- label: legal rights
+  saas: a terms of service you didn't read
+  ds: equity shares, voting rights, enforceable contracts
+- label: can you leave
+  saas: yes, but you lose everything
+  ds: yes, and you take the code + your data
+examples:
+- industry: landscaping company
+  tools: Jobber ($70) + QuickBooks ($30) + Mailchimp ($20)
+  saas: $120/mo
+  ds: $50/mo
+  note: scheduling, invoicing, and client comms in one tool built for landscapers, not generic businesses.
+- industry: boutique retail
+  tools: Shopify ($79) + Square ($60) + Mailchimp ($20) + Homebase ($40)
+  saas: $199/mo
+  ds: $50/mo
+  note: inventory, POS, email, and scheduling built for independent retail — not a platform that takes a cut of every sale.
+- industry: professional services
+  tools: Asana ($125) + Harvest ($60) + FreshBooks ($35)
+  saas: $220/mo
+  ds: $50/mo
+  note: project tracking, time billing, and invoicing designed for consultants and agencies — not enterprise teams of 500.
+saas-tools:
+  tools:
+  - tool: CRM
+    cost: $100–$150/mo
+  - tool: project management
+    cost: $50–$80/mo
+  - tool: invoicing / bookkeeping
+    cost: $35–$60/mo
+  - tool: scheduling
+    cost: $30–$50/mo
+  - tool: email marketing
+    cost: $40–$80/mo
+  - tool: inventory / POS
+    cost: $40–$80/mo
+  - tool: support desk
+    cost: $25–$50/mo
+  typical_total: $400–$600/mo

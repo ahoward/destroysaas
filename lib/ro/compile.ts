@@ -27,8 +27,8 @@ export async function compilePage(root: string, slug: string): Promise<ROPage> {
   const assetDir = path.join(pageDir, "assets");
   const baseUrl = `/ro/${slug}`;
 
+  // compile markdown sections
   const sections: Record<string, ROSection> = {};
-  const data: Record<string, unknown> = {};
 
   if (fs.existsSync(pageDir) && fs.statSync(pageDir).isDirectory()) {
     const entries = fs.readdirSync(pageDir);
@@ -41,16 +41,12 @@ export async function compilePage(root: string, slug: string): Promise<ROPage> {
       if (!fs.statSync(entryPath).isFile()) continue;
 
       const ext = path.extname(entry).toLowerCase();
+      if (!MD_EXTENSIONS.has(ext)) continue;
+
       const stem = path.basename(entry, ext);
       const name = stem.toLowerCase() === "readme" ? "content" : stem;
 
-      if (MD_EXTENSIONS.has(ext)) {
-        sections[name] = await compileMarkdownFile(entryPath, baseUrl, assetDir);
-      } else if (YAML_EXTENSIONS.has(ext)) {
-        const raw = fs.readFileSync(entryPath, "utf8");
-        const parsed = yaml.load(raw);
-        data[name] = expandDeep(parsed, baseUrl, assetDir);
-      }
+      sections[name] = await compileMarkdownFile(entryPath, baseUrl, assetDir);
     }
   }
 
@@ -65,7 +61,7 @@ export async function compilePage(root: string, slug: string): Promise<ROPage> {
     },
     meta: expandedMeta,
     sections,
-    data,
+    data: expandedMeta,
     images,
   };
 }

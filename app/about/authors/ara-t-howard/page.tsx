@@ -22,9 +22,9 @@ export default async function AraHowardPage() {
   const meta = page.meta as Record<string, unknown>;
   const techCred = page.data["technical-credibility"] as { intro: string; items: CredItem[] };
   const coopExp = page.data["cooperative-experience"] as { intro: string; items: CoopItem[] };
-  const campsData = page.data.camps as unknown as (Camp[] & { highlight: string });
-  const camps = Array.isArray(campsData) ? campsData.filter((c): c is Camp => typeof c === 'object' && 'label' in c) : [];
-  const campsHighlight = (page.data.camps as Record<string, unknown>)?.highlight as string ?? "";
+  const campsData = page.data.camps as { items?: Camp[]; highlight?: string };
+  const camps = campsData?.items ?? [];
+  const campsHighlight = campsData?.highlight ?? "";
   const links = (page.data.links ?? []) as Link[];
 
   return (
