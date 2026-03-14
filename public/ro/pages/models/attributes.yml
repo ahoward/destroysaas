@@ -9,7 +9,7 @@ details:
   - label: take-rate
     text: "zero. the cooperative doesn't skim a percentage off the top. there is no 10%, no 15%, no formation fee, no certification fee. dues cover operations. pledges fund projects. that's it."
   - label: budgets
-    text: "monthly, submitted ahead of time, public. every member can review every budget. the board approves before payment. cells that finish early keep the margin — rewarding efficiency, not billing."
+    text: "cells submit next month's planned budget with line items. the board approves it. the cooperative pays upfront on the 1st — cells never work on spec. at month's end, cells report actuals. planned vs. actual is visible to every member. surplus rolls forward as project runway; surplus from completed projects returns to the treasury."
   - label: budget caps
     text: "a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop, the budget scales down automatically."
   - label: surplus
@@ -17,7 +17,7 @@ details:
   - label: equity
     text: "one member, one vote. regardless of how much you've pledged or invoiced. patronage tracks contributions over time for surplus distribution, but voting is always equal."
   - label: exit
-    text: "stop paying. fork the code. done. all code is open-source. you can leave any time."
+    text: "stop paying. fork the code. done. members have full access to the source. you can leave any time and take everything with you."
   vibe: "credit union for software. members fund it, members own it, members see every dollar. the cooperative is the platform."
 money-flow:
   subtitle: two streams in, two streams out
@@ -38,7 +38,7 @@ money-out:
   subtitle: cell budgets and operating costs
   items:
   - label: cell budgets
-    text: "cells submit a monthly budget for the coming month's work, drawing against the cap established in their bid. budgets are public. the elected board reviews and approves before payment."
+    text: "cells submit a planned budget for the coming month's work, drawing against the cap established in their bid. the board reviews and approves. the cooperative pays upfront on the 1st — no spec work, no net-30, no cash flow games. actuals are reported at month's end. all budgets are public."
   - label: operating costs
     text: "legal fees, insurance, hosting, platform maintenance, board expenses, reserve fund. funded by dues, not by skimming project pledges."
 safeguards:

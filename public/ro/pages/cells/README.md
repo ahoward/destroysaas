@@ -8,9 +8,18 @@ cells pay dues, vote on cooperative decisions, and sit at the same table as the 
 
 when a cell wins a project, their bid establishes a **monthly cap** — the maximum they can draw from the cooperative treasury each month for that project.
 
-every month the cell submits a **public budget** drawn against that cap. every member can see it. the board reviews it. there are no hidden invoices.
+**cells never work on spec.** once a project is selected, the cycle works like this:
 
-efficient cells keep the margin. if your cap is $4,000/month and you deliver for $2,800, you keep the $1,200. this **rewards good work**, not billable hours.
+1. **plan** — the cell submits next month's planned budget: line items for labor, hosting, tools, whatever the work requires. drawn against the monthly cap.
+2. **review** — the board reviews and approves the budget against the project's pledge revenue.
+3. **pay** — the cooperative pays the cell upfront on the 1st. no net-30. no invoicing. no cash flow anxiety.
+4. **build** — the cell does the work.
+5. **report** — at month's end, the cell submits actuals. planned vs. actual is visible to every member.
+6. **reconcile** — if actuals come in under budget, the surplus rolls forward into the next month's budget for that project. if the project is complete, surplus returns to the cooperative treasury.
+
+every budget is **public**. every member can see it. there are no hidden invoices, no black-box billing, no surprises.
+
+this **rewards efficiency**, not billable hours. if your cap is $4,000/month and you deliver for $2,800, that $1,200 rolls forward as runway for your project — not extracted as profit from a finished job.
 
 ## governance
 
