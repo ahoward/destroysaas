@@ -118,7 +118,7 @@ export default async function CommonsPage() {
           </section>
         )}
 
-        {/* rei analogy (from content.md) */}
+        {/* rei analogy (from README.md) */}
         <section className="mb-16">
           <ROMarkdown
             raw={page.sections.content.raw}

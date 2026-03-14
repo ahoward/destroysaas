@@ -39,7 +39,8 @@ export async function compilePage(root: string, slug: string): Promise<ROPage> {
       if (!fs.statSync(entryPath).isFile()) continue;
 
       const ext = path.extname(entry).toLowerCase();
-      const name = path.basename(entry, ext);
+      const stem = path.basename(entry, ext);
+      const name = stem.toLowerCase() === "readme" ? "content" : stem;
 
       if (MD_EXTENSIONS.has(ext)) {
         sections[name] = await compileMarkdownFile(entryPath, baseUrl, assetDir);
