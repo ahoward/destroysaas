@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type Theme = "light" | "dark" | "system";
 
@@ -24,11 +24,51 @@ function getStored(): Theme {
   return "system";
 }
 
-const CYCLE: Theme[] = ["system", "light", "dark"];
+function SunIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
+
+function MonitorIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  );
+}
+
+const OPTIONS: { value: Theme; Icon: () => React.ReactElement; label: string }[] = [
+  { value: "light", Icon: SunIcon, label: "light" },
+  { value: "system", Icon: MonitorIcon, label: "system" },
+  { value: "dark", Icon: MoonIcon, label: "dark" },
+];
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("system");
   const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTheme(getStored());
@@ -45,10 +85,21 @@ export default function ThemeToggle() {
     return () => mq.removeEventListener("change", onChange);
   }, [mounted]);
 
-  function cycle() {
-    const idx = CYCLE.indexOf(theme);
-    const next = CYCLE[(idx + 1) % CYCLE.length];
+  // close on outside click
+  useEffect(() => {
+    if (!open) return;
+    function onDown(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [open]);
+
+  function select(next: Theme) {
     setTheme(next);
+    setOpen(false);
     if (next === "system") {
       localStorage.removeItem("theme");
     } else {
@@ -59,49 +110,40 @@ export default function ThemeToggle() {
 
   if (!mounted) return <div className="w-8 h-8" />;
 
-  const dark = isDarkNow(theme);
-  const isSystem = theme === "system";
-
-  const label =
-    theme === "system"
-      ? "using system theme"
-      : theme === "light"
-        ? "using light theme"
-        : "using dark theme";
+  const active = OPTIONS.find((o) => o.value === theme)!;
 
   return (
-    <button
-      onClick={cycle}
-      aria-label={label}
-      title={label}
-      className="relative w-8 h-8 flex items-center justify-center rounded text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-    >
-      {dark ? (
-        /* sun — shown in dark mode, meaning "click to go toward light" */
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
-      ) : (
-        /* moon — shown in light mode */
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      )}
+    <div ref={ref} className="relative">
+      {/* active icon */}
+      <button
+        onClick={() => setOpen(!open)}
+        aria-label={`theme: ${active.label}`}
+        title={`theme: ${active.label}`}
+        className="w-8 h-8 flex items-center justify-center rounded text-[var(--text-primary)] hover:text-[var(--text-primary)] transition-colors"
+      >
+        <active.Icon />
+      </button>
 
-      {/* auto indicator — subtle ring when in system mode */}
-      {isSystem && (
-        <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 text-[8px] leading-none font-medium tracking-wide text-[var(--text-faint)] select-none">
-          auto
-        </span>
+      {/* popover trio */}
+      {open && (
+        <div className="absolute top-full right-0 mt-1 z-50 flex items-center gap-0.5 rounded-md border border-[var(--border-primary)] bg-[var(--bg-primary)] p-1 shadow-sm">
+          {OPTIONS.map(({ value, Icon, label }) => (
+            <button
+              key={value}
+              onClick={() => select(value)}
+              aria-label={label}
+              title={label}
+              className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${
+                value === theme
+                  ? "text-[var(--text-primary)] bg-[var(--bg-tertiary)]"
+                  : "text-[var(--text-faint)] hover:text-[var(--text-secondary)]"
+              }`}
+            >
+              <Icon />
+            </button>
+          ))}
+        </div>
       )}
-    </button>
+    </div>
   );
 }
