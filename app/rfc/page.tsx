@@ -8,6 +8,16 @@ export async function generateMetadata(): Promise<Metadata> {
   const { meta } = await ro.page("pages/rfc");
   return {
     title: meta.title as string,
+    description: "not open source. not closed source. our source. the full cooperative model for post-saas software.",
+    openGraph: {
+      title: "RFC 042 — a cooperative model for post-saas software",
+      description: "not open source. not closed source. our source. the full cooperative model for post-saas software.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "RFC 042 — a cooperative model for post-saas software",
+      description: "not open source. not closed source. our source.",
+    },
   };
 }
 

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "destroysaas — stop renting software";
+export const alt = "RFC 042 — a cooperative model for post-saas software";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,38 +33,35 @@ export default function OGImage() {
         </div>
         <div
           style={{
-            color: "#dc2626",
-            fontSize: 72,
-            fontWeight: 900,
-            lineHeight: 1.0,
+            color: "#f0f0f0",
+            fontSize: 64,
+            fontWeight: 700,
+            lineHeight: 1.1,
             letterSpacing: "-0.02em",
-            textTransform: "uppercase",
             marginBottom: 24,
           }}
         >
-          STOP RENTING
-          <br />
-          SOFTWARE.
+          RFC 042
         </div>
         <div
           style={{
             color: "#a3a3a3",
-            fontSize: 28,
+            fontSize: 32,
             lineHeight: 1.3,
+            marginBottom: 32,
           }}
         >
-          small businesses collectively fund, own, and control
+          a cooperative model for post-saas software.
           <br />
-          the software they depend on. the saas era is over.
+          not open source. not closed source. our source.
         </div>
         <div
           style={{
             color: "#525252",
             fontSize: 22,
-            marginTop: 32,
           }}
         >
-          destroysaas.coop
+          destroysaas.coop/rfc
         </div>
       </div>
     ),

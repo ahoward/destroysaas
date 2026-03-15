@@ -9,6 +9,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: meta.title as string,
     description: meta.description as string,
+    openGraph: {
+      title: "the commons — destroysaas",
+      description: "one cooperative. many programs. the network compounds. owners don't churn.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "the commons — destroysaas",
+      description: "one cooperative. many programs. the network compounds. owners don't churn.",
+    },
   };
 }
 

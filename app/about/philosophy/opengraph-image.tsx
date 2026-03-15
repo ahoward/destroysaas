@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "destroysaas — stop renting software";
+export const alt = "philosophy — destroysaas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,29 +33,26 @@ export default function OGImage() {
         </div>
         <div
           style={{
-            color: "#dc2626",
-            fontSize: 72,
-            fontWeight: 900,
-            lineHeight: 1.0,
+            color: "#f0f0f0",
+            fontSize: 56,
+            fontWeight: 700,
+            lineHeight: 1.1,
             letterSpacing: "-0.02em",
-            textTransform: "uppercase",
             marginBottom: 24,
           }}
         >
-          STOP RENTING
-          <br />
-          SOFTWARE.
+          burn the rent check.
         </div>
         <div
           style={{
             color: "#a3a3a3",
-            fontSize: 28,
+            fontSize: 30,
             lineHeight: 1.3,
           }}
         >
-          small businesses collectively fund, own, and control
+          open source solved access. it didn't solve ownership.
           <br />
-          the software they depend on. the saas era is over.
+          we're finishing the job.
         </div>
         <div
           style={{
@@ -64,7 +61,7 @@ export default function OGImage() {
             marginTop: 32,
           }}
         >
-          destroysaas.coop
+          destroysaas.coop/about/philosophy
         </div>
       </div>
     ),

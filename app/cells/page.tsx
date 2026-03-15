@@ -10,6 +10,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: meta.title as string,
     description: meta.description as string,
+    openGraph: {
+      title: "cells — own a product company. no VC. no boss.",
+      description: "co-owners, not vendors. paid upfront. margin is yours. the cooperative replaces your sales pipeline.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "cells — own a product company. no VC. no boss.",
+      description: "co-owners, not vendors. paid upfront. margin is yours.",
+    },
   };
 }
 

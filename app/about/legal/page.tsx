@@ -9,6 +9,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: meta.title as string,
     description: meta.description as string,
+    openGraph: {
+      title: "you have rights here — destroysaas legal model",
+      description: "co-owner of a legal entity, not a customer clicking 'I agree.' fork freedom. binding arbitration. real standing.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "you have rights here — destroysaas legal model",
+      description: "co-owner of a legal entity, not a customer clicking 'I agree.'",
+    },
   };
 }
 

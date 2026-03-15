@@ -9,23 +9,23 @@ import GhostBanner from "@/app/components/ghost_banner";
 import FoundingBanner from "@/app/components/founding_banner";
 
 export const metadata: Metadata = {
-  title: "destroysaas — own the software you use",
+  title: "destroysaas — stop renting software",
   description:
-    "small businesses collectively fund, own, and control the software they depend on. no more saas rent. propose ideas, pledge monthly, and own what gets built.",
+    "saas is dead. small businesses collectively fund, own, and control the software they depend on. no more rent. no more lock-in. own what you use.",
   metadataBase: new URL("https://destroysaas.coop"),
   openGraph: {
-    title: "destroysaas — own the software you use",
+    title: "destroysaas — stop renting software",
     description:
-      "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
+      "saas is dead. small businesses collectively fund, own, and control the software they depend on. no more rent. no more lock-in.",
     url: "https://destroysaas.coop",
     type: "website",
     siteName: "destroysaas",
   },
   twitter: {
     card: "summary_large_image",
-    title: "destroysaas — own the software you use",
+    title: "destroysaas — stop renting software",
     description:
-      "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
+      "saas is dead. small businesses collectively fund, own, and control the software they depend on.",
   },
 };
 

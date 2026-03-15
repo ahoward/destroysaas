@@ -6,7 +6,19 @@ const ro = RO();
 
 export async function generateMetadata(): Promise<Metadata> {
   const { meta } = await ro.page("pages/about");
-  return { title: meta.title as string };
+  return {
+    title: meta.title as string,
+    description: "saas is dead. we killed it. here's what comes next — collectively owned software through a multi-stakeholder cooperative.",
+    openGraph: {
+      title: "about destroysaas — the revolution will be cooperatively owned",
+      description: "saas is dead. we killed it. here's what comes next.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "about destroysaas — the revolution will be cooperatively owned",
+      description: "saas is dead. we killed it. here's what comes next.",
+    },
+  };
 }
 
 interface CellStep { step: string; description: string }

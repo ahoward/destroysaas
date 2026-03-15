@@ -7,6 +7,16 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "ideas — destroysaas",
+  description: "skin in the game is the only algorithm. propose software your business needs, pledge real money, own what gets built.",
+  openGraph: {
+    title: "the board — destroysaas",
+    description: "skin in the game is the only algorithm. propose software, pledge money, own the result.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "the board — destroysaas",
+    description: "skin in the game is the only algorithm.",
+  },
 };
 
 type IdeaRow = {
