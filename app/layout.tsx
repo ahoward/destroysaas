@@ -20,12 +20,14 @@ export const metadata: Metadata = {
     url: "https://destroysaas.coop",
     type: "website",
     siteName: "destroysaas",
+    images: [{ url: "/og/og-home.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "destroysaas — stop renting software",
     description:
       "saas is dead. small businesses collectively fund, own, and control the software they depend on.",
+    images: ["/og/og-home.jpg"],
   },
 };
 

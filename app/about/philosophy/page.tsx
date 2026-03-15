@@ -12,11 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "burn the rent check — destroysaas philosophy",
       description: "open source solved access. it didn't solve ownership. we're finishing the job.",
+      images: [{ url: "/og/og-philosophy.jpg", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: "burn the rent check — destroysaas philosophy",
       description: "open source solved access. it didn't solve ownership. we're finishing the job.",
+      images: ["/og/og-philosophy.jpg"],
     },
   };
 }

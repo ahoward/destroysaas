@@ -12,11 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "follow the money — destroysaas financial model",
       description: "zero take-rate on project pledges. public budgets. every dollar accounted for. the anti-saas economics.",
+      images: [{ url: "/og/og-money.jpg", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: "follow the money — destroysaas financial model",
       description: "zero take-rate on project pledges. public budgets. every dollar accounted for.",
+      images: ["/og/og-money.jpg"],
     },
   };
 }

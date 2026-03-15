@@ -11,11 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "the board — destroysaas",
     description: "skin in the game is the only algorithm. propose software, pledge money, own the result.",
+    images: [{ url: "/og/og-ideas.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "the board — destroysaas",
     description: "skin in the game is the only algorithm.",
+    images: ["/og/og-ideas.jpg"],
   },
 };
 

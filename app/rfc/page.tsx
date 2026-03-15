@@ -12,11 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "RFC 042 — a cooperative model for post-saas software",
       description: "not open source. not closed source. our source. the full cooperative model for post-saas software.",
+      images: [{ url: "/og/og-rfc.jpg", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: "RFC 042 — a cooperative model for post-saas software",
       description: "not open source. not closed source. our source.",
+      images: ["/og/og-rfc.jpg"],
     },
   };
 }
