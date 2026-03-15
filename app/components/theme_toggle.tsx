@@ -126,7 +126,7 @@ export default function ThemeToggle() {
 
       {/* popover trio */}
       {open && (
-        <div className="absolute top-full right-0 mt-1 z-50 flex items-center gap-0.5 rounded-md border border-[var(--border-primary)] bg-[var(--bg-primary)] p-1 shadow-sm">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 z-50 flex items-center gap-0.5 rounded-md border border-[var(--border-primary)] bg-[var(--bg-primary)] p-1 shadow-sm">
           {OPTIONS.map(({ value, Icon, label }) => (
             <button
               key={value}
