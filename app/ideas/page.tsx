@@ -68,6 +68,14 @@ export default async function IdeasPage() {
             submit an idea →
           </a>
         </div>
+        <div className="mt-4 text-center">
+          <p className="text-xs text-[var(--text-faint)]">
+            feedback on what you see here?{" "}
+            <a href="mailto:ara@destroysaas.coop" className="text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">
+              ara@destroysaas.coop
+            </a>
+          </p>
+        </div>
       </main>
     </div>
   );

@@ -4,6 +4,9 @@ export default function FoundingBanner() {
       founding phase — the cooperative is forming as a Colorado LCA. pledges are non-binding expressions of interest.{" "}
       <a href="/about/governance" className="underline hover:text-red-100 transition-colors">
         learn more
+      </a>{" · "}
+      <a href="mailto:ara@destroysaas.coop" className="underline hover:text-red-100 transition-colors">
+        send feedback
       </a>
     </div>
   );

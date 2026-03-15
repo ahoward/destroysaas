@@ -261,4 +261,4 @@ we are building this in the open because the model only works if the community s
 
 the internet was built on rough consensus and running code. this is the rough consensus part. the running code is at [destroysaas.coop](https://destroysaas.coop).
 
-comments: [ara.t.howard@gmail.com](mailto:ara.t.howard@gmail.com)
+comments: [ara@destroysaas.coop](mailto:ara@destroysaas.coop)

@@ -194,6 +194,12 @@ export default async function LobbyPage() {
                 applications are reviewed within a few days. you&apos;ll receive an
                 email when yours is approved.
               </p>
+              <p className="text-xs text-[var(--text-muted)] mt-2">
+                questions?{" "}
+                <a href="mailto:ara@destroysaas.coop" className="text-yellow-600 hover:text-yellow-500 transition-colors">
+                  ara@destroysaas.coop
+                </a>
+              </p>
             </div>
           ) : application?.status === "denied" ? (
             <div className="text-center">

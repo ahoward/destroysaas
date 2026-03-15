@@ -51,4 +51,4 @@ we may update this policy from time to time. significant changes will be communi
 
 ## 9. contact
 
-privacy questions? reach out at [ara.t.howard@gmail.com](mailto:ara.t.howard@gmail.com)
+privacy questions? reach out at [ara@destroysaas.coop](mailto:ara@destroysaas.coop)

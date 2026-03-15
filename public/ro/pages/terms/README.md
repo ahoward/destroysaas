@@ -42,4 +42,4 @@ we may update these terms from time to time. significant changes will be communi
 
 ## 10. contact
 
-questions about these terms? reach out at [ara.t.howard@gmail.com](mailto:ara.t.howard@gmail.com)
+questions about these terms? reach out at [ara@destroysaas.coop](mailto:ara@destroysaas.coop)
