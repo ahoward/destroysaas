@@ -182,7 +182,7 @@ export default async function CabalPage() {
               "legal pages (terms, privacy)",
               "public user profiles",
               "light/dark theme system",
-              "groups infrastructure (sudo, admin, cabal) with RLS",
+              "groups infrastructure (sudo, admin, founding members) with RLS",
               "stakeholder-targeted landing page (business, dev, investor pitches)",
               "/about/legal and /about/money deep-dive pages",
             ].map((item) => (

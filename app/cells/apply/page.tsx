@@ -46,7 +46,9 @@ export default async function ApplyPage() {
           <div className="border border-yellow-800 rounded-lg p-6 text-center">
             <p className="text-yellow-500 font-medium mb-2">application pending</p>
             <p className="text-[var(--text-muted)] text-sm">
-              you already have an application under review. we&apos;ll be in touch.
+              you already have an application under review. applications are
+              reviewed within a few days. you&apos;ll receive an email when yours
+              is approved.
             </p>
             <a
               href="/cells"

@@ -7,7 +7,7 @@ import NewDiscussionForm from "./form";
 
 export const metadata: Metadata = {
   title: "discussions — cabal — destroysaas",
-  description: "where the inner cabal shapes direction. public by design.",
+  description: "where founding members shape direction. public by design.",
 };
 
 export default async function CabalDiscussionsPage() {
@@ -69,7 +69,7 @@ export default async function CabalDiscussionsPage() {
         </p>
         <p className="text-sm text-[var(--text-muted)] mb-10">
           leadership posts proposals, questions, and decisions here.
-          cabal members shape the direction with feedback.
+          founding members shape the direction with feedback.
           everything is public because trust is the foundation.
         </p>
 

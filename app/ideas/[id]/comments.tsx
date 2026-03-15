@@ -79,7 +79,7 @@ export default function Comments({ idea_id, user_id, comments, is_inner }: Props
       {user_id && !is_inner ? (
         <div className="border border-[var(--border-primary)] rounded p-4 mb-6 text-center">
           <p className="text-sm text-[var(--text-muted)] mb-2">
-            commenting is limited to inner circle members.
+            commenting is limited to founding members.
           </p>
           <a
             href="/lobby/apply"

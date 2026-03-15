@@ -53,7 +53,7 @@ export async function submitIdea(
   if (!ctx.isActingAs) {
     const supabase = await createClient();
     if (!(await is_inner(supabase, ctx.user))) {
-      return { errors: { general: "access restricted to inner circle members." } };
+      return { errors: { general: "access restricted to founding members." } };
     }
   }
 

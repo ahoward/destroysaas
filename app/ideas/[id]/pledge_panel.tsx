@@ -39,12 +39,12 @@ export default function PledgePanel({
     );
   }
 
-  // not in inner circle
+  // not a founding member
   if (!is_inner) {
     return (
       <div className="border border-[var(--border-primary)] rounded-lg p-6 text-center">
         <p className="text-sm text-[var(--text-secondary)] mb-3">
-          pledging is currently limited to inner circle members.
+          pledging is currently limited to founding members.
         </p>
         <a
           href="/lobby/apply"

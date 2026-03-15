@@ -37,7 +37,7 @@ export default async function Nav({ currentPath }: NavProps) {
     ? { href: "/me", label: displayName }
     : { href: "/auth", label: "sign in" };
 
-  const cabalLink = showCabal ? { href: "/cabal", label: "cabal" } : null;
+  const cabalLink = showCabal ? { href: "/cabal", label: "founders" } : null;
 
   return (
     <NavClient

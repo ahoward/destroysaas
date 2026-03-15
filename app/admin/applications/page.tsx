@@ -84,7 +84,7 @@ export default async function ApplicationsPage() {
       </nav>
 
       <main className="max-w-3xl mx-auto px-6 py-12">
-        <h1 className="text-3xl font-bold mb-2">cabal applications</h1>
+        <h1 className="text-3xl font-bold mb-2">founding member applications</h1>
         <p className="text-[var(--text-muted)] text-sm mb-8">
           {pending.length} pending, {reviewed.length} reviewed
         </p>

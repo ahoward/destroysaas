@@ -11,7 +11,8 @@ export default function ApplicationForm() {
       <div className="border border-green-800 rounded-lg p-6 text-center">
         <p className="text-green-400 font-medium mb-2">application submitted!</p>
         <p className="text-[var(--text-muted)] text-sm">
-          your application is under review. we&apos;ll be in touch.
+          your application is under review. applications are reviewed within a
+          few days. you&apos;ll receive an email when yours is approved.
         </p>
         <a
           href="/cells"

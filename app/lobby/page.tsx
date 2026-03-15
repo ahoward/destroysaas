@@ -60,7 +60,7 @@ export default async function LobbyPage() {
       <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">
         <h1 className="text-3xl font-bold tracking-tight mb-2">the lobby</h1>
         <p className="text-[var(--text-muted)] text-sm mb-10">
-          you&apos;re in. here&apos;s what the inner circle is building.
+          you&apos;re in. here&apos;s what founding members are building.
         </p>
 
         {/* stats bar */}
@@ -102,9 +102,9 @@ export default async function LobbyPage() {
               "comments, upvoting, and social sharing",
               "stakeholder-targeted content (business, dev, investor)",
               "groups infrastructure + invitation system",
-              "ghost users for market simulation",
-              "light/dark theme system",
-              "philosophy page (FSF lineage, credit union model)",
+              "light/dark/system theme toggle",
+              "RFC 001 whitepaper and full about section",
+              "founding member and cell application workflows",
             ].map((item) => (
               <div key={item} className="flex gap-2">
                 <span className="text-red-600 shrink-0">&bull;</span>
@@ -122,20 +122,20 @@ export default async function LobbyPage() {
           <div className="space-y-4">
             {[
               {
-                title: "stripe integration",
-                desc: "turn pledge commitments into real monthly subscriptions.",
-              },
-              {
-                title: "customer discovery",
-                desc: "talking to 20 SMBs bleeding on SaaS costs. finding the first cell\u2019s problem.",
+                title: "founding member onboarding",
+                desc: "inviting businesses that are bleeding on SaaS costs. if that\u2019s you, apply above.",
               },
               {
                 title: "cell recruitment",
-                desc: "vetting 3\u20135 product cooperatives to certify \u2014 teams that own product, design, eng, and ops.",
+                desc: "vetting product cooperatives to certify \u2014 teams that own product, design, eng, and ops.",
               },
               {
-                title: "platform entity formation",
-                desc: "filing the LLC/LCA for destroysaas itself. EIN, bank account, legal rails.",
+                title: "cooperative formation",
+                desc: "forming the Colorado LCA. bylaws, articles, EIN, bank account. happening now.",
+              },
+              {
+                title: "stripe integration",
+                desc: "turn pledge commitments into real monthly subscriptions. coming after entity formation.",
               },
             ].map((item) => (
               <div key={item.title} className="border-l-2 border-[var(--border-primary)] pl-4">
@@ -190,8 +190,9 @@ export default async function LobbyPage() {
               </p>
               <p className="text-xs text-[var(--text-muted)]">
                 submitted{" "}
-                {new Date(application.created_at).toLocaleDateString()}. we&apos;ll
-                be in touch.
+                {new Date(application.created_at).toLocaleDateString()}.
+                applications are reviewed within a few days. you&apos;ll receive an
+                email when yours is approved.
               </p>
             </div>
           ) : application?.status === "denied" ? (
@@ -204,20 +205,20 @@ export default async function LobbyPage() {
                 href="/lobby/apply"
                 className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded text-sm transition-colors"
               >
-                re-apply for the inner cabal &rarr;
+                re-apply for founding membership &rarr;
               </a>
             </div>
           ) : (
             <div className="text-center">
               <h2 className="text-xl font-bold mb-2">want in?</h2>
               <p className="text-[var(--text-muted)] text-sm mb-6">
-                the inner cabal shapes what gets built. apply to join.
+                founding members shape what gets built. apply to join.
               </p>
               <a
                 href="/lobby/apply"
                 className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded text-sm transition-colors"
               >
-                apply for the inner cabal &rarr;
+                apply for founding membership &rarr;
               </a>
             </div>
           )}

@@ -330,7 +330,7 @@ export default async function AdminPage() {
             href="/admin/applications"
             className="text-sm text-red-600 hover:text-red-500 transition-colors"
           >
-            cabal applications &rarr;
+            founding member applications &rarr;
           </a>
         </div>
 

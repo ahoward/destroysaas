@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Footer from "@/app/components/footer";
 import GhostBanner from "@/app/components/ghost_banner";
+import FoundingBanner from "@/app/components/founding_banner";
 
 export const metadata: Metadata = {
   title: "destroysaas — own the software you use",
@@ -50,6 +51,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body className="antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]">
+        <FoundingBanner />
         <GhostBanner />
         {children}
         <Footer />

@@ -98,7 +98,7 @@ export default function Replies({ post_id, user_id, replies, can_reply }: Props)
       ) : user_id ? (
         <div className="border border-[var(--border-primary)] rounded p-4 mb-6 text-center">
           <p className="text-sm text-[var(--text-muted)]">
-            replies are limited to cabal members.
+            replies are limited to founding members.
           </p>
         </div>
       ) : (

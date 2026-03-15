@@ -44,11 +44,11 @@ export default async function ApplyPage() {
 
         <div className="mt-8 mb-10">
           <h1 className="text-3xl font-bold tracking-tight mb-2">
-            apply for the inner cabal
+            apply for founding membership
           </h1>
           <p className="text-[var(--text-muted)] text-sm">
-            the inner circle shapes what gets built. tell us who you are and why
-            you want in.
+            founding members shape what gets built. tell us about your business
+            and what software problems you&apos;re trying to solve.
           </p>
         </div>
 

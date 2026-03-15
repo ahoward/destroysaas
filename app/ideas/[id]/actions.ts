@@ -147,7 +147,7 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
   if (!ctx.isActingAs) {
     const supabase = await createClient();
     if (!(await is_inner(supabase, ctx.user))) {
-      return { error: "access restricted to inner circle members." };
+      return { error: "access restricted to founding members." };
     }
   }
 
@@ -228,7 +228,7 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
   if (!ctx.isActingAs) {
     const supabase = await createClient();
     if (!(await is_inner(supabase, ctx.user))) {
-      return { error: "access restricted to inner circle members." };
+      return { error: "access restricted to founding members." };
     }
   }
 
@@ -296,7 +296,7 @@ export async function toggleUpvote(idea_id: string): Promise<ActionResult> {
   if (!ctx.isActingAs) {
     const supabase = await createClient();
     if (!(await is_inner(supabase, ctx.user))) {
-      return { error: "access restricted to inner circle members." };
+      return { error: "access restricted to founding members." };
     }
   }
 
@@ -348,7 +348,7 @@ export async function postComment(idea_id: string, body: string): Promise<Action
   if (!ctx.isActingAs) {
     const supabase = await createClient();
     if (!(await is_inner(supabase, ctx.user))) {
-      return { error: "access restricted to inner circle members." };
+      return { error: "access restricted to founding members." };
     }
   }
 

@@ -4,4 +4,4 @@ stop renting software.
 
 saas is dead. we're building what comes next.
 
-saas — "software as a service" — is the model where you pay monthly rent for software someone else owns, controls, and can take away.
+saas — "software as a service" — is the model where you pay monthly rent for software someone else owns, controls, and can take away. pledges are free commitments — no credit card required.

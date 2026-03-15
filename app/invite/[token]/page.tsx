@@ -114,7 +114,7 @@ export default async function InviteLandingPage({ params }: Props) {
             <span className="text-[var(--text-primary)] font-medium">
               {invitation.group_names.join(", ")}
             </span>{" "}
-            &mdash; an inner circle with early access to platform metrics,
+            &mdash; founding members with early access to platform metrics,
             strategy, and the work behind the work.
           </p>
         </div>

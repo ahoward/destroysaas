@@ -38,7 +38,7 @@ export async function signUp(formData: FormData) {
     return { error: error.message };
   }
 
-  return { success: "Check your email to confirm your account." };
+  return { success: "check your email to confirm your account. once confirmed, sign in and you'll land in the lobby where you can apply for founding membership." };
 }
 
 export async function resetPassword(formData: FormData) {

@@ -11,8 +11,10 @@ export default function Footer() {
           <a href="/about" className="hover:text-[var(--text-secondary)] transition-colors">about</a>
           <a href="/cells" className="hover:text-[var(--text-secondary)] transition-colors">cells</a>
           <a href="/about/governance/bylaws" className="hover:text-[var(--text-secondary)] transition-colors">bylaws</a>
+          <a href="/about/governance/articles" className="hover:text-[var(--text-secondary)] transition-colors">articles</a>
           <a href="/terms" className="hover:text-[var(--text-secondary)] transition-colors">terms</a>
           <a href="/privacy" className="hover:text-[var(--text-secondary)] transition-colors">privacy</a>
+          <a href="mailto:ara@destroysaas.coop" className="hover:text-[var(--text-secondary)] transition-colors">contact</a>
           <a
             href="https://github.com/ahoward/destroysaas"
             className="hover:text-[var(--text-secondary)] transition-colors"

@@ -221,7 +221,7 @@ async function sendInvitationEmail(
     `<p>${greeting}</p>
      ${note ? `<p style="margin-top:12px;">${note}</p>` : ""}
      <p style="margin-top:12px;">
-       you've been invited to join an inner circle at destroysaas &mdash;
+       you've been invited to become a founding member of destroysaas &mdash;
        the platform where small businesses stop renting software and start owning it.
      </p>
      <p style="margin-top:16px;">

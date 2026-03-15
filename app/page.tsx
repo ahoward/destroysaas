@@ -110,10 +110,10 @@ export default async function Home() {
             <ROMarkdown raw={page.sections["for-business-owners"].raw} images={page.images} className={PROSE_CLASSES + " [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:tracking-tight [&>h2]:lowercase [&>h2]:mb-4 space-y-4"} />
             <div className="flex flex-wrap gap-6 mt-4">
               <a
-                href="/auth"
+                href="/auth?next=/lobby"
                 className="text-sm text-red-600 hover:text-red-500 transition-colors"
               >
-                join and propose what your business needs →
+                apply for founding membership →
               </a>
               <a
                 href="/about/math"
@@ -137,7 +137,7 @@ export default async function Home() {
             </h2>
             <ROMarkdown raw={page.sections["for-cells"].raw} images={page.images} className={PROSE_CLASSES + " [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:tracking-tight [&>h2]:lowercase [&>h2]:mb-4 space-y-4"} />
             <a
-              href="/cells"
+              href="/cells/apply"
               className="inline-block mt-4 text-sm text-red-600 hover:text-red-500 transition-colors"
             >
               apply as a cell →
@@ -163,10 +163,10 @@ export default async function Home() {
         {/* cta */}
         <div className="mb-24 border-t border-[var(--border-primary)] pt-12">
           <a
-            href="/auth"
+            href="/auth?next=/lobby"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
-            join destroysaas →
+            become a founding member →
           </a>
           <a
             href="/ideas"
