@@ -169,10 +169,10 @@ export default async function Home() {
             become a founding member →
           </a>
           <a
-            href="/ideas"
+            href="/rfc"
             className="inline-block text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mt-3 sm:mt-0"
           >
-            or browse existing ideas →
+            read RFC 001 →
           </a>
         </div>
 
