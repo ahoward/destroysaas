@@ -103,7 +103,7 @@ export default async function LobbyPage() {
               "stakeholder-targeted content (business, dev, investor)",
               "groups infrastructure + invitation system",
               "light/dark/system theme toggle",
-              "RFC 001 whitepaper and full about section",
+              "RFC 042 whitepaper and full about section",
               "founding member and cell application workflows",
             ].map((item) => (
               <div key={item} className="flex gap-2">

@@ -172,7 +172,7 @@ export default async function Home() {
             href="/rfc"
             className="inline-block text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mt-3 sm:mt-0"
           >
-            read RFC 001 →
+            read RFC 042 →
           </a>
         </div>
 

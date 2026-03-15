@@ -1,4 +1,4 @@
-# RFC 001: a cooperative model for post-saas software
+# RFC 042: a cooperative model for post-saas software
 
 **status:** draft
 **authors:** ara t. howard
@@ -253,7 +253,7 @@ the window is open. the old model is dying. the question is whether what replace
 
 ## 6. request for comments
 
-this is RFC 001. it is a living document. it is incomplete by design.
+this is RFC 042. it is a living document. it is incomplete by design.
 
 we are building this in the open because the model only works if the community shapes it. if you see a flaw, say so. if you see a missing piece, propose it. if you think this is wrong, tell us why.
 
